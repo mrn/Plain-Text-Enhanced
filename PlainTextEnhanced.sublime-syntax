@@ -17,9 +17,9 @@ contexts:
     - include: comment
 
   main:
-    - include: heading3
-    - include: heading2
     - include: heading1
+    - include: heading2
+    - include: heading3
     - include: line
     - include: line_thick
     - include: bold
@@ -44,19 +44,31 @@ contexts:
     - match: ''
 
   heading1:
-    - match: '(?<![^\t])#{3} .*'
-      comment: Heading — largest
-      scope: markup.heading.txt punctuation.definition.heading.txt heading1.txt
+    - match: '(?<![^\t])#{3} '
+      comment: Heading — smallest
+      scope: punctuation.definition.heading.txt heading1.txt
+      push:
+        - meta_content_scope: punctuation.definition.heading.txt heading1.txt
+        - match: $
+          pop: true
 
   heading2:
-    - match: '(?<![^\t])#{2} .*'
-      comment: Heading — medium
-      scope: markup.heading.txt punctuation.definition.heading.txt heading2.txt
+    - match: '(?<![^\t])#{2} '
+      comment: Heading — smallest
+      scope: punctuation.definition.heading.txt heading2.txt
+      push:
+        - meta_content_scope: punctuation.definition.heading.txt heading2.txt
+        - match: $
+          pop: true
 
   heading3:
-    - match: '(?<![^\t])#{1} .*'
+    - match: '(?<![^\t])#{1} '
       comment: Heading — smallest
       scope: punctuation.definition.heading.txt heading3.txt
+      push:
+        - meta_content_scope: punctuation.definition.heading.txt heading3.txt
+        - match: $
+          pop: true
 
   line:
     - match: '(?<![^\t])([^\p{L}#\s.])\1{2,}.*'
