@@ -23,8 +23,7 @@
 <*> Text before URI - must be space or quote or bracket or slash (think what else)
 
 <*> Should be treated as URI
-	FTP: ftp://[user[:password]@]host[:port]/URI-path
-	HTTP: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
+	SYNTAX: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
 	> see https://en.wikipedia.org/wiki/URI
 	pre.name.com
 	pre.website.co
@@ -60,9 +59,9 @@
 	https://w.c
 	http://
 	S.W.A.T.
-	NUMBER 123.456
-	DATE 23.12.2017
-	DATE 10/03/2018
+	NUMBERS 123.456
+	DATES 23.12.2017
+	DATES 10/03/2018
 
 <*> Punctuation after URI should not be formatted, except forward slash
 	www.website.com.
