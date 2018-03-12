@@ -24,10 +24,10 @@ SIMPLE FORMATTING
 *bolded text*
 _italic_
 _italicised text_
-^highlight^
-^highlighted text^
 "quote"
 "quoted text"
+^highlight^
+^highlighted text^
 
 Combinations
 *_bold and italic_*
