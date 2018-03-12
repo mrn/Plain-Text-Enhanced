@@ -166,7 +166,7 @@ Any character has a background inside, so you can create a rectangular backgroun
 	-1/2=-0.5
 	1a (adjacent letters turn numbers into text)
 
-## URL's
+## URI's
 
 Works with www, http:// and https://
 Minimum: ab.cb · http://a.b · https://a.b (requires character dot character)
@@ -174,7 +174,7 @@ Minimum: ab.cb · http://a.b · https://a.b (requires character dot character)
 	website.com
 	www.website.com
 	http://website.com
-	https://www.website.com text after URL is not formatted !tag special items still get formatted // Comments still get formatted
+	https://www.website.com text after URI is not formatted !tag special items still get formatted // Comments still get formatted
 
 
 ## EMPHASIS
