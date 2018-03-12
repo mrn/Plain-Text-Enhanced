@@ -64,6 +64,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Dates and Codes</string>
+			<key>scope</key>
+			<string>text.ptenhanced dates_and_codes.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#B8706A</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Lists</string>
 			<key>scope</key>
 			<string>text.ptenhanced lists.txt</string>

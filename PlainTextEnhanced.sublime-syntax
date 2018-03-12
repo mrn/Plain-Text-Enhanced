@@ -7,7 +7,7 @@ file_extensions:
 scope: text.ptenhanced
 first_line_match: '(?<![^\t])#{1,3}\s.'
 variables:
-  url: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^.\s]*)(\.[^.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^.\s/])*/?(?![^\p{L}\s/!?\.])'
+  uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^.\s]*)(\.[^.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^.\s/])*/?(?![^\p{L}\s/!?\.])'
   special_symbols: '[\+>~•!\?\$&@:;|]'
 contexts:
   # The prototype context is prepended to all contexts but those setting
@@ -34,7 +34,8 @@ contexts:
     - include: italic
     - include: highlight
     - include: quoted
-    - include: url
+    - include: uri
+    - include: dates_and_codes
     - include: numbers
     - include: lines
     - include: line_thick
@@ -93,22 +94,27 @@ contexts:
         - match: '$\n?'
           pop: true
 
-  url:
-    - match: '{{url}}'
-      comment: URL's and links
-      scope: markup.underline.link.txt url url.txt
+  uri:
+    - match: '{{uri}}'
+      comment: URI's, URL's and links
+      scope: markup.underline.link.txt uri uri.txt
 
   numbers:
     - match: '[0-9]+'
-      comment: Numbers
+      comment: Numbers and codes
       scope: constant.numeric.txt numbers.txt
+
+  dates_and_codes:
+    - match: '[0-9]+'
+      comment: Numbers and codes
+      scope: constant.numeric.txt dates_and_codes.txt
 
   lists:
     - match: '(?<![^\t])(\*|\+|·|•|\-|‐|‒|–|—|―|~|>|\(?(\d+?)?[\.\)]|\(?\w\))(?=\s|$)'
       comment: List items, text following specific symbols
       scope: string.txt lists.txt
       # push:
-      #   - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+      #   - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
       #     scope: lists-after.txt
       #     pop: true
 
@@ -117,7 +123,7 @@ contexts:
       comment: Checklist items, starting with [ ]
       scope: string.txt checklist.txt
       push:
-        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
           scope: checklist-after.txt
           pop: true
 
@@ -135,7 +141,7 @@ contexts:
       comment: Checklist items marked as not done, ignored, skipped, etc., starting with [-], [–], [×]
       scope: string.txt checklist_marked2.txt
       push:
-        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
           scope: checklist_marked2-after.txt
           pop: true
 
@@ -143,12 +149,12 @@ contexts:
     - match: '(?<![^\t])(\[\S+\])'
       scope: string.txt special1.txt
       push:
-        - include: url
+        - include: uri
         - include: tag1
         - include: tag2
         - meta_content_scope: special1-after.txt
         - match: $
-        # - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+        # - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
           pop: true
 
   special2:
@@ -156,7 +162,7 @@ contexts:
       comment: 
       scope: string.txt special2.txt
       push:
-        - include: url
+        - include: uri
         - include: tag1
         - include: tag2
         - meta_content_scope: special2-after.txt
@@ -167,7 +173,7 @@ contexts:
     - match: '(?<!\S)({{special_symbols}}){1}\p{L}\S+?(?=\s|$)'
       scope: entity.name.tag.txt tag1.txt
       push:
-        - include: url
+        - include: uri
         - meta_content_scope: tag1-after.txt
         - match: $
           pop: true
@@ -177,7 +183,7 @@ contexts:
       comment: 
       scope: constant.character.txt constant.other.txt tag2.txt
       push:
-        - include: url
+        - include: uri
         - meta_content_scope: tag2-after.txt
         - match: $
           pop: true
