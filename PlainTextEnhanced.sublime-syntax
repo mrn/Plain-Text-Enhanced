@@ -20,25 +20,25 @@ contexts:
     - include: heading3
     - include: heading2
     - include: heading1
+    - include: lines
+    - include: line_thick
+    - include: bold
+    - include: italic
+    - include: quoted
+    - include: highlight
+    - include: numbers
+    - include: dates_and_codes
+    - include: uri
+    - include: lists
     - include: checklist_marked1
     - include: checklist_marked2
     - include: checklist
-    - include: lists
     - include: special1
     - include: special2
     - include: tag1
     - include: tag2
     - include: section2
     - include: section1
-    - include: bold
-    - include: italic
-    - include: highlight
-    - include: quoted
-    - include: uri
-    - include: dates_and_codes
-    - include: numbers
-    - include: lines
-    - include: line_thick
 
   base:
     - match: ''
@@ -80,10 +80,10 @@ contexts:
     - match: '(?<!\S)\^[^\^]+?\^'
       scope: invalid.txt highlight.txt
 
-  quoted:
+  quote:
     - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*"'
       comment: Text between quotation marks (" and ")
-      scope: quoted.txt
+      scope: quote.txt
 
   comment:
     - match: '(?<!\S)\/\/'
