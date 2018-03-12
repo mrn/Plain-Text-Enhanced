@@ -1,9 +1,5 @@
 		### ERRORS/BUGS/TODO
 
-</> NUM: numbers with dot shouldn't be URL
-</> URL not numbers as URL
-</> URL: start and end must be alphanumeric (.abc or .123) <- also fix that shit
-</> URL: text before url - must be space or quote or bracket or slash (think what else)
 
 <*> Comments after headings shouldn't be treated as headings
 	# Heading // comment
@@ -16,7 +12,9 @@
 	1234A5
 	123.456
 
-	## URLs
+	## URIs
+
+<*> Text before url - must be space or quote or bracket or slash (think what else)
 
 <*> Should be treated as URL
 	FTP: ftp://[user[:password]@]host[:port]/url-path
@@ -55,7 +53,7 @@
 	https://w.c
 	http://
 	S.W.A.T.
-	NUMBER 3333.33333
+	NUMBER 123.456
 	DATE 23.12.2017
 	DATE 10/03/2018
 
@@ -73,9 +71,6 @@
 	nothing		*
 	space?		* 
 	character?	* a
-
-
-
 
 
 		### FIXED, ADDED
