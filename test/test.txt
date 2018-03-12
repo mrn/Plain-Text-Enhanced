@@ -188,7 +188,6 @@ COMBINATIONS
 [!] checklist marked 2 *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 [!] checklist marked 2 example.com formatting contines $tag tag description // comment
 
-
 [special1] special items 1 *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 [special1] special items 1 example.com formatting contines $tag tag description // comment
 [special1] special items 1 example.com formatting contines $$tag tag description // comment
