@@ -24,7 +24,11 @@ contexts:
     - include: line_thick
     - include: bold
     - include: italic
+    - include: bold_italic
+    - include: italic_bold
+    - include: un-italic
     - include: quote
+    - include: un-quote
     - include: highlight
     - include: numbers
     - include: dates_and_codes
@@ -71,27 +75,74 @@ contexts:
           pop: true
 
   line:
-    - match: '(?<![^\t])([^\p{L}#\s.])\1{2,}.*'
+    - match: '(?<![^\t])([^\p{L}#\s.])\1{2,}'
       scope: punctuation.definition.heading.txt line.txt
-    # - match: '(?<![^\t])(=|·|\-|–|—|~){3,}.*'
-    #   scope: lines.txt
+      push:
+        - meta_content_scope: punctuation.definition.heading.txt line.txt
+        - match: (?=\s+\/\/)|$
+          pop: true
 
   line_thick:
     - match: '(?<![^\t])(#)\1{2,}'
       scope: markup.heading.txt punctuation.definition.heading.txt line_thick.txt
 
   bold:
-    - match: '(?<!\S)\*[^\s\*][^\*]*?[^\s\*]\*'
+    - match: '(?<!\S)\*[^\s\*][^\*]*?[^\s\*]*'
       scope: bold.txt
+      push:
+        - include: italic_bold
+        - meta_content_scope: bold.txt
+        - match: '(\s+\/\/.*$)?(?<=\*)'
+          pop: true
+
+  bold_italic:
+    - match: '(?<!\S)\*[^\s\*][^\*]*?[^\s\*]*'
+      scope: bold_italic.txt
+      push:
+        - meta_content_scope: bold_italic.txt
+        - match: '(\s+\/\/.*$)?(?<=\*)'
+          pop: true
 
   italic:
-    - match: '(?<!\S)_[^\s_][^_]+?[^\s_]_'
+    - match: '(?<!\S)_[^\s_][^_]*?[^\s_]*'
       scope: italic.txt
+      push:
+        - include: bold_italic
+        - meta_content_scope: italic.txt
+        - match: '(\s+\/\/.*$)?(?<=_)'
+          pop: true
+
+  italic_bold:
+    - match: '(?<!\S)_[^\s_][^_]*?[^\s_]*'
+      scope: italic_bold.txt
+      push:
+        - meta_content_scope: italic_bold.txt
+        - match: '(\s+\/\/.*$)?(?<=_)'
+          pop: true
+
+  un-italic:
+    - match: '(?<!\S)_[^\s_][^_]*?[^\s_]*'
+      scope: un-italic.txt
+      push:
+        - meta_content_scope: un-italic.txt
+        - match: '(\s+\/\/.*$)?(?<=_)'
+          pop: true
 
   quote:
-    - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*"'
-      comment: Text between quotation marks (" and ")
+    - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*'
       scope: quote.txt
+      push:
+        - meta_content_scope: quote.txt
+        - match: '(\s+\/\/.*$)?(?<=")'
+          pop: true
+
+  un-quote:
+    - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*'
+      scope: un-quote.txt
+      push:
+        - meta_content_scope: un-quote.txt
+        - match: '(\s+\/\/.*$)?(?<=")'
+          pop: true
 
   highlight:
     - match: '(?<!\S)\^[^\^]+?\^'
@@ -125,18 +176,32 @@ contexts:
     - match: '(?<![^\t])(\*|\+|·|•|\-|‐|‒|–|—|―|~|>|\(?(\d+?)?[\.\)]|\(?\w\))(?=\s|$)'
       comment: List items, text following specific symbols
       scope: string.txt list.txt
-      # push:
-      #   - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
-      #     scope: lists-after.txt
-      #     pop: true
+      push:
+        - include: bold
+        - include: italic
+        - include: quote
+        - include: highlight
+        - include: uri
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: lists-after.txt
+        - match: (?=\s+\/\/)|$
+          pop: true
 
   checklist:
     - match: '(?<![^\t])(\[\s?\]|\(\s?\))(?=[^\n\S])'
       comment: Checklist items, starting with [ ]
       scope: string.txt checklist.txt
       push:
-        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
-          scope: checklist-after.txt
+        - include: bold
+        - include: un-italic
+        - include: un-quote
+        - include: highlight
+        - include: uri
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: checklist-after.txt
+        - match: (?=\s+\/\/)|$
           pop: true
 
   checklist_marked1:
@@ -153,19 +218,30 @@ contexts:
       comment: Checklist items marked as not done, ignored, skipped, etc., starting with [-], [–], [×]
       scope: string.txt checklist_marked2.txt
       push:
-        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
-          scope: checklist_marked2-after.txt
+        - include: bold
+        - include: un-italic
+        - include: un-quote
+        - include: highlight
+        - include: uri
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: checklist_marked2-after.txt
+        - match: (?=\s+\/\/)|$
           pop: true
 
   special1:
     - match: '(?<![^\t])(\[\S+\])'
       scope: string.txt special1.txt
       push:
+        - include: bold
+        - include: un-italic
+        - include: un-quote
+        - include: highlight
         - include: uri
         - include: tag1
         - include: tag2
         - meta_content_scope: special1-after.txt
-        - match: $
+        - match: (?=\s+\/\/)|$
         # - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
           pop: true
 
@@ -174,20 +250,28 @@ contexts:
       comment: 
       scope: string.txt special2.txt
       push:
+        - include: bold
+        - include: un-italic
+        - include: un-quote
+        - include: highlight
         - include: uri
         - include: tag1
         - include: tag2
         - meta_content_scope: special2-after.txt
-        - match: $
+        - match: (?=\s+\/\/)|$
           pop: true
 
   tag1:
     - match: '(?<!\S)({{special_symbols}}){1}\p{L}\S+?(?=\s|$)'
       scope: entity.name.tag.txt tag1.txt
       push:
+        - include: bold
+        - include: un-italic
+        - include: un-quote
+        - include: highlight
         - include: uri
         - meta_content_scope: tag1-after.txt
-        - match: $
+        - match: (?=\s+\/\/)|$
           pop: true
 
   tag2:
@@ -195,23 +279,33 @@ contexts:
       comment: 
       scope: constant.character.txt constant.other.txt tag2.txt
       push:
+        - include: bold
+        - include: un-italic
+        - include: un-quote
+        - include: highlight
         - include: uri
         - meta_content_scope: tag2-after.txt
-        - match: $
+        - match: (?=\s+\/\/)|$
           pop: true
 
   section1:
     - match: '(?<=^|\t)\|(?=[^\n\S])'
       scope: section1.txt
       push:
-        - match: '.+(?<!\|)'
-          scope: section1-inside.txt
+        - include: uri
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: section1-inside.txt
+        - match: (?=\s+(\/\/|{{special_symbols}}))|$
           pop: true
 
   section2:
     - match: '(?<=^|\t)\|{2}(?=[^\n\S])'
       scope: section2.txt
       push:
-        - match: '.+(?<!\|\|)'
-          scope: section2-inside.txt
+        - include: uri
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: section2-inside.txt
+        - match: (?=\s+(\/\/|{{special_symbols}}))|$
           pop: true

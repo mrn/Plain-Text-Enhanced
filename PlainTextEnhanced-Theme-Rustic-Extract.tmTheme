@@ -90,6 +90,19 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Bold Italic</string>
+			<key>scope</key>
+			<string>text.ptenhanced bold_italic.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold italic</string>
+				<key>foreground</key>
+				<string>#B87C6A</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Italic</string>
 			<key>scope</key>
 			<string>text.ptenhanced italic.txt</string>
@@ -101,6 +114,28 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Italic Bold</string>
+			<key>scope</key>
+			<string>text.ptenhanced italic_bold.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Un-Italic</string>
+			<key>scope</key>
+			<string>text.ptenhanced un-italic.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>normal</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Quote</string>
 			<key>scope</key>
 			<string>text.ptenhanced quote.txt</string>
@@ -108,6 +143,17 @@
 			<dict>
 				<key>fontStyle</key>
 				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Un-Quote</string>
+			<key>scope</key>
+			<string>text.ptenhanced un-quote.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>normal</string>
 			</dict>
 		</dict>
 		<dict>
