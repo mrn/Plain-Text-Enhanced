@@ -181,27 +181,32 @@ Text	|| Section 2 after text
 
 COMBINATIONS
 
+* list item *bold* _italic_ formatting continues "quote" ^highlight^ formatting continues
+* list item example.com formatting contines $tag tag description // comment
+* list item example.com formatting contines $$tag tag description // comment
+
 [ ] checklist *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 [ ] checklist example.com formatting contines $tag tag description // comment
-[x] checklist marked 1 example.com formatting contines $tag tag description // comment
-[x] checklist marked 1 *bold* _un-italic_ formatting continues "un-quote" NOT ^highlight^ formatting contines
+[ ] checklist example.com formatting contines $$tag tag description // comment
+[x] checklist marked 1 NO FORMATTING *bold* _un-italic_ formatting continues NO FORMATTING "un-quote" ^highlight^ formatting contines
+[x] checklist marked 1 NO FORMATTING example.com formatting contines $tag tag description // comment
 [!] checklist marked 2 *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 [!] checklist marked 2 example.com formatting contines $tag tag description // comment
+[!] checklist marked 2 example.com formatting contines $$tag tag description // comment
 
 [special1] special items 1 *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 [special1] special items 1 example.com formatting contines $tag tag description // comment
 [special1] special items 1 example.com formatting contines $$tag tag description // comment
-
 <sp2> special items 2 *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 <sp2> special items 2 example.com formatting contines $tag tag description // comment
 <sp2> special items 2 example.com formatting contines $$tag tag description // comment
 
-$tag tag description NOT *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
+$tag tag description *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 $tag tag description example.com formatting contines // comment
+$$tag tag description *bold* _un-italic_ formatting continues "un-quote" ^highlight^ formatting contines
 $$tag tag description example.com formatting contines // comment
 
 | Section text example.com formatting continues $tag1 tag description // comment
 | Section text example.com formatting continues $$tag1 tag description // comment
-
 || Section text example.com formatting continues $tag1 tag description // comment
 || Section text example.com formatting continues $$tag1 tag description // comment
