@@ -53,6 +53,80 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Line</string>
+			<key>scope</key>
+			<string>text.ptenhanced line.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FCCA92</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Line Thick</string>
+			<key>scope</key>
+			<string>text.ptenhanced line_thick.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FCCA92</string>
+				<key>background</key>
+				<string>#FCCA92</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Bold</string>
+			<key>scope</key>
+			<string>text.ptenhanced bold.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#B87C6A</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Italic</string>
+			<key>scope</key>
+			<string>text.ptenhanced italic.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Quote</string>
+			<key>scope</key>
+			<string>text.ptenhanced quote.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Highlight</string>
+			<key>scope</key>
+			<string>text.ptenhanced highlight.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#212121</string>
+				<key>background</key>
+				<string>#B87C6A</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Numbers</string>
 			<key>scope</key>
 			<string>text.ptenhanced numbers.txt</string>
@@ -75,9 +149,48 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Lists</string>
+			<string>Plain Text Enhanced - URI</string>
 			<key>scope</key>
-			<string>text.ptenhanced lists.txt</string>
+			<string>text.ptenhanced uri.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#91ACB8</string>
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Comment</string>
+			<key>scope</key>
+			<string>text.ptenhanced comment.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#7F7F7F</string>
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Comment Inside</string>
+			<key>scope</key>
+			<string>text.ptenhanced comment-inside.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#7F7F7F</string>
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - List</string>
+			<key>scope</key>
+			<string>text.ptenhanced list.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -88,9 +201,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Lists - After</string>
+			<string>Plain Text Enhanced - List - After</string>
 			<key>scope</key>
-			<string>text.ptenhanced lists-after.txt</string>
+			<string>text.ptenhanced list-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -337,118 +450,5 @@
 				<string>#91B8A3</string>
 				<key>background</key>
 				<string>#91B8A322</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Bold</string>
-			<key>scope</key>
-			<string>text.ptenhanced bold.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>bold</string>
-				<key>foreground</key>
-				<string>#B87C6A</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Italic</string>
-			<key>scope</key>
-			<string>text.ptenhanced italic.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Highlight</string>
-			<key>scope</key>
-			<string>text.ptenhanced highlight.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#212121</string>
-				<key>background</key>
-				<string>#B87C6A</string>
-				<key>fontStyle</key>
-				<string>bold</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Quoted</string>
-			<key>scope</key>
-			<string>text.ptenhanced quoted.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Comment</string>
-			<key>scope</key>
-			<string>text.ptenhanced comment.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#7F7F7F</string>
-				<key>fontStyle</key>
-				<string>italic</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Comment Inside</string>
-			<key>scope</key>
-			<string>text.ptenhanced comment-inside.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#7F7F7F</string>
-				<key>fontStyle</key>
-				<string>italic</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - URI</string>
-			<key>scope</key>
-			<string>text.ptenhanced uri.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#91ACB8</string>
-				<key>fontStyle</key>
-				<string>italic</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Lines</string>
-			<key>scope</key>
-			<string>text.ptenhanced lines.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#FCCA92</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Line Thick</string>
-			<key>scope</key>
-			<string>text.ptenhanced line_thick.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#FCCA92</string>
-				<key>background</key>
-				<string>#FCCA92</string>
 			</dict>
 		</dict>

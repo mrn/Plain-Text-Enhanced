@@ -4,7 +4,7 @@ HEADINGS
 ## Heading 2
 # Heading 3
 
-LINES
+LINE
 (any character except letters, numbers, periods (.), and spaces)
 
 ---
@@ -14,7 +14,7 @@ LINES
 ^^^
 +++
 
-THICK LINES
+THICK LINE
 Using hash symbols (#)
 ###
 
@@ -42,11 +42,19 @@ NUMBERS
 0123456789
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 123.456
-1234ABCD
-1A2B3C4D
 40+2 43-1 21*2 462/11
 
-URL'S
+DATES AND CODES
+
+01/02/2018
+31.12.3167
+
+1234ABCD
+1A2B3C4D
+CD1EN-Q35P7-26T0R
+
+
+URI
 subdomain.domain.tld
 example.com
 www.example.com
@@ -55,7 +63,12 @@ http://example.com
 https://example.com
 ftp://example.com
 
-LISTS
+COMMENT
+
+// Comment
+Sample text // Comment
+
+LIST
 
 * list item
 + list item
@@ -100,6 +113,19 @@ ABC.) list item
 12AB.) list item
 (12AB.) list items
 
+CHECKLIST
+
+[ ] checklist unmarked
+[X] checklist marked 1
+[x] checklist marked 1
+[*] checklist marked 1
+[✓] checklist marked 1
+[-] checklist marked 2
+[‐] checklist marked 2
+[–] checklist marked 2
+[!] checklist marked 2
+[×] checklist marked 2
+
 SPECIAL
 
 [special1] formatted
@@ -107,7 +133,7 @@ regular text	[special1] formatted
 <sp2> formatted
 regular text	<sp2> formatted
 
-TAGS
+TAG
 
 +tag description
 >tag description
@@ -137,21 +163,27 @@ $$tag2 description
 ||tag2 description
 regular text ++tag2 description
 
+SECTIONS
 
-CHECKLISTS
+| Section 1
+| Text in section
+| Sections can be empty
+| 						
 
-[ ] checklist unmarked
-[X] checklist marked 1
-[x] checklist marked 1
-[*] checklist marked 1
-[✓] checklist marked 1
-[-] checklist marked 2
-[‐] checklist marked 2
-[–] checklist marked 2
-[!] checklist marked 2
-[×] checklist marked 2
+Text	| Section 1 after text
+
+|| Section 2
+|| Text in section
+|| Sections can be empty
+||						
+
+Text	|| Section 2 after text
 
 COMBINATIONS
+
+[ ] checklist example.com formatting contines $tag tag description // comment
+[x] checklist marked 1 example.com formatting contines $tag tag description // comment
+[!] checklist marked 2 example.com formatting contines $tag tag description // comment
 
 [special1] special items 1 *bold* _un-italic_ ^highlight^ "quoted" formatting contines
 [special1] special items 1 example.com formatting contines $tag tag description // comment
@@ -162,7 +194,3 @@ COMBINATIONS
 
 $tag tag description example.com formatting contines // comment
 $$tag tag description example.com formatting contines // comment
-
-[ ] checklist example.com formatting contines $tag tag description // comment
-[x] checklist marked 1 example.com formatting contines $tag tag description // comment
-[!] checklist marked 2 example.com formatting contines $tag tag description // comment

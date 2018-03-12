@@ -20,16 +20,16 @@ contexts:
     - include: heading3
     - include: heading2
     - include: heading1
-    - include: lines
+    - include: line
     - include: line_thick
     - include: bold
     - include: italic
-    - include: quoted
+    - include: quote
     - include: highlight
     - include: numbers
     - include: dates_and_codes
     - include: uri
-    - include: lists
+    - include: list
     - include: checklist_marked1
     - include: checklist_marked2
     - include: checklist
@@ -58,9 +58,9 @@ contexts:
       comment: Heading — smallest
       scope: punctuation.definition.heading.txt heading3.txt
 
-  lines:
+  line:
     - match: '(?<![^\t])([^\p{L}#\s.])\1{2,}.*'
-      scope: punctuation.definition.heading.txt lines.txt
+      scope: punctuation.definition.heading.txt line.txt
     # - match: '(?<![^\t])(=|·|\-|–|—|~){3,}.*'
     #   scope: lines.txt
 
@@ -76,28 +76,14 @@ contexts:
     - match: '(?<!\S)_[^\s_][^_]+?[^\s_]_'
       scope: italic.txt
 
-  highlight:
-    - match: '(?<!\S)\^[^\^]+?\^'
-      scope: invalid.txt highlight.txt
-
   quote:
     - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*"'
       comment: Text between quotation marks (" and ")
       scope: quote.txt
 
-  comment:
-    - match: '(?<!\S)\/\/'
-      comment: Text after //
-      scope: punctuation.definition.comment.txt comment.txt
-      push: 
-        - meta_scope: comment.line.double-slash.txt comment-inside.txt
-        - match: '$\n?'
-          pop: true
-
-  uri:
-    - match: '{{uri}}'
-      comment: URI's, URL's and links
-      scope: markup.underline.link.txt uri uri.txt
+  highlight:
+    - match: '(?<!\S)\^[^\^]+?\^'
+      scope: invalid.txt highlight.txt
 
   numbers:
     - match: '[0-9]+'
@@ -109,10 +95,24 @@ contexts:
       comment: Numbers and codes
       scope: constant.numeric.txt dates_and_codes.txt
 
-  lists:
+  uri:
+    - match: '{{uri}}'
+      comment: URI's, URL's and links
+      scope: markup.underline.link.txt uri uri.txt
+
+  comment:
+    - match: '(?<!\S)\/\/'
+      comment: Text after //
+      scope: punctuation.definition.comment.txt comment.txt
+      push: 
+        - meta_scope: comment.line.double-slash.txt comment-inside.txt
+        - match: '$\n?'
+          pop: true
+
+  list:
     - match: '(?<![^\t])(\*|\+|·|•|\-|‐|‒|–|—|―|~|>|\(?(\d+?)?[\.\)]|\(?\w\))(?=\s|$)'
       comment: List items, text following specific symbols
-      scope: string.txt lists.txt
+      scope: string.txt list.txt
       # push:
       #   - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
       #     scope: lists-after.txt

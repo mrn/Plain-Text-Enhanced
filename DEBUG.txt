@@ -8,9 +8,14 @@
 
 <*> The following should be formatted
 	1A2B3C4D
+	1A
+	A1
 	ABCD1E
 	1234A5
 	123.456
+<*> The following should not be formatted
+	12.
+	.12
 
 	## URIs
 
@@ -69,8 +74,10 @@
 
 <*> List should require space + one non-space character
 	nothing		*
-	space?		* 
-	character?	* a
+	space		* 
+	character	* a
+	comment		* // comment
+	item		* 	<> item
 
 
 		### FIXED, ADDED
