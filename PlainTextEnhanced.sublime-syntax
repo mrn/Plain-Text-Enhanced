@@ -49,7 +49,7 @@ contexts:
       scope: punctuation.definition.heading.txt heading1.txt
       push:
         - meta_content_scope: punctuation.definition.heading.txt heading1.txt
-        - match: $
+        - match: (?=\s\/\/)|$
           pop: true
 
   heading2:
@@ -58,7 +58,7 @@ contexts:
       scope: punctuation.definition.heading.txt heading2.txt
       push:
         - meta_content_scope: punctuation.definition.heading.txt heading2.txt
-        - match: $
+        - match: (?=\s\/\/)|$
           pop: true
 
   heading3:
@@ -67,7 +67,7 @@ contexts:
       scope: punctuation.definition.heading.txt heading3.txt
       push:
         - meta_content_scope: punctuation.definition.heading.txt heading3.txt
-        - match: $
+        - match: (?=\s\/\/)|$
           pop: true
 
   line:

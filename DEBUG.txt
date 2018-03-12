@@ -2,6 +2,8 @@
 
 
 <*> Comments after headings shouldn't be treated as headings
+	### Heading //comment
+	## Heading //comment
 	# Heading // comment
 
 	## Numbers, Dates and Codes
