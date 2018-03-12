@@ -182,6 +182,8 @@ contexts:
         - include: quote
         - include: highlight
         - include: uri
+        - include: numbers
+        - include: dates_and_codes
         - include: tag1
         - include: tag2
         - meta_content_scope: lists-after.txt
@@ -198,6 +200,8 @@ contexts:
         - include: un-quote
         - include: highlight
         - include: uri
+        - include: numbers
+        - include: dates_and_codes
         - include: tag1
         - include: tag2
         - meta_content_scope: checklist-after.txt
@@ -223,6 +227,8 @@ contexts:
         - include: un-quote
         - include: highlight
         - include: uri
+        - include: numbers
+        - include: dates_and_codes
         - include: tag1
         - include: tag2
         - meta_content_scope: checklist_marked2-after.txt
@@ -238,6 +244,8 @@ contexts:
         - include: un-quote
         - include: highlight
         - include: uri
+        - include: numbers
+        - include: dates_and_codes
         - include: tag1
         - include: tag2
         - meta_content_scope: special1-after.txt
@@ -255,6 +263,8 @@ contexts:
         - include: un-quote
         - include: highlight
         - include: uri
+        - include: numbers
+        - include: dates_and_codes
         - include: tag1
         - include: tag2
         - meta_content_scope: special2-after.txt
