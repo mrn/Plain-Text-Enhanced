@@ -4,27 +4,28 @@
 <*> Comments after headings shouldn't be treated as headings
 	# Heading // comment
 
-	## Numbers
+	## Numbers, Dates and Codes
 
 <*> The following should be formatted
+	123.456
 	1A2B3C4D
 	1A
 	A1
 	ABCD1E
 	1234A5
-	123.456
 <*> The following should not be formatted
 	12.
 	.12
 
+
 	## URIs
 
-<*> Text before url - must be space or quote or bracket or slash (think what else)
+<*> Text before URI - must be space or quote or bracket or slash (think what else)
 
-<*> Should be treated as URL
-	FTP: ftp://[user[:password]@]host[:port]/url-path
+<*> Should be treated as URI
+	FTP: ftp://[user[:password]@]host[:port]/URI-path
 	HTTP: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
-	> see https://en.wikipedia.org/wiki/URL
+	> see https://en.wikipedia.org/wiki/URI
 	pre.name.com
 	pre.website.co
 	pre.pre2.pre3.website.co.uk
@@ -37,6 +38,7 @@
 	例子.卷筒纸
 	http://example.com
 	https://www.website.com/
+	http://name.com// // Include second slash
 	http://a_.aa/
 	abc+.-://name.com
 	text://name.com // protocols can only be http, https and ftp (not random)
@@ -44,17 +46,17 @@
 	http://例子.卷筒纸
 	1abc://name.com // Scheme must start with ASCII letter
 
-<*> Should not be treated as URL
+<*> Should not be treated as URI
 	x..
 	*..
 	we.c3% // Ending must be letters only
 	a.b a.b. // 2+ ASCII letters in last part
 	*%-:'.com // First character in name must be ASCII letter or number
+	(.com
+	^*:~.%-|'
 	www.*%-:'.com // Same applies when first section is www.
 	website.ć
 	name.com a // Formatting should end before a space
-	http://name.com// // Not second slash
-	(.com
 	https://w.c
 	http://
 	S.W.A.T.
@@ -62,7 +64,7 @@
 	DATE 23.12.2017
 	DATE 10/03/2018
 
-<*> Punctuation after URL should not be formatted, except forward slash
+<*> Punctuation after URI should not be formatted, except forward slash
 	www.website.com.
 	www.website.com...
 	www.website.com!
