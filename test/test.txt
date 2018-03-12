@@ -133,7 +133,7 @@ regular text	[special1] formatted
 <sp2> formatted
 regular text	<sp2> formatted
 
-TAG
+TAGS
 
 +tag description
 >tag description
