@@ -1,0 +1,122 @@
+		### ERRORS/BUGS/TODO
+
+</> NUM: numbers with dot shouldn't be URL
+</> URL not numbers as URL
+</> URL: start and end must be alphanumeric (.abc or .123) <- also fix that shit
+</> URL: text before url - must be space or quote or bracket or slash (think what else)
+
+<*> Comments after headings shouldn't be treated as headings
+	# Heading // comment
+
+	## Numbers
+
+<*> The following should be formatted
+	1A2B3C4D
+	ABCD1E
+	1234A5
+	123.456
+
+	## URLs
+
+<*> Should be treated as URL
+	FTP: ftp://[user[:password]@]host[:port]/url-path
+	HTTP: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
+	> see https://en.wikipedia.org/wiki/URL
+	pre.name.com
+	pre.website.co
+	pre.pre2.pre3.website.co.uk
+	x.com
+	x.co
+	name.com/sub/page
+	name.com/sub/page/
+	ab.co
+	abc.com
+	例子.卷筒纸
+	http://example.com
+	https://www.website.com/
+	http://a_.aa/
+	abc+.-://name.com
+	text://name.com // protocols can only be http, https and ftp (not random)
+	ftp://public.ftp-servers.example.com/mydirectory/myfile.txt
+	http://例子.卷筒纸
+	1abc://name.com // Scheme must start with ASCII letter
+
+<*> Should not be treated as URL
+	x..
+	*..
+	we.c3% // Ending must be letters only
+	a.b a.b. // 2+ ASCII letters in last part
+	*%-:'.com // First character in name must be ASCII letter or number
+	www.*%-:'.com // Same applies when first section is www.
+	website.ć
+	name.com a // Formatting should end before a space
+	http://name.com// // Not second slash
+	(.com
+	https://w.c
+	http://
+	S.W.A.T.
+	NUMBER 3333.33333
+	DATE 23.12.2017
+	DATE 10/03/2018
+
+<*> Punctuation after URL should not be formatted, except forward slash
+	www.website.com.
+	www.website.com...
+	www.website.com!
+	www.website.com?
+	www.website.com^
+
+
+	## Lists
+
+<*> List should require space + one non-space character
+	nothing		*
+	space?		* 
+	character?	* a
+
+
+
+
+
+		### FIXED, ADDED
+
+
+<*> Headings should require space, because of lines
+	#Heading
+	##Heading
+	###Heading
+<*> Bold
+	**
+	 **
+	 * *
+	**text
+	** text
+	*text*
+		***** (should be line)
+<+> Formatting inside lists
+	* list +this should work
+	* list !!this should work
+	* list	[note] this should work
+	* list	<> this should work
+<+> Formatting inside special items
+	[special1] formatted $tag description // comment
+	[special1] formatted $$tag description // comment
+	[special1] formatted example.com formatted // comment
+	<sp2> formatted $tag description // comment
+	<sp2> formatted $$tag description // comment
+	<sp2> formatted example.com formatted // comment
+<+> Italicised quotes
+	"text in quotes"
+<+> Add more special item symbols:
+	!?@->~$
+<+> Bold
+	*text*
+<+> Highlight
+	^text^
+
+
+		### ADD
+
+
+</> Dates 10.06.2049. (without dot) 10/06/2021 (exception to numbers — or same colour, include slashes?)
+[note] dates: 23.12.2017. don't include last period/punctuation

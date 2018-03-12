@@ -1,0 +1,199 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: Plain Text Enhanced
+file_extensions:
+  - txt
+scope: text.ptenhanced
+first_line_match: '(?<![^\t])#{1,3}\s.'
+variables:
+  url: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^.\s]*)(\.[^.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^.\s/])*/?(?![^\p{L}\s/!?\.])'
+  special_symbols: '[\+>~•!\?\$&@:;|]'
+contexts:
+  # The prototype context is prepended to all contexts but those setting
+  # meta_include_prototype: false.
+  prototype:
+    - include: base
+    - include: comment
+
+  main:
+    - include: heading3
+    - include: heading2
+    - include: heading1
+    - include: checklist_marked1
+    - include: checklist_marked2
+    - include: checklist
+    - include: lists
+    - include: special1
+    - include: special2
+    - include: tag1
+    - include: tag2
+    - include: section2
+    - include: section1
+    - include: bold
+    - include: italic
+    - include: highlight
+    - include: quoted
+    - include: url
+    - include: numbers
+    - include: lines
+    - include: line_thick
+
+  base:
+    - match: ''
+
+  heading1:
+    - match: '(?<![^\t])#{3} .*'
+      comment: Heading — largest
+      scope: markup.heading.txt punctuation.definition.heading.txt heading1.txt
+
+  heading2:
+    - match: '(?<![^\t])#{2} .*'
+      comment: Heading — medium
+      scope: markup.heading.txt punctuation.definition.heading.txt heading2.txt
+
+  heading3:
+    - match: '(?<![^\t])#{1} .*'
+      comment: Heading — smallest
+      scope: punctuation.definition.heading.txt heading3.txt
+
+  lines:
+    - match: '(?<![^\t])([^\p{L}#\s.])\1{2,}.*'
+      scope: punctuation.definition.heading.txt lines.txt
+    # - match: '(?<![^\t])(=|·|\-|–|—|~){3,}.*'
+    #   scope: lines.txt
+
+  line_thick:
+    - match: '(?<![^\t])(#)\1{2,}'
+      scope: markup.heading.txt punctuation.definition.heading.txt line_thick.txt
+
+  bold:
+    - match: '(?<!\S)\*[^\s\*][^\*]*?[^\s\*]\*'
+      scope: bold.txt
+
+  italic:
+    - match: '(?<!\S)_[^\s_][^_]+?[^\s_]_'
+      scope: italic.txt
+
+  highlight:
+    - match: '(?<!\S)\^[^\^]+?\^'
+      scope: invalid.txt highlight.txt
+
+  quoted:
+    - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*"'
+      comment: Text between quotation marks (" and ")
+      scope: quoted.txt
+
+  comment:
+    - match: '(?<!\S)\/\/'
+      comment: Text after //
+      scope: punctuation.definition.comment.txt comment.txt
+      push: 
+        - meta_scope: comment.line.double-slash.txt comment-inside.txt
+        - match: '$\n?'
+          pop: true
+
+  url:
+    - match: '{{url}}'
+      comment: URL's and links
+      scope: markup.underline.link.txt url url.txt
+
+  numbers:
+    - match: '[0-9]+'
+      comment: Numbers
+      scope: constant.numeric.txt numbers.txt
+
+  lists:
+    - match: '(?<![^\t])(\*|\+|·|•|\-|‐|‒|–|—|―|~|>|\(?(\d+?)?[\.\)]|\(?\w\))(?=\s|$)'
+      comment: List items, text following specific symbols
+      scope: string.txt lists.txt
+      # push:
+      #   - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+      #     scope: lists-after.txt
+      #     pop: true
+
+  checklist:
+    - match: '(?<![^\t])(\[\s?\]|\(\s?\))(?=[^\n\S])'
+      comment: Checklist items, starting with [ ]
+      scope: string.txt checklist.txt
+      push:
+        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+          scope: checklist-after.txt
+          pop: true
+
+  checklist_marked1:
+    - match: '(?<![^\t])(\[[Xx\*✓]\])(?=[^\n\S])'
+      comment: Checklist items marked as done, complete, etc., starting with [X], [x], [*], [✓]
+      scope: string.txt checklist_marked1.txt
+      push:
+        - match: '.*?$'
+          scope: checklist_marked1-after.txt
+          pop: true
+
+  checklist_marked2:
+    - match: '(?<![^\t])(\[[\-‐–!×]\])(?=[^\n\S])'
+      comment: Checklist items marked as not done, ignored, skipped, etc., starting with [-], [–], [×]
+      scope: string.txt checklist_marked2.txt
+      push:
+        - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+          scope: checklist_marked2-after.txt
+          pop: true
+
+  special1:
+    - match: '(?<![^\t])(\[\S+\])'
+      scope: string.txt special1.txt
+      push:
+        - include: url
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: special1-after.txt
+        - match: $
+        # - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{url}})|$)'
+          pop: true
+
+  special2:
+    - match: '(?<![^\t])(<.{0,3}>)(?=(?=\s|$))'
+      comment: 
+      scope: string.txt special2.txt
+      push:
+        - include: url
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: special2-after.txt
+        - match: $
+          pop: true
+
+  tag1:
+    - match: '(?<!\S)({{special_symbols}}){1}\p{L}\S+?(?=\s|$)'
+      scope: entity.name.tag.txt tag1.txt
+      push:
+        - include: url
+        - meta_content_scope: tag1-after.txt
+        - match: $
+          pop: true
+
+  tag2:
+    - match: '(?<!\S){{special_symbols}}{2}\p{L}\S*?(?=\s|$)'
+      comment: 
+      scope: constant.character.txt constant.other.txt tag2.txt
+      push:
+        - include: url
+        - meta_content_scope: tag2-after.txt
+        - match: $
+          pop: true
+
+  section1:
+    - match: '(?<=^|\t)\|(?=[^\n\S])'
+      scope: section1.txt
+      push:
+        - match: '.+(?<!\|)'
+          scope: section1-inside.txt
+          pop: true
+
+  section2:
+    - match: '(?<=^|\t)\|{2}(?=[^\n\S])'
+      scope: section2.txt
+      push:
+        - match: '.+(?<!\|\|)'
+          scope: section2-inside.txt
+          pop: true

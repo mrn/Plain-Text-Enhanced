@@ -1,0 +1,168 @@
+HEADINGS
+
+### Heading 1
+## Heading 2
+# Heading 3
+
+LINES
+(any character except letters, numbers, periods (.), and spaces)
+
+---
+~~~
+===
+***
+^^^
++++
+
+THICK LINES
+Using hash symbols (#)
+###
+
+SIMPLE FORMATTING
+
+*bold*
+*bolded text*
+_italic_
+_italicised text_
+^highlight^
+^highlighted text^
+"quote"
+"quoted text"
+
+Combinations
+*_bold and italic_*
+*bold and _italic_*
+*bolded and _italicised_ text*
+_*italic and bold*_
+_italic and *bold*_
+_italicised and *bolded* text_
+
+NUMBERS
+
+0123456789
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+123.456
+1234ABCD
+1A2B3C4D
+40+2 43-1 21*2 462/11
+
+URL'S
+subdomain.domain.tld
+example.com
+www.example.com
+a.bc
+http://example.com
+https://example.com
+ftp://example.com
+
+LISTS
+
+* list item
++ list item
+· list item
+• list item
+- list item
+‐ list item
+‒ list item
+– list item
+— list item
+― list item
+~ list item
+> list item
+
+1. list item
+123. list item
+1) list item
+123) list item
+(1) list item
+(123) list item
+1.) list item
+123.) list item
+(123.) list items
+
+A. list item
+ABC. list item
+A) list item
+ABC) list item
+(A) list item
+(ABC) list item
+A.) list item
+ABC.) list item
+(ABC.) list items
+
+1A. list item
+12AB. list item
+1A) list item
+12AB) list item
+(1A) list item
+(12AB) list item
+1A.) list item
+12AB.) list item
+(12AB.) list items
+
+SPECIAL
+
+[special1] formatted
+regular text	[special1] formatted
+<sp2> formatted
+regular text	<sp2> formatted
+
+TAGS
+
++tag description
+>tag description
+~tag description
+•tag description
+!tag description
+?tag description
+$tag description
+&tag description
+@tag description
+:tag description
+;tag description
+|tag description
++tag1 description
+regular text +tag1 description
+++tag2 description
+>>tag2 description
+~~tag2 description
+••tag2 description
+!!tag2 description
+??tag2 description
+$$tag2 description
+&&tag2 description
+@@tag2 description
+::tag2 description
+;;tag2 description
+||tag2 description
+regular text ++tag2 description
+
+
+CHECKLISTS
+
+[ ] checklist unmarked
+[X] checklist marked 1
+[x] checklist marked 1
+[*] checklist marked 1
+[✓] checklist marked 1
+[-] checklist marked 2
+[‐] checklist marked 2
+[–] checklist marked 2
+[!] checklist marked 2
+[×] checklist marked 2
+
+COMBINATIONS
+
+[special1] special items 1 *bold* _un-italic_ ^highlight^ "quoted" formatting contines
+[special1] special items 1 example.com formatting contines $tag tag description // comment
+[special1] special items 1 example.com formatting contines $$tag tag description // comment
+
+<sp2> special items 2 example.com formatting contines $tag tag description // comment
+<sp2> special items 2 example.com formatting contines $$tag tag description // comment
+
+$tag tag description example.com formatting contines // comment
+$$tag tag description example.com formatting contines // comment
+
+[ ] checklist example.com formatting contines $tag tag description // comment
+[x] checklist marked 1 example.com formatting contines $tag tag description // comment
+[!] checklist marked 2 example.com formatting contines $tag tag description // comment

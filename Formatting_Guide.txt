@@ -1,0 +1,194 @@
+		### PLAIN TEXT ENHANCED 
+		### FORMATTING GUIDE    
+		########################
+
+
+		### HEADINGS AND LINES
+
+Use '#' characters to make headings.
+This works at the beginning of a line and after tab characters (not after spaces).
+There has to be a space after the '#' character.
+
+	### HEADING 1
+	3x#: bold, dark text, solid highlight
+
+	## HEADING 2
+	2x#: bold, colour, faint highlight
+
+	# HEADING 3
+	1x#: just colour
+
+	This will also work:	## I'm so tabulous
+	It just needs a tab.
+
+
+## LINES
+
+Use any simbol to make coloured lines, repeating it three or more times adds colour.
+Same rules apply as for headings (it works at the beginning of a line and after tab characters (not after spaces)).
+
+	========  ********  xxxxxxxx  oooooooo
+
+	········  --------  ––––––––  ————————
+
+	# NICE FOR UNDERLINING HEADINGS!
+	'''''''''''''''''''''''''''''''''
+
+	This will work	==== Yeah! (after a tab)
+	But this won't ==== Nope. (after a space)
+
+	Tip: these lines also colour the rest of the text in their line
+	=== They can be used as custom headings, separators, etc. ===
+
+To make "thick"/"solid" (highlighted) lines use '#' (also three or more times).
+
+	# SUPER DUPER IMPORTANT
+	######################### <- There are many '#' characters here.
+
+	It won't affect your XXX needs within text after spaces ;)
+
+
+		### LISTS
+
+Use these symbols to make lists (or other things):
+Same rules apply (works at beginning of lines and after tabs but not after spaces).
+
+	* asterisk
+	· middot
+	• bullet
+	+ plus
+	- hyphen/minus
+	– en dash
+	— em dash
+	~ squiggly thing
+	> "more than", but let's call it arrow lipsum.com
+
+	This will work	* Yay (after a tab)
+	But this won't * Nay (after a space)
+	Also works after text and needs a tab	> Probably useless
+
+
+		### SPECIAL
+
+'<>' will also get formatted — same rules apply. It can have 0–3 characters inside.
+
+	<> See: "Why Coloured Text Is Better — by Typer McWriteyText"
+	</> Learn how to code at: almost_anywhere_these_days.com
+	<txt> lipsum.com
+
+
+## LISTS WITH NUMBERS OR LETTERS
+
+Use numbers or letters and parantheses to make ordered/prioritised lists.
+Same rules apply (works at beginning of lines and after tabs but not after spaces).
+
+	1) Survival
+	2) Shelter
+	(1) Two parantheses also work
+	(65536) Numbers can have any length
+
+	A) top priority
+	(B) lower priority
+	AA) Letters have to be single
+
+
+## ITEMS WITH NAMES
+
+Use brackets to make items with custom names. Anythingcan go inside except whitespaces.
+Same rules apply (works at beginning of lines and after tabs but not after spaces).
+
+	[thought] I want to lick the text. It's so beautiful.
+	[note] Don't lick the text.
+
+
+## IMPORTANT ITEMS
+
+Use '+' or '!' or '?' or '@' to make red items. The first character must be a letter.
+This works anywhere, and needs empty space before it (new line, space or tab) and one or more characters after it.
+
+Examples:
+
+	+to-do Write beautiful text
+	!important Another example of something
+	?research Write beautiful text
+	@cafe Another example of something
+	Some standard text +reminder
+	Some standard text @today-22:15
+
+Use two of those symbols to make items purple. Same rules apply.
+
+	++reminder 17:30 — practice enjoying text
+	!!important
+	??ask
+	@@tag description
+
+
+		### OTHER FORMATTING
+
+## COMMENTS
+
+Use '//' to make a comment.
+This works anywhere, even after other items but needs an empty space before it (new line, space or tab).
+asdasdasdsad // tetet
+	// This is a comment
+	Some standard text // All text is awesome
+
+
+## SECTIONS OR QUOTES
+
+Use '|' to begin a separated section of text like in the example below.	* test
+This works the beginnings of lines and after tab characters.
+
+	* list
+	* something else
+
+[note] Some really important text
++to-do Sleeep tonight
+@contact Mr. Typesalot
+++buy The world
+
+|	"Be one with the text"
+
+|											
+|	"One cannot know the true joy of		
+|	witnessing beauty if one has not		
+|	 layed eyes upon sexy text"				
+| 		— Sir Swiftfingers of Typesalot		
+|											
+
+Any character has a background inside, so you can create a rectangular background using tabs and spaces.
+
+
+## NUMBERS
+
+	1 2 3 4 5 6 7 8 9 0
+	1234567890
+	-1/2=-0.5
+	1a (adjacent letters turn numbers into text)
+
+## URL's
+
+Works with www, http:// and https://
+Minimum: ab.cb · http://a.b · https://a.b (requires character dot character)
+
+	website.com
+	www.website.com
+	http://website.com
+	https://www.website.com text after URL is not formatted !tag special items still get formatted // Comments still get formatted
+
+
+## EMPHASIS
+
+# BOLD AND ITALIC
+Surround text with '*' to bold it or '_' to italicise it.
+This works anywhere after an empty space.
+For bold and italics, the first and last character inside the symbols ('*' and '_') must not be a space or tab characters. Highlight accepts these.
+
+	Text is important for *writing down ideas*!
+	It is even _more important_ for *transferring knowledge and information*!
+	But it is _most important_ for it to be ^gorgeous^
+
+
+# HIGHLIGHT
+Surround a text with '^' to highlight it.
+This works anywhere after an empty space.
