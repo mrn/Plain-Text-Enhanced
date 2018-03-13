@@ -173,7 +173,7 @@ contexts:
           pop: true
 
   list:
-    - match: '(?<![^\t])(\*|\+|·|•|\-|‐|‒|–|—|―|~|>|\(?(\d+?)?[\.\)]|\(?\w\))(?=\s|$)'
+    - match: '(?<![^\t])(\*|\+|·|•|\-|‐|‒|–|—|―|~|>|\(?(\d+?)?[\.\)]|\(?\w\))(?=\s+\S)'
       comment: List items, text following specific symbols
       scope: string.txt list.txt
       push:

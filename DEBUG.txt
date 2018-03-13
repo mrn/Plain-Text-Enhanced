@@ -85,7 +85,10 @@
 
 		### FIXED, ADDED
 
-
+<*> Comments after headings shouldn't be treated as headings
+	### Heading //comment
+	## Heading //comment
+	# Heading // comment
 <*> Headings should require space, because of lines
 	#Heading
 	##Heading
