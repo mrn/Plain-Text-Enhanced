@@ -78,11 +78,6 @@
 	item		* 	<> item
 
 
-	## Sections
-
-[-] test
-
-
 		### FIXED, ADDED
 
 <*> Comments after headings shouldn't be treated as headings
