@@ -1,11 +1,6 @@
 		### ERRORS/BUGS/TODO
 
 
-<*> Comments after headings shouldn't be treated as headings
-	### Heading //comment
-	## Heading //comment
-	# Heading // comment
-
 	## Numbers, Dates and Codes
 
 <*> The following should be formatted
@@ -22,7 +17,7 @@
 
 	## URIs
 
-<*> Text before URI - must be space or quote or bracket or slash (think what else)
+<*> Text before URI - must be space|quote|bracket|slash (think what else)
 
 <*> Should be treated as URI
 	SYNTAX: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
@@ -83,6 +78,11 @@
 	item		* 	<> item
 
 
+	## Sections
+
+[-] test
+
+
 		### FIXED, ADDED
 
 <*> Comments after headings shouldn't be treated as headings
@@ -121,6 +121,12 @@
 	*text*
 <+> Highlight
 	^text^
+<+> Allow list iteme in sections
+	|	• list
+	| Text	• list
+	Don't allow list items in section type 2
+	||	• list
+	|| Text	• list
 
 
 		### ADD
