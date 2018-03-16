@@ -48,7 +48,7 @@ contexts:
     - match: ''
 
   heading1:
-    - match: '(?<![^\t])#{3} '
+    - match: '(?<![^\t])#{3}\s'
       comment: Heading — largest
       scope: punctuation.definition.heading.txt heading1.txt
       push:
@@ -57,7 +57,7 @@ contexts:
           pop: true
 
   heading2:
-    - match: '(?<![^\t])#{2} '
+    - match: '(?<![^\t])#{2}\s'
       comment: Heading — medium
       scope: punctuation.definition.heading.txt heading2.txt
       push:
@@ -66,7 +66,7 @@ contexts:
           pop: true
 
   heading3:
-    - match: '(?<![^\t])#{1} '
+    - match: '(?<![^\t])#{1}\s'
       comment: Heading — smallest
       scope: punctuation.definition.heading.txt heading3.txt
       push:
