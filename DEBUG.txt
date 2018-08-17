@@ -35,7 +35,7 @@
 
 	## URI's
 
-<*> Text before URI - must be space, quote, bracket, slash (think what else)
+<*> Text before URI - must be space|quote|bracket|slash (think what else)
 
 <*> Should be treated as URI
 	SYNTAX: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
