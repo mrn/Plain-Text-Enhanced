@@ -7,8 +7,8 @@ file_extensions:
 scope: text.ptenhanced
 first_line_match: '(?<![^\t])#{1,3}\s.'
 variables:
-  uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^.\s]*)(\.[^.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^.\s/])*/?(?![^\p{L}\s/!?\.])'
-  special_symbols: '[\+>~•!\?\$&@:;|]'
+  uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^.\s]*)(\.[^.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^.\s/])*/?(?![^\p{L}\s/!?\.$])'
+  tag_characters: '[\+>`~•!\?\$&@:;|]'
 contexts:
   # The prototype context is prepended to all contexts but those setting
   # meta_include_prototype: false.
@@ -21,7 +21,8 @@ contexts:
     - include: heading2
     - include: heading3
     - include: line
-    - include: line_thick
+    - include: line_solid_infinite
+    - include: line_solid
     - include: bold
     - include: italic
     - include: bold_italic
@@ -30,26 +31,27 @@ contexts:
     - include: quote
     - include: un-quote
     - include: highlight
-    - include: numbers
-    - include: dates_and_codes
+    - include: highlight2
+    - include: number
+    - include: date_code
     - include: uri
     - include: list
-    - include: checklist_marked1
-    - include: checklist_marked2
-    - include: checklist
+    - include: checkbox_marked1
+    - include: checkbox_marked2
+    - include: checkbox
     - include: special1
     - include: special2
+    - include: special3
+    - include: special4
     - include: tag1
     - include: tag2
-    - include: section2
-    - include: section1
 
   base:
     - match: ''
 
   heading1:
-    - match: '(?<![^\t])#{3} '
-      comment: Heading — smallest
+    - match: '(?<![^\t])#{3}\s+?[^\s]+'
+      comment: Heading — largest
       scope: punctuation.definition.heading.txt heading1.txt
       push:
         - meta_content_scope: punctuation.definition.heading.txt heading1.txt
@@ -57,8 +59,8 @@ contexts:
           pop: true
 
   heading2:
-    - match: '(?<![^\t])#{2} '
-      comment: Heading — smallest
+    - match: '(?<![^\t])#{2}\s+?[^\s]+'
+      comment: Heading — medium
       scope: punctuation.definition.heading.txt heading2.txt
       push:
         - meta_content_scope: punctuation.definition.heading.txt heading2.txt
@@ -66,7 +68,7 @@ contexts:
           pop: true
 
   heading3:
-    - match: '(?<![^\t])#{1} '
+    - match: '(?<![^\t])#{1}\s+?[^\s]+'
       comment: Heading — smallest
       scope: punctuation.definition.heading.txt heading3.txt
       push:
@@ -76,18 +78,33 @@ contexts:
 
   line:
     - match: '(?<![^\t])([^\p{L}#\s.])\1{2,}'
+      comment: Horisontal line — normal
       scope: punctuation.definition.heading.txt line.txt
       push:
         - meta_content_scope: punctuation.definition.heading.txt line.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
-  line_thick:
-    - match: '(?<![^\t])(#)\1{2,}'
-      scope: markup.heading.txt punctuation.definition.heading.txt line_thick.txt
+  line_solid:
+    # - match: '(?<![^\t])#{4,}(?=[^\n\S])'
+    - match: '(?<![^\t])#{4,}'
+      comment: Horisontal line — thick
+      scope: markup.heading.txt punctuation.definition.heading.txt line_solid.txt
+
+  line_solid_infinite:
+    - match: '(?<![^\t])#{3}$'
+      comment: Horisontal line — thick
+      scope: markup.heading.txt punctuation.definition.heading.txt line_solid_infinite.txt
+      push:
+        - meta_content_scope: markup.heading.txt punctuation.definition.heading.txt line_solid_infinite.txt
+        - match: \n?|$
+        - match: $
+        # - match: (?=\s+(\/\/|{{tag_characters}}{1,}\p{L}\S+))|$ # Stop before a comment or tag
+          pop: true
 
   bold:
     - match: '(?<!\S)\*[^\s\*][^\*]*?[^\s\*]*'
+      comment: Bold
       scope: bold.txt
       push:
         - include: italic_bold
@@ -97,6 +114,7 @@ contexts:
 
   bold_italic:
     - match: '(?<!\S)\*[^\s\*][^\*]*?[^\s\*]*'
+      comment: Bold within italic
       scope: bold_italic.txt
       push:
         - meta_content_scope: bold_italic.txt
@@ -105,6 +123,7 @@ contexts:
 
   italic:
     - match: '(?<!\S)_[^\s_][^_]*?[^\s_]*'
+      comment: Italic
       scope: italic.txt
       push:
         - include: bold_italic
@@ -114,6 +133,7 @@ contexts:
 
   italic_bold:
     - match: '(?<!\S)_[^\s_][^_]*?[^\s_]*'
+      comment: Italic within bold
       scope: italic_bold.txt
       push:
         - meta_content_scope: italic_bold.txt
@@ -122,6 +142,7 @@ contexts:
 
   un-italic:
     - match: '(?<!\S)_[^\s_][^_]*?[^\s_]*'
+      comment: Regular (not italic) inside italicised text (from other types of formatting)
       scope: un-italic.txt
       push:
         - meta_content_scope: un-italic.txt
@@ -130,6 +151,7 @@ contexts:
 
   quote:
     - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*'
+      comment: Quote
       scope: quote.txt
       push:
         - meta_content_scope: quote.txt
@@ -138,6 +160,7 @@ contexts:
 
   un-quote:
     - match: '(?<!\S)"[^\s"][^"]*?[^\s"]*'
+      comment: Regular (not quote-formatted) inside already italicised text (from other types of formatting)
       scope: un-quote.txt
       push:
         - meta_content_scope: un-quote.txt
@@ -146,35 +169,41 @@ contexts:
 
   highlight:
     - match: '(?<!\S)\^[^\^]+?\^'
+      comment: Highlight
       scope: invalid.txt highlight.txt
 
-  numbers:
-    - match: '[0-9]+'
-      comment: Numbers and codes
-      scope: constant.numeric.txt numbers.txt
+  highlight2:
+    - match: '(?<!\S)\^{2}[^\^]+?\^{2}'
+      comment: Highlight
+      scope: invalid.txt highlight2.txt
 
-  dates_and_codes:
+  number:
     - match: '[0-9]+'
-      comment: Numbers and codes
-      scope: constant.numeric.txt dates_and_codes.txt
+      comment: Number
+      scope: constant.numeric.txt number.txt
+
+  date_code:
+    - match: '[0-9]+'
+      comment: Date or code
+      scope: constant.numeric.txt date_code.txt
 
   uri:
     - match: '{{uri}}'
-      comment: URI's, URL's and links
+      comment: URI, URL or link
       scope: markup.underline.link.txt uri uri.txt
 
   comment:
     - match: '(?<!\S)\/\/'
-      comment: Text after //
+      comment: Comment
       scope: punctuation.definition.comment.txt comment.txt
-      push: 
+      push:
         - meta_scope: comment.line.double-slash.txt comment-inside.txt
         - match: '$\n?'
           pop: true
 
   list:
     - match: '(?<![^\t])(\*|\+|·|•|\-|‐|‒|–|—|―|~|>|\(?(\d+?)?[\.\)]|\(?\w\))(?=\s+\S)'
-      comment: List items, text following specific symbols
+      comment: List item
       scope: string.txt list.txt
       push:
         - include: bold
@@ -182,80 +211,80 @@ contexts:
         - include: quote
         - include: highlight
         - include: uri
-        - include: numbers
-        - include: dates_and_codes
+        - include: number
+        - include: date_code
         - include: tag1
         - include: tag2
         - meta_content_scope: lists-after.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
-  checklist:
+  checkbox:
     - match: '(?<![^\t])(\[\s?\]|\(\s?\))(?=[^\n\S])'
-      comment: Checklist items, starting with [ ]
-      scope: string.txt checklist.txt
+      comment: Checkbox item
+      scope: string.txt checkbox.txt
       push:
         - include: bold
         - include: un-italic
         - include: un-quote
         - include: highlight
         - include: uri
-        - include: numbers
-        - include: dates_and_codes
+        - include: number
+        - include: date_code
         - include: tag1
         - include: tag2
-        - meta_content_scope: checklist-after.txt
+        - meta_content_scope: checkbox-after.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
-  checklist_marked1:
+  checkbox_marked1:
     - match: '(?<![^\t])(\[[Xx\*✓]\])(?=[^\n\S])'
-      comment: Checklist items marked as done, complete, etc., starting with [X], [x], [*], [✓]
-      scope: string.txt checklist_marked1.txt
+      comment: Checkbox item — marked as done/complete/ignored/dismissed
+      scope: string.txt checkbox_marked1.txt
       push:
         - match: '.*?$'
-          scope: checklist_marked1-after.txt
+          scope: checkbox_marked1-after.txt
           pop: true
 
-  checklist_marked2:
-    - match: '(?<![^\t])(\[[\-‐–!×]\])(?=[^\n\S])'
-      comment: Checklist items marked as not done, ignored, skipped, etc., starting with [-], [–], [×]
-      scope: string.txt checklist_marked2.txt
+  checkbox_marked2:
+    - match: '(?<![^\t])(\[[\-‐–!]\])(?=[^\n\S])'
+      comment: Checkbox item — marked as important/high-priority
+      scope: string.txt checkbox_marked2.txt
       push:
         - include: bold
         - include: un-italic
         - include: un-quote
         - include: highlight
         - include: uri
-        - include: numbers
-        - include: dates_and_codes
+        - include: number
+        - include: date_code
         - include: tag1
         - include: tag2
-        - meta_content_scope: checklist_marked2-after.txt
+        - meta_content_scope: checkbox_marked2-after.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
   special1:
     - match: '(?<![^\t])(\[\S+\])'
       scope: string.txt special1.txt
+      comment: Special — type 1
       push:
         - include: bold
         - include: un-italic
         - include: un-quote
         - include: highlight
         - include: uri
-        - include: numbers
-        - include: dates_and_codes
+        - include: number
+        - include: date_code
         - include: tag1
         - include: tag2
         - meta_content_scope: special1-after.txt
         - match: (?=\s+\/\/)|$
-        # - match: '.*?((?=\s\/\/)|(?=\s{{special_symbols}}{1,2}\p{L})|(?={{uri}})|$)'
           pop: true
 
   special2:
     - match: '(?<![^\t])(<.{0,3}>)(?=(?=\s|$))'
-      comment: 
+      comment: Special — type 2
       scope: string.txt special2.txt
       push:
         - include: bold
@@ -263,16 +292,65 @@ contexts:
         - include: un-quote
         - include: highlight
         - include: uri
-        - include: numbers
-        - include: dates_and_codes
+        - include: number
+        - include: date_code
         - include: tag1
         - include: tag2
         - meta_content_scope: special2-after.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
+  special3:
+    - match: '(?<=^|\t)\|(?=[^\n\S])'
+      comment: Special — type 3
+      scope: special3.txt
+      push:
+        # - include: extension
+        - include: highlight
+        - include: number
+        - include: date_code
+        - include: uri
+        - include: list
+        - include: checkbox_marked1
+        - include: checkbox_marked2
+        - include: checkbox
+        - include: special1
+        - include: special2
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: special3-inside.txt
+        - match: \n?|.|$
+        - match: $
+        # - match: (?=\s+(\/\/|{{tag_characters}}{1,}\p{L}\S+))|$ # Stop before a comment or tag
+          pop: true
+
+  special4:
+    - match: '(?<=^|\t)\|{2}(?=[^\n\S])'
+      comment: Special — type 4
+      scope: special4.txt
+      push:
+        # - include: extension
+        - include: highlight
+        - include: number
+        - include: date_code
+        - include: uri
+        - include: list
+        - include: checkbox_marked1
+        - include: checkbox_marked2
+        - include: checkbox
+        - include: special1
+        - include: special2
+        - include: tag1
+        - include: tag2
+        - meta_content_scope: special4-inside.txt
+        - match: \n?|.|$
+        - match: $
+        # - match: (?=\s+(\/\/|{{tag_characters}}{1,}\p{L}\S+))|$ # Stop beforea a comment or tag
+          pop: true
+
   tag1:
-    - match: '(?<!\S)({{special_symbols}}){1}\p{L}\S+?(?=\s|$)'
+    - match: '(?<!\S)({{tag_characters}}){1}\p{L}\S+?(?=\s|$)'
+      comment: Tag — type 1
       scope: entity.name.tag.txt tag1.txt
       push:
         - include: bold
@@ -285,8 +363,8 @@ contexts:
           pop: true
 
   tag2:
-    - match: '(?<!\S){{special_symbols}}{2}\p{L}\S*?(?=\s|$)'
-      comment: 
+    - match: '(?<!\S){{tag_characters}}{2}\p{L}\S+?(?=\s|$)'
+      comment: Tag — type 2
       scope: constant.character.txt constant.other.txt tag2.txt
       push:
         - include: bold
@@ -298,24 +376,15 @@ contexts:
         - match: (?=\s+\/\/)|$
           pop: true
 
-  section1:
-    - match: '(?<=^|\t)\|(?=[^\n\S])'
-      scope: section1.txt
-      push:
-        - include: uri
-        - include: tag1
-        - include: tag2
-        - meta_content_scope: section1-inside.txt
-        - match: (?=\s+(\/\/|{{special_symbols}}))|$
-          pop: true
+# Miscellany
 
-  section2:
-    - match: '(?<=^|\t)\|{2}(?=[^\n\S])'
-      scope: section2.txt
+  extension:
+    - match: \n?|.|$
+    - match: $
+      comment: Additional context to extend formatting until the end of the window (beyond the end of the line)
+      scope: extension.txt
       push:
-        - include: uri
-        - include: tag1
-        - include: tag2
-        - meta_content_scope: section2-inside.txt
-        - match: (?=\s+(\/\/|{{special_symbols}}))|$
+        - meta_scope: extension.txt
+        - match: \n?|.|$
+        - match: $
           pop: true

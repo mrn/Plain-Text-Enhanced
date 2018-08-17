@@ -7,7 +7,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FFFFFFEF</string>
+				<string>#FFFFFFFF</string>
 			</dict>
 		</dict>
 		<dict>
@@ -66,7 +66,20 @@
 			<key>name</key>
 			<string>Plain Text Enhanced - Line Thick</string>
 			<key>scope</key>
-			<string>text.ptenhanced line_thick.txt</string>
+			<string>text.ptenhanced line_solid.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FCCA92</string>
+				<key>background</key>
+				<string>#FCCA92</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Line Thick Infinite</string>
+			<key>scope</key>
+			<string>text.ptenhanced line_solid_infinite.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -164,18 +177,33 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#212121</string>
+				<string>#FFFFFF</string>
 				<key>background</key>
-				<string>#B87C6A</string>
+				<string>#FFFFFF3F</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Numbers</string>
+			<string>Plain Text Enhanced - Highlight 2</string>
 			<key>scope</key>
-			<string>text.ptenhanced numbers.txt</string>
+			<string>text.ptenhanced highlight2.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#212121</string>
+				<key>background</key>
+				<string>#FFFFFFBF</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Number</string>
+			<key>scope</key>
+			<string>text.ptenhanced number.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -184,9 +212,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Dates and Codes</string>
+			<string>Plain Text Enhanced - Date or Code</string>
 			<key>scope</key>
-			<string>text.ptenhanced dates_and_codes.txt</string>
+			<string>text.ptenhanced date_code.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -260,22 +288,22 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Checklist</string>
+			<string>Plain Text Enhanced - Checkbox</string>
 			<key>scope</key>
-			<string>text.ptenhanced checklist.txt</string>
+			<string>text.ptenhanced checkbox.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#BFBFBF</string>
+				<string>#FFFFFF</string>
 				<key>background</key>
-				<string>#BFBFBF1F</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Checklist - After</string>
+			<string>Plain Text Enhanced - Checkbox - After</string>
 			<key>scope</key>
-			<string>text.ptenhanced checklist-after.txt</string>
+			<string>text.ptenhanced checkbox-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -286,9 +314,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Checklist Marked 1</string>
+			<string>Plain Text Enhanced - Checkbox Marked 1</string>
 			<key>scope</key>
-			<string>text.ptenhanced checklist_marked1.txt</string>
+			<string>text.ptenhanced checkbox_marked1.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -299,9 +327,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Checklist Marked 1 - After</string>
+			<string>Plain Text Enhanced - Checkbox Marked 1 - After</string>
 			<key>scope</key>
-			<string>text.ptenhanced checklist_marked1-after.txt</string>
+			<string>text.ptenhanced checkbox_marked1-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -312,24 +340,24 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Checklist Marked 2</string>
+			<string>Plain Text Enhanced - Checkbox Marked 2</string>
 			<key>scope</key>
-			<string>text.ptenhanced checklist_marked2.txt</string>
+			<string>text.ptenhanced checkbox_marked2.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#B86B79</string>
+				<string>#212121</string>
 				<key>background</key>
-				<string>#7F7F7F1F</string>
+				<string>#B86B79</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Checklist Marked 2 - After</string>
+			<string>Plain Text Enhanced - Checkbox Marked 2 - After</string>
 			<key>scope</key>
-			<string>text.ptenhanced checklist_marked2-after.txt</string>
+			<string>text.ptenhanced checkbox_marked2-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -356,8 +384,8 @@
 			<string>text.ptenhanced special1-after.txt</string>
 			<key>settings</key>
 			<dict>
-				<key>foreground</key>
-				<string>#FFFFFF</string>
+				<!-- <key>foreground</key>
+				<string>#FFFFFF</string> -->
 				<key>fontStyle</key>
 				<string>italic</string>
 			</dict>
@@ -388,6 +416,58 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Special 3</string>
+			<key>scope</key>
+			<string>text.ptenhanced special3.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FFFFFFBF</string>
+				<key>background</key>
+				<string>#FFFFFF0F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Special 3 - Inside</string>
+			<key>scope</key>
+			<string>text.ptenhanced special3-inside.txt</string>
+			<key>settings</key>
+			<dict>
+				<!-- <key>foreground</key>
+				<string>#FFFFFFFF</string> -->
+				<key>background</key>
+				<string>#FFFFFF0F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Special 4</string>
+			<key>scope</key>
+			<string>text.ptenhanced special4.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6BB88F</string>
+				<key>background</key>
+				<string>#6BB88F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Special 4 - Inside</string>
+			<key>scope</key>
+			<string>text.ptenhanced special4-inside.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#91B8A3</string>
+				<key>background</key>
+				<string>#91B8A31F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Tag 1</string>
 			<key>scope</key>
 			<string>text.ptenhanced tag1.txt</string>
@@ -396,7 +476,7 @@
 				<key>foreground</key>
 				<string>#212121</string>
 				<key>background</key>
-				<string>#B86B79</string>
+				<string>#866BB8</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 			</dict>
@@ -409,9 +489,9 @@
 			<key>settings</key>
 			<dict>
 				<!-- <key>foreground</key>
-				<string>#B89198</string> -->
+				<string>#866BB8</string> -->
 				<key>foreground</key>
-				<string>#B86B79</string>
+				<string>#866BB8</string>
 				<key>fontStyle</key>
 				<string>italic</string>
 			</dict>
@@ -426,7 +506,7 @@
 				<key>foreground</key>
 				<string>#212121</string>
 				<key>background</key>
-				<string>#866BB8</string>
+				<string>#B86B79</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 			</dict>
@@ -439,62 +519,10 @@
 			<key>settings</key>
 			<dict>
 				<!-- <key>foreground</key>
-				<string>#A69CB8</string> -->
+				<string>#B86B79</string> -->
 				<key>foreground</key>
-				<string>#866BB8</string>
+				<string>#B86B79</string>
 				<key>fontStyle</key>
 				<string>italic</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Section 1</string>
-			<key>scope</key>
-			<string>text.ptenhanced section1.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#FFFFFF7F</string>
-				<key>background</key>
-				<string>#FFFFFF0F</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Section 1 - Inside</string>
-			<key>scope</key>
-			<string>text.ptenhanced section1-inside.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#FFFFFFDF</string>
-				<key>background</key>
-				<string>#FFFFFF0F</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Section 2</string>
-			<key>scope</key>
-			<string>text.ptenhanced section2.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#6BB88F</string>
-				<key>background</key>
-				<string>#6BB88F</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Section 2 - Inside</string>
-			<key>scope</key>
-			<string>text.ptenhanced section2-inside.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#91B8A3</string>
-				<key>background</key>
-				<string>#91B8A322</string>
 			</dict>
 		</dict>
