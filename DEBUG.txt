@@ -62,6 +62,8 @@
 	example.com/file.a4
 	example.com./ // Is this valid?
 	http://例子.卷筒纸
+	10fastfingers.com // Numbers sometimes break syntax
+	www.10fastfingers.com
 	1abc://name.com // Scheme must start with ASCII letter
 	'example.com'
 	(example.com)

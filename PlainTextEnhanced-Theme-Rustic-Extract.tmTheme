@@ -180,8 +180,8 @@
 				<string>#FFFFFF</string>
 				<key>background</key>
 				<string>#FFFFFF3F</string>
-				<key>fontStyle</key>
-				<string>bold</string>
+				<!-- <key>fontStyle</key>
+				<string>bold</string> -->
 			</dict>
 		</dict>
 		<dict>
@@ -194,9 +194,9 @@
 				<key>foreground</key>
 				<string>#212121</string>
 				<key>background</key>
-				<string>#FFFFFFBF</string>
-				<key>fontStyle</key>
-				<string>bold</string>
+				<string>#FFFFFFFF</string>
+				<!-- <key>fontStyle</key>
+				<string>bold</string> -->
 			</dict>
 		</dict>
 		<dict>
@@ -524,5 +524,27 @@
 				<string>#B86B79</string>
 				<key>fontStyle</key>
 				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Unformatted</string>
+			<key>scope</key>
+			<string>text.ptenhanced unformatted.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FFFFFFFF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Unformatted Inside</string>
+			<key>scope</key>
+			<string>text.ptenhanced unformatted-inside.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FFFFFFFF</string>
 			</dict>
 		</dict>

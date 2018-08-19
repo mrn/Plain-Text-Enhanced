@@ -1,0 +1,4 @@
+[
+    {"command": "move_to", "args": {"to": "bol", "extend": false} },
+    {"command": "move", "args": {"by": "characters", "forward": true} },
+]
