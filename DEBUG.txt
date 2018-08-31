@@ -1,39 +1,231 @@
-		### ERRORS/BUGS/TO-DO
+	## HEADING
+
+### Heading 1
+## Heading 2
+# Heading 3
 
 
-	## Simple Formatting
+	## LINE
 
-<*> Fix bold+italic and italic+bold
-	*_bold and italic_*
-	_*italic and bold*_
-<*> Other items inside simple formatting
-	*example.com*
-	_example.com_
-	"example.com"
-	^example.com^
+---
+~~~
+===
+***
+^^^
++++
 
 
-	## Numbers, Dates and Codes
+	## SOLID LINE FINITE, SOLID LINE INFINITE
 
-<*> The following should be formatted
-	123.456
-	1A2B3C4D
-	1A
-	A1
-	ABCD1E
-	1234A5
-<*> The following should not be formatted
-	12.
-	.12
+####
 
-	## OTHER FORMATTING
+###
 
-<*> What should be done with this?
-	###text
-<*> Tthick line - infinite (line_thick_infinite) isn't formatted when at end of file
-	###
 
-	## URI's
+	## SIMPLE FORMATTING
+
+*bold*
+*bolded text*
+_italic_
+_italicised text_
+"quote"
+"quoted text"
+^highlight^
+^highlighted text^
+^^highlight^^
+^^highlighted text^^
+
+COMBINATIONS
+*_bold and italic_*
+*bold and _italic_*
+*bolded and _italicised_ text*
+_*italic and bold*_
+_italic and *bold*_
+_italicised and *bolded* text_
+
+
+	## NUMBER
+
+1
+-1
++1
+123
+1+2
+1-2
+1*2
+1/2
+1^2
+123.456
+1, 2, 3
+
+$123
+123€
+&123
+@123
+`123
+҂123
+֍123
+༆123
+
+12m
+12GHz
+12.3V
+
+*NO*
+č123
+ć123
+đ123
+š123
+ž123
+ö123
+Þ123
+Ą123
+Ħ123
+ʘ123
+ʭ123
+ͱ123	?
+Б123
+Ӹ123
+բ123
+ש123
+ش123
+ޗ123
+ߢ123		?
+ॴ123	?
+Ⴐ123
+卷123
+
+
+	## DATE
+
+1.2.2018	1.2.2018.
+01.2.2018	01.2.2018.
+1.02.2018	1.02.2018.
+01.02.2018	01.02.2018.
+2018.1.2	2018.1.2.
+2018.01.2	2018.01.2.
+2018.1.02	2018.1.02.
+2018.01.02	2018.01.02.
+
+1/2/2018
+01/2/2018
+1/02/2018
+01/02/2018
+2018/1/2
+2018/01/2
+2018/1/02
+2018/01/02
+
+1-2-2018
+01-2-2018
+1-02-2018
+01-02-2018
+2018-1-2
+2018-01-2
+2018-1-02
+2018-01-02
+
+
+	## CODE
+
+A4
+AA1
+A1A
+A11
+1AA
+1A1
+11A
+12ABCD
+1234AB
+AB1234
+ABCD12
+
+A1B2C3
+1A2B3C
+(A1B2C3)
+(1A2B3C)
+
+A-1
+1-A
+
+A-A-A
+A-A-1
+A-1-A
+A-1-1
+1-A-A
+1-A-1
+1-1-A
+1-1-1
+
+AB-12
+12-AB
+
+AB-AB-AB // No, could be hyphenated capitalised word
+AB-AB-12
+AB-12-AB
+AB-12-34
+12-AB-AB
+12-AB-34
+12-34-AB
+12-34-56
+
+AB-AB-AB-AB // No, could be hyphenated capitalised word
+AB-AB-AB-12
+AB-AB-12-AB
+AB-AB-12-12
+AB-12-AB-AB
+AB-12-AB-12
+AB-12-12-AB
+AB-12-12-12
+12-AB-AB-AB
+12-AB-AB-12
+12-AB-12-AB
+12-AB-12-12
+12-12-AB-AB
+12-12-AB-12
+12-12-12-AB
+12-12-12-12
+
+ABCDE-12345
+12345-ABCDE
+
+ABCDE-FGHIJ-KLMNO // No, could be hyphenated capitalised word
+ABCDE-FGHIJ-12345
+ABCDE-12345-FGHIJ
+ABCDE-12345-67890
+12345-ABCDE-FGHIJ
+12345-ABCDE-67890
+12345-67890-ABCDE
+12345-67890-12345
+
+(93AKW-QEJ2D-J36NC)
+
+A1B2C-3D4E5-F6G7H
+1A2B3-C4D5E-6F7G8
+
+93AKWQEJ2DJ36NC2PKDH
+93AKWQEJUD936472PKDH
+QEJUD936472PKDH
+Q2Č6Ć31Ž0
+
+*NO*
+KRPST
+QEJUDGLEOSKRPST
+QEJUD-GLEOS-KRPST // Could hyphenated capitalised word
+93647-58304-04736 // Not dashes
+93AKW QEJUD 2PKDH 93647 // Not only letters or numbers if separated by not dash
+abc1A2B
+abcA1B2
+1A2Babc
+A1B2abc
+test123test
+HTML5	?
+CSS3	?
+C418	?
+deadmau5
+
+
+	## URI
 
 <*> Text before URI - must be space|quote|bracket|slash (think what else)
 
@@ -56,10 +248,13 @@
 	http://name.com// // Include second slash
 	http://a_.aa/
 	abc+.-://name.com
-	text://name.com // Protocols can only be http, https and ftp (not random)
+	text://name.com // Protocols/schemes can be anything
 	ftp://public.ftp-servers.example.com/mydirectory/myfile.txt
-	example.com/file.7zip // Include numbers in extensions
+	example.com/file.7zip // Include numbers in extensions in paths
 	example.com/file.a4
+	example.com/download.php?attachmentid=644
+	example.com/dir?list.3
+	www.site.com/doc.asp?doc=321&language=1
 	example.com./ // Is this valid?
 	http://例子.卷筒纸
 	10fastfingers.com // Numbers sometimes break syntax
@@ -75,9 +270,10 @@
 	~..
 	we.c3% // Ending must be letters only
 	a.b a.b. // 2+ ASCII letters in last part
-	*%-:'.com // First character in name must be ASCII letter or number
+	%*-:'.com // First character in name must be ASCII letter or number
 	(.com
 	^*:~.%-|'
+	www.abvc.2a
 	www.*%-:'.com
 	website.ć
 	name.com a // Formatting should end before a space
@@ -85,10 +281,10 @@
 	http://
 	S.W.A.T.
 	NUMBERS 123.456
-	DATES 23.12.2017
+	DATES 23.12.2018
 	DATES 10/03/2018
 
-<*> Punctuation after URI should not be formatted, except forward slash
+<*> Punctuation after URI TLD should not be formatted, except forward slash (exceptions?)
 	www.website.com.
 	www.website.com...
 	www.website.com!
@@ -96,38 +292,192 @@
 	www.website.com^
 
 
-	## Lists
+	## LIST
 
-<*> List should require space + one non-space character
-	nothing		*
-	space		* 
-	character	* a
-	comment		* // comment
-	item		*	<> item
+* list item
++ list item
+- list item
+~ list item
+· list item
+‐ list item
+– list item
+— list item
+• list item
+⁃ list item
+< list item
+> list item
 
-<*> Numbered and lettered lists should be formatted properly
-	A. list item
-	ABC. list item
-	A) list item
-	ABC) list item
-	(A) list item
-	(ABC) list item
-	A.) list item
-	ABC.) list item
-	(ABC.) list items
-	
-	1A. list item
-	12AB. list item
-	1A) list item
-	12AB) list item
-	(1A) list item
-	(12AB) list item
-	1A.) list item
-	12AB.) list item
-	(12AB.) list items
+LIST SHOULD REQUIRE SPACE + ONE NON-SPACE CHARACTER
+text	*
+text	* 
+text	* a
+text	* // comment
+text	*	<> item
 
 
-	## Combinations
+	## LIST 2
+
+1. list item
+123. list item
+1) list item
+123) list item
+1.) list item
+123.) list item
+(1) list item
+(123) list item
+(1.) list item
+(123.) list items
+
+A. list item
+ABC. list item
+A) list item
+ABC) list item
+A.) list item
+ABC.) list item
+(A) list item
+(ABC) list item
+(A.) list item
+(ABC.) list items
+
+1A. list item
+12AB. list item
+1A) list item
+12AB) list item
+1A.) list item
+12AB.) list item
+(1A) list item
+(12AB) list item
+(1A.) list item
+(12AB.) list items
+
+
+	## TAG 1, TAG 2
+
+!tag1 description
+$tag1 description
+€tag1 description
+&tag1 description
++tag1 description
+:tag1 description
+;tag1 description
+<tag1 description
+=tag1 description
+>tag1 description
+?tag1 description
+@tag1 description
+`tag1 description
+|tag1 description
+~tag1 description
+·tag1 description
+•tag1 description
+Text +tag1 description
+
+!!tag2 description
+$$tag2 description
+€€tag2 description
+&&tag2 description
+++tag2 description
+::tag2 description
+;;tag2 description
+<<tag2 description
+==tag2 description
+>>tag2 description
+??tag2 description
+@@tag2 description
+``tag2 description
+||tag2 description
+~~tag2 description
+··tag2 description
+••tag2 description
+Text ++tag2 description
+
+
+	## TAG 3
+
+Text #tag
+Text #tag #tag #tag
+Text #tag text after tag removes its formatting
+Text #tag `` unformatted
+
+
+	## SPECIAL 1, SPECIAL 2
+
+[special1] text
+Text	[special1] text
+
+<sp2> text
+Text	<sp2> text
+
+
+	## SPECIAL 3, SPECIAL 4
+
+| Special 3
+| Text text
+| 
+
+Text	| Special 3 after text
+
+|| Special 4
+|| Text text
+|| 
+
+Text	|| Special 4 after text
+
+
+	## CHECKBOX
+
+[ ] checkbox
+[x] checkbox marked 1
+[X] checkbox marked 1
+[*] checkbox marked 1
+[✓] checkbox marked 1
+[-] checkbox marked 2
+[‐] checkbox marked 2
+[–] checkbox marked 2
+[!] checkbox marked 2
+[A] checkbox "marked 3"
+[~] checkbox "marked 3"
+
+( ) checkbox using parantheses
+(x) checkbox using parantheses marked 1
+(!) checkbox using parantheses marked 2
+(~) checkbox using parantheses "marked 3" // Not formatted, original is special1
+{ } checkbox using curly brackets
+{x} checkbox using curly brackets marked 1
+{!} checkbox using curly brackets marked 2
+{~} checkbox using curly brackets "marked 3" // Not formatted, original is special1
+
+
+	## COMMENT
+
+// Comment
+Sample text // Comment
+
+
+	## UNFORMATTED
+
+` text
+` text ·tag text
+` text #tag
+` text // comment
+` *bold*
+` _italic_
+` ^highlight^
+`	- list
+`	[special1] text
+` text `` *text*
+
+
+	## COMBINATIONS
+
+• list item *bold* _italic_ formatting continues "quote" ^highlight^ formatting continues
+· list item example.com formatting contines $tag tag description // comment
++ list item example.com formatting contines $$tag tag description // comment
+
+1. list item *bold* _italic_ formatting continues "quote" ^highlight^ formatting continues
+2) list item *bold* _italic_ formatting continues "quote" ^^highlight2^^^ formatting continues
+3A) list item example.com formatting contines $tag tag description // comment
+4C.) list item example.com formatting contines $$tag tag description // comment
 
 [ ] checklist *bold* _un-italic_ "quote" *bold* formatting contines // comment
 [ ] checklist example.com formatting contines $tag tag description // comment
@@ -149,10 +499,6 @@
 <sp2> special item *bold* formatting continues
 <sp2> special item ^highlight^ formatting continues
 
-$tag tag description NOT *bold* _un-italic_ "quote" *bold* formattinng contines
-$tag tag description example.com formatting contines // comment
-$$tag tag description example.com formatting contines // comment
-
 | Special item 3
 | Special item 3 $tag tag description // comment
 | Special item 3 example.com formatting continues 1 2 3 ^highlight^ formatting continues
@@ -164,55 +510,43 @@ $$tag tag description example.com formatting contines // comment
 || Special item 3 *bold* formatting continues // bold disabled because it can continue to next line
 || Special item 3 ^highlight^ formatting continues
 
-
-		### FIXED/ADDED
-
-<*> Comments after headings shouldn't be treated as headings
-	### Heading //comment
-	## Heading //comment
-	# Heading // comment
-<*> Headings should require space, because of lines
-	#Heading
-	##Heading
-	###Heading
-<*> Bold
-	**
-	 **
-	 * *
-	**text
-	** text
-	*text*
-		***** (should be line)
-<+> Formatting inside lists
-	* list $tag description
-	* list $$tag description
-	* list	[note] this should work
-	* list	<> this should work
-<+> Formatting inside special items
-	[special1] formatted $tag description // comment
-	[special1] formatted $$tag description // comment
-	[special1] formatted example.com formatted // comment
-	<sp2> formatted $tag description // comment
-	<sp2> formatted $$tag description // comment
-	<sp2> formatted example.com formatted // comment
-<+> Italicised quotes
-	"text in quotes"
-<+> Add more special item symbols:
-	!?@->~$
-<+> Bold
-	*text*
-<+> Highlight
-	^text^
-<+> Allow list iteme in sections
-	|	• list
-	| Text	• list
-	Don't allow list items in section type 2
-	||	• list
-	|| Text	• list
+$tag tag description NOT *bold* _un-italic_ "quote" *bold* ^highlight^ formattinng contines
+$tag tag description example.com formatting contines // comment
+$$tag tag description NOT *bold* _un-italic_ "quote" *bold* ^highlight^ formattinng contines
+$$tag tag description example.com formatting contines // comment
 
 
-		### ADD
+		### MISC
 
 
-</> Dates 10.06.2049. (without dot) 10/06/2021 (exception to numbers — or same colour, include slashes?)
-[note] dates: 23.12.2017. don't include last period/punctuation
+	## LETTERS AND SYMBOLS
+
+*Symbols*
+$
+€
+&
+@
+`
+҂
+֍
+
+*Letters*
+· č
+· ö
+~ Þ
+~ Ą
+~ Ħ
+~ ʘ
+· ʭ
+· ͱ
+~ Б
+~ Ӹ
+· բ
+~ ש
+· ش
+~ ޗ
+· ߢ
+~ ॴ
+· ༆
+~ Ⴐ
+· 卷

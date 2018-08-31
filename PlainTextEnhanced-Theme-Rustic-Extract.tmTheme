@@ -18,9 +18,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#212121</string>
+				<string>#FCC38300</string>
 				<key>background</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 			</dict>
@@ -33,7 +33,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 				<key>background</key>
 				<string>#FFFFFF22</string>
 				<key>fontStyle</key>
@@ -48,7 +48,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -59,7 +59,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -70,9 +70,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 				<key>background</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -83,9 +83,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 				<key>background</key>
-				<string>#FCCA92</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -97,8 +97,10 @@
 			<dict>
 				<key>fontStyle</key>
 				<string>bold</string>
+				<!-- <key>foreground</key>
+				<string>#B8726A</string> -->
 				<key>foreground</key>
-				<string>#B87C6A</string>
+				<string>#B8726A</string>
 			</dict>
 		</dict>
 		<dict>
@@ -111,7 +113,7 @@
 				<key>fontStyle</key>
 				<string>bold italic</string>
 				<key>foreground</key>
-				<string>#B87C6A</string>
+				<string>#B8726A</string>
 			</dict>
 		</dict>
 		<dict>
@@ -123,6 +125,8 @@
 			<dict>
 				<key>fontStyle</key>
 				<string>italic</string>
+				<key>foreground</key>
+				<string>#BFBFBF</string>
 			</dict>
 		</dict>
 		<dict>
@@ -192,7 +196,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#212121</string>
+				<string>#FFFFFF00</string>
 				<key>background</key>
 				<string>#FFFFFFFF</string>
 				<!-- <key>fontStyle</key>
@@ -207,18 +211,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#B8706A</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Date or Code</string>
-			<key>scope</key>
-			<string>text.ptenhanced date_code.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#B8706A</string>
+				<string>#6BB5B8</string>
 			</dict>
 		</dict>
 		<dict>
@@ -229,7 +222,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#91ACB8</string>
+				<string>#6BA1B8</string>
 				<key>fontStyle</key>
 				<string>italic</string>
 			</dict>
@@ -242,7 +235,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#7F7F7F</string>
+				<string>#FFFFFF3F</string>
 				<key>fontStyle</key>
 				<string>italic</string>
 			</dict>
@@ -255,7 +248,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#7F7F7F</string>
+				<string>#FFFFFF3F</string>
 				<key>fontStyle</key>
 				<string>italic</string>
 			</dict>
@@ -268,9 +261,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#B87C6A</string>
+				<string>#B8726A</string>
 				<!-- <key>background</key>
-				<string>#B87C6A1F</string> -->
+				<string>#B8726A1F</string> -->
 			</dict>
 		</dict>
 		<dict>
@@ -320,7 +313,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#7F7F7F</string>
+				<string>#FFFFFF3F</string>
 				<key>background</key>
 				<string>#7F7F7F1F</string>
 			</dict>
@@ -333,7 +326,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#7F7F7F</string>
+				<string>#FFFFFF3F</string>
 				<key>fontStyle</key>
 				<string>italic</string>
 			</dict>
@@ -346,7 +339,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#212121</string>
+				<string>#B86B7900</string>
 				<key>background</key>
 				<string>#B86B79</string>
 				<key>fontStyle</key>
@@ -374,7 +367,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#B87C6A</string>
+				<string>#B8726A</string>
 			</dict>
 		</dict>
 		<dict>
@@ -434,8 +427,6 @@
 			<string>text.ptenhanced special3-inside.txt</string>
 			<key>settings</key>
 			<dict>
-				<!-- <key>foreground</key>
-				<string>#FFFFFFFF</string> -->
 				<key>background</key>
 				<string>#FFFFFF0F</string>
 			</dict>
@@ -448,9 +439,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6BB88F</string>
+				<string>#B8726A</string>
 				<key>background</key>
-				<string>#6BB88F</string>
+				<string>#B8726A</string>
 			</dict>
 		</dict>
 		<dict>
@@ -461,9 +452,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#91B8A3</string>
+				<string>#B8726A</string>
 				<key>background</key>
-				<string>#91B8A31F</string>
+				<string>#B8726A1F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -474,7 +465,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#212121</string>
+				<string>#866BB800</string>
 				<key>background</key>
 				<string>#866BB8</string>
 				<key>fontStyle</key>
@@ -488,8 +479,6 @@
 			<string>text.ptenhanced tag1-after.txt</string>
 			<key>settings</key>
 			<dict>
-				<!-- <key>foreground</key>
-				<string>#866BB8</string> -->
 				<key>foreground</key>
 				<string>#866BB8</string>
 				<key>fontStyle</key>
@@ -504,9 +493,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#212121</string>
+				<string>#B85A6B00</string>
 				<key>background</key>
-				<string>#B86B79</string>
+				<string>#B85A6B</string>
 				<key>fontStyle</key>
 				<string>bold</string>
 			</dict>
@@ -518,12 +507,23 @@
 			<string>text.ptenhanced tag2-after.txt</string>
 			<key>settings</key>
 			<dict>
-				<!-- <key>foreground</key>
-				<string>#B86B79</string> -->
 				<key>foreground</key>
 				<string>#B86B79</string>
 				<key>fontStyle</key>
 				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Tag 3</string>
+			<key>scope</key>
+			<string>text.ptenhanced tag3.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FFFFFF3F</string>
+				<!-- <key>fontStyle</key>
+				<string>bold</string> -->
 			</dict>
 		</dict>
 		<dict>
@@ -546,5 +546,18 @@
 			<dict>
 				<key>foreground</key>
 				<string>#FFFFFFFF</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Test</string>
+			<key>scope</key>
+			<string>text.ptenhanced test.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FF007F00</string>
+				<key>background</key>
+				<string>#FF007F</string>
 			</dict>
 		</dict>
