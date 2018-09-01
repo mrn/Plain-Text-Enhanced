@@ -4,8 +4,9 @@
 name: Plain Text Enhanced
 file_extensions:
   - txt
-scope: text.ptenhanced
-first_line_match: '(?<![^\t])#{1,3}\s.'
+scope: text.plaintextenhanced
+# If there is a heading at the beginning of the file, use Plain Text Extended syntax highlighting
+first_line_match: '(?<=^|\t)#{1,3}\s.'
 variables:
   uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^.\s]*)(\.[^.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^.\s/])*/?(?![^\p{L}\s/!?\.$])'
   list_characters: '[\*\+\-~·‐–—•⁃<>]'
@@ -21,6 +22,7 @@ contexts:
 
   main:
     - include: test
+    - include: unformatted2
     - include: unformatted
     - include: checkbox_marked2
     - include: checkbox_marked1
@@ -53,60 +55,58 @@ contexts:
     - match: ''
 
   heading1:
-    - match: '(?<![^\t])#{3}\s+?[^\s]+'
+    - match: '(?<=^|\t)#{3}\s+?[^\s]+'
       comment: Heading — largest
-      scope: punctuation.definition.heading.txt heading1.txt
+      scope: heading1.txt
       push:
-        - meta_content_scope: punctuation.definition.heading.txt heading1.txt
+        - meta_content_scope: heading1.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
   heading2:
-    - match: '(?<![^\t])#{2}\s+?[^\s]+'
+    - match: '(?<=^|\t)#{2}\s+?[^\s]+'
       comment: Heading — medium
-      scope: punctuation.definition.heading.txt heading2.txt
+      scope: heading2.txt
       push:
-        - meta_content_scope: punctuation.definition.heading.txt heading2.txt
+        - meta_content_scope: heading2.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
   heading3:
-    - match: '(?<![^\t])#{1}\s+?[^\s]+'
+    - match: '(?<=^|\t)#{1}\s+?[^\s]+'
       comment: Heading — smallest
-      scope: punctuation.definition.heading.txt heading3.txt
+      scope: heading3.txt
       push:
-        - meta_content_scope: punctuation.definition.heading.txt heading3.txt
+        - meta_content_scope: heading3.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
   line:
-    - match: '(?<![^\t])([^\p{L}\d#\s.])\1{2,}'
+    - match: '(?<=^|\t)([^\p{L}\d#\s.])\1{2,}'
       comment: Horisontal line — normal
-      scope: punctuation.definition.heading.txt line.txt
+      scope: line.txt
       push:
-        - meta_content_scope: punctuation.definition.heading.txt line.txt
+        - meta_content_scope: line.txt
         - match: (?=\s+\/\/)|$
           pop: true
 
   line_solid:
-    # - match: '(?<![^\t])#{4,}(?=[^\n\S])'
-    - match: '(?<![^\t])#{4,}'
+    - match: '(?<=^|\t)#{4,}'
       comment: Horisontal line — thick
-      scope: markup.heading.txt punctuation.definition.heading.txt line_solid.txt
+      scope: line_solid.txt
 
   line_solid_infinite:
-    - match: '(?<![^\t])#{3}$'
+    - match: '(?<=^|\t)#{3}$'
       comment: Horisontal line — thick
-      scope: markup.heading.txt punctuation.definition.heading.txt line_solid_infinite.txt
+      scope: line_solid_infinite.txt
       push:
-        - meta_content_scope: markup.heading.txt punctuation.definition.heading.txt line_solid_infinite.txt
+        - meta_content_scope: line_solid_infinite.txt
         - match: \n?|$
         - match: $
-        # - match: (?=\s+(\/\/|{{tag_characters}}{1,}\p{L}\S+))|$ # Stop before a comment or tag
           pop: true
 
   bold:
-    - match: '(?<!\S)\*[^\s\*][^\*]*[^\s]?'
+    - match: '(?<=^|\s)\*[^\s\*][^\*]*[^\s]?'
       comment: Bold
       scope: bold.txt
       push:
@@ -116,18 +116,17 @@ contexts:
           pop: true
 
   italic:
-    - match: '(?<!\S)_[^\s_][^_]*[^\s]?'
+    - match: '(?<=^|\s)_[^\s_][^_]*[^\s]?'
       comment: Italic
       scope: italic.txt
       push:
         - include: bold
-        # - include: bold_italic
         - meta_content_scope: italic.txt
         - match: '(\s+\/\/.*$)?(?<=\S_)'
           pop: true
 
   quote:
-    - match: '(?<!\S)"[^\s"][^"]*[^\s"]?'
+    - match: '(?<=^|\s)"[^\s"][^"]*[^\s"]?'
       comment: Quote
       scope: quote.txt
       push:
@@ -136,34 +135,34 @@ contexts:
           pop: true
 
   highlight:
-    - match: '(?<!\S)\^[^\^]+?\^'
+    - match: '(?<=^|\s)\^[^\^]+?\^'
       comment: Highlight
-      scope: invalid.txt highlight.txt
+      scope: highlight.txt
 
   highlight2:
-    - match: '(?<!\S)\^{2}[^\^]+?\^{2}'
+    - match: '(?<=^|\s)\^{2}[^\^]+?\^{2}'
       comment: Highlight
-      scope: invalid.txt highlight2.txt
+      scope: highlight2.txt
 
   number:
     - match: '(?<!\w)(\d)+'
       comment: Number
-      scope: constant.numeric.txt number.txt
+      scope: number.txt
 
   key:
     - match: '\b[\p{Lu}\d\-]*(\p{Lu}+\-?\d+|\d+\-?\p{Lu}+)[\p{Lu}\d\-]*\b'
       comment: Key
-      scope: constant.numeric.txt number.txt
+      scope: number.txt
 
   uri:
     - match: '{{uri}}'
       comment: URI, URL or link
-      scope: markup.underline.link.txt uri uri.txt
+      scope: uri.txt
 
   list:
-    - match: '(?<![^\t]){{list_characters}}(?=\s+\S)'
+    - match: '(?<=^|\t){{list_characters}}(?=\s+\S)'
       comment: List item
-      scope: string.txt list.txt
+      scope: list.txt
       push:
         - include: bold
         - include: italic
@@ -188,9 +187,9 @@ contexts:
           pop: true
 
   list2:
-    - match: '(?<![^\t])(\d+\p{L}*|\d*\p{L}+)(\.?\)|\.\)?)(?=\s+\S)'
+    - match: '(?<=^|\t)(\d+\p{L}*|\d*\p{L}+)(\.?\)|\.\)?)(?=\s+\S)'
       comment: List item
-      scope: string.txt list.txt
+      scope: list.txt
       push:
         - include: bold
         - include: italic
@@ -215,9 +214,9 @@ contexts:
           pop: true
 
   tag1:
-    - match: '(?<!\S)({{tag_characters}}){1}\p{L}\S+?(?=\s|$)'
+    - match: '(?<=^|\s){{tag_characters}}{1}\p{L}\S+?(?=\s|$)'
       comment: Tag — type 1
-      scope: entity.name.tag.txt tag1.txt
+      scope: tag1.txt
       push:
         - include: bold
         - include: italic
@@ -230,9 +229,9 @@ contexts:
           pop: true
 
   tag2:
-    - match: '(?<!\S){{tag_characters}}{2}\p{L}\S+?(?=\s|$)'
+    - match: '(?<=^|\s){{tag_characters}}{2}\p{L}\S+?(?=\s|$)'
       comment: Tag — type 2
-      scope: constant.character.txt constant.other.txt tag2.txt
+      scope: tag2.txt
       push:
         - include: bold
         - include: italic
@@ -245,13 +244,13 @@ contexts:
           pop: true
 
   tag3:
-    - match: '(?<!\S)#{1}[\p{L}]\S+?(?=(\s#{1}\p{L}*)*\s*(``.*)*$)'
+    - match: '(?<=^|\s)#{1}[\p{L}]\S+?(?=(\s#{1}\p{L}*)*\s*(``.*)*$)'
       comment: Tag — type 3
       scope: tag3.txt
 
   special1:
-    - match: '(?<![^\t])(\[\S+\])'
-      scope: string.txt special1.txt
+    - match: '(?<=^|\t)(\[\S+\])'
+      scope: special1.txt
       comment: Special — type 1
       push:
         - include: bold
@@ -277,9 +276,9 @@ contexts:
           pop: true
 
   special2:
-    - match: '(?<![^\t])(<.{0,3}>)(?=(?=\s|$))'
+    - match: '(?<=^|\t)(<.{0,3}>)(?=(?=\s|$))'
       comment: Special — type 2
-      scope: string.txt special2.txt
+      scope: special2.txt
       push:
         - include: bold
         - include: italic
@@ -326,7 +325,6 @@ contexts:
         - meta_content_scope: special3-inside.txt
         - match: \n?|.|$
         - match: $
-        # - match: (?=\s+(\/\/|{{tag_characters}}{1,}\p{L}\S+))|$ # Stop before a comment or tag
           pop: true
 
   special4:
@@ -352,13 +350,12 @@ contexts:
         - meta_content_scope: special4-inside.txt
         - match: \n?|.|$
         - match: $
-        # - match: (?=\s+(\/\/|{{tag_characters}}{1,}\p{L}\S+))|$ # Stop beforea a comment or tag
           pop: true
 
   checkbox:
-    - match: '(?<![^\t]){{checkbox_open}}\s{{checkbox_closed}}(?=[^\n\S])'
+    - match: '(?<=^|\t){{checkbox_open}}\s{{checkbox_closed}}(?=[^\n\S])'
       comment: Checkbox item
-      scope: string.txt checkbox.txt
+      scope: checkbox.txt
       push:
         - include: bold
         - include: italic
@@ -383,18 +380,18 @@ contexts:
           pop: true
 
   checkbox_marked1:
-    - match: '(?<![^\t]){{checkbox_open}}[Xx\*✓]{{checkbox_closed}}(?=[^\n\S])'
+    - match: '(?<=^|\t){{checkbox_open}}[Xx\*✓]{{checkbox_closed}}(?=[^\n\S])'
       comment: Checkbox item — marked as done/complete/ignored/dismissed
-      scope: string.txt checkbox_marked1.txt
+      scope: checkbox_marked1.txt
       push:
         - match: '.*?$'
           scope: checkbox_marked1-after.txt
           pop: true
 
   checkbox_marked2:
-    - match: '(?<![^\t]){{checkbox_open}}[\-‐–!]{{checkbox_closed}}(?=[^\n\S])'
+    - match: '(?<=^|\t){{checkbox_open}}[\-‐–!]{{checkbox_closed}}(?=[^\n\S])'
       comment: Checkbox item — marked as important/high-priority
-      scope: string.txt checkbox_marked2.txt
+      scope: checkbox_marked2.txt
       push:
         - include: bold
         - include: italic
@@ -419,11 +416,11 @@ contexts:
           pop: true
 
   comment:
-    - match: '(?<!\S)\/\/'
+    - match: '(?<=^|\s)\/\/'
       comment: Comment
-      scope: punctuation.definition.comment.txt comment.txt
+      scope: comment.txt
       push:
-        - meta_scope: comment.line.double-slash.txt comment-inside.txt
+        - meta_scope: comment-inside.txt
         - match: '$\n?'
           pop: true
 
@@ -434,6 +431,17 @@ contexts:
       push:
         - meta_include_prototype: false
         - meta_content_scope: unformatted-inside.txt
+        - match: \n?|.|$
+        - match: $
+          pop: true
+
+  unformatted2:
+    - match: (?<=^|\t)`{2}(?=[^\n\S])
+      comment: Unformatted
+      scope: unformatted2.txt
+      push:
+        - meta_include_prototype: false
+        - meta_content_scope: unformatted2-inside.txt
         - match: \n?|.|$
         - match: $
           pop: true

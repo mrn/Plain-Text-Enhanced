@@ -454,7 +454,7 @@ Text	|| Special 4 after text
 Sample text // Comment
 
 
-	## UNFORMATTED
+	## UNFORMATTED 1, UNFORMATTED 2
 
 ` text
 ` text ·tag text
@@ -466,6 +466,17 @@ Sample text // Comment
 `	- list
 `	[special1] text
 ` text `` *text*
+
+`` text
+`` text ·tag text
+`` text #tag
+`` text // comment
+`` *bold*
+`` _italic_
+`` ^highlight^
+``	- list
+``	[special1] text
+`` text `` *text*
 
 
 	## COMBINATIONS
