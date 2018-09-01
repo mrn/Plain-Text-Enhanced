@@ -33,14 +33,6 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
 		]
 	},
-	// // Auto pair double underscores
-	// { "keys": ["_"], "command": "insert_snippet", "args": {"contents": "$0__"}, "context":
-	// 	[
-	// 		{ "key": "preceding_text", "operator": "regex_contains", "operand": "__", "match_all": true },
-	// 		{ "key": "following_text", "operator": "not_regex_contains", "operand": "_", "match_all": true },
-	// 		{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
-	// 	]
-	// },
 
 	// Auto pair asterisks
 	{ "keys": ["*"], "command": "insert_snippet", "args": {"contents": "*$0*"}, "context":
@@ -85,14 +77,6 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
 		]
 	},
-	// // Auto pair double asterisks
-	// { "keys": ["*"], "command": "insert_snippet", "args": {"contents": "$0**"}, "context":
-	// 	[
-	// 		{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\*\\*", "match_all": true },
-	// 		{ "key": "following_text", "operator": "not_regex_contains", "operand": "\\*", "match_all": true },
-	// 		{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
-	// 	]
-	// },
 
 	// Auto pair accents
 	{ "keys": ["^"], "command": "insert_snippet", "args": {"contents": "^$0^"}, "context":
@@ -138,13 +122,30 @@
 	},
 
 	// Checkboxes - caret movement
-	// Insert space and move caret to end of line
-	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Insert Space and Move Caret after Checkbox.sublime-macro"}, "context":
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Insert Space, Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{]", "match_all": false },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "[\\]\\)\\}]", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "[\\]\\)\\}]$", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
+		]
+	},
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{].+", "match_all": false },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "[\\]\\)\\}]$", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
+		]
+	},
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{]", "match_all": false },
+			{ "key": "following_text", "operator": "regex_contains", "operand": ".+[\\]\\)\\}]$", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
 		]
 	},
@@ -152,8 +153,8 @@
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{].", "match_all": false },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "[\\]\\)\\}]", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{].+", "match_all": false },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "[\\]\\)\\}]\\s", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
 		]
 	},
@@ -162,16 +163,16 @@
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{]", "match_all": false },
-			{ "key": "following_text", "operator": "regex_contains", "operand": ".[\\]\\)\\}]", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": ".+[\\]\\)\\}]\\s", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
 		]
 	},
-	// Home key selects checkbox contents
+	// Select checkbox contents
 	{ "keys": ["alt+home"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret into Checkbox and Select Contents.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{](.*?)[\\]\\)\\}]", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?<![^\t])[\\[\\(\\{](.+?)[\\]\\)\\}]", "match_all": true },
 			// { "key": "following_text", "operator": "regex_contains", "operand": "\\)|\\]", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.ptenhanced", "match_all": true },
 		]
