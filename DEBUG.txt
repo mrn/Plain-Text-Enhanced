@@ -515,6 +515,7 @@ Sample text // Comment
 | Special item 3 example.com formatting continues 1 2 3 ^highlight^ formatting continues
 | Special item 3 *bold* formatting continues // bold disabled because it can continue to next line
 | Special item 3 ^highlight^ formatting continues
+
 || Special item 3
 || Special item 3 $tag tag description // comment
 || Special item 3 example.com formatting continues 1 2 3 ^highlight^ formatting continues
