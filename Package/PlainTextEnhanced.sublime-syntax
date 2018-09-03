@@ -129,7 +129,7 @@ contexts:
           pop: true
 
   quote:
-    - match: '(?<=^|\s)"[^\s"][^"]*[^\s"]?'
+    - match: '(?<=^|\s)"[^\s"][^"]*[^\s]?'
       comment: Quote
       scope: quote.txt
       push:
@@ -138,14 +138,22 @@ contexts:
           pop: true
 
   highlight:
-    - match: '(?<=^|\s)\^[^\^]+?\^'
+    - match: '(?<=^|\s)\^[^\s\^][^\^]*[^\s]?'
       comment: Highlight
       scope: highlight.txt
+      push:
+        - meta_content_scope: highlight.txt
+        - match: '(\s+\/\/.*$)?(?<=\S\^)'
+          pop: true
 
   highlight2:
-    - match: '(?<=^|\s)\^{2}[^\^]+?\^{2}'
-      comment: Highlight
+    - match: '(?<=^|\s)\^{2}[^\s\^][^\^]*[^\s]?'
+      comment: Highlight thicker
       scope: highlight2.txt
+      push:
+        - meta_content_scope: highlight2.txt
+        - match: '(\s+\/\/.*$)?(?<=\S\^\^)'
+          pop: true
 
   number:
     - match: '(?<!\w)(\d)+'
