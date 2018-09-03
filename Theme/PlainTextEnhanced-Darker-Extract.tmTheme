@@ -7,7 +7,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#000000</string>
+				<string>#FFFFFF</string>
 			</dict>
 		</dict>
 		<dict>
@@ -20,9 +20,9 @@
 				<key>fontStyle</key>
 				<string>bold</string>
 				<key>foreground</key>
-				<string>#6B423E00</string>
+				<string>#FCC38300</string>
 				<key>background</key>
-				<string>#6B423E</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -35,9 +35,9 @@
 				<key>fontStyle</key>
 				<string>bold</string>
 				<key>foreground</key>
-				<string>#6B423E</string>
+				<string>#FCC383</string>
 				<key>background</key>
-				<string>#6B423E1F</string>
+				<string>#FFFFFF22</string>
 			</dict>
 		</dict>
 		<dict>
@@ -48,9 +48,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6B423E</string>
-				<key>background</key>
-				<string>#6B423E1F</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -61,7 +59,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6B423E</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -72,9 +70,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6B423E</string>
+				<string>#FCC383</string>
 				<key>background</key>
-				<string>#6B423E</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -85,9 +83,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#6B423E</string>
+				<string>#FCC383</string>
 				<key>background</key>
-				<string>#6B423E</string>
+				<string>#FCC383</string>
 			</dict>
 		</dict>
 		<dict>
@@ -113,7 +111,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#0000007F</string>
+				<string>#FFFFFF9F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -135,9 +133,9 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#000000</string>
+				<string>#FFFFFF</string>
 				<key>background</key>
-				<string>#0000003F</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -150,7 +148,7 @@
 				<key>foreground</key>
 				<string>#FFFFFF00</string>
 				<key>background</key>
-				<string>#000000</string>
+				<string>#FFFFFF</string>
 			</dict>
 		</dict>
 		<dict>
@@ -187,7 +185,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#0000003F</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -200,7 +198,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#0000003F</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -289,7 +287,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#0000003F</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -344,7 +342,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#0000000F</string>
+				<string>#FFFFFF0F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -355,7 +353,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#0000000F</string>
+				<string>#FFFFFF0F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -392,7 +390,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#0000003F</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -414,7 +412,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#0000003F</string>
+				<string>#FFFFFF3F</string>
 				<key>background</key>
 				<string>#7F7F7F1F</string>
 			</dict>
@@ -429,7 +427,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#0000003F</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -457,7 +455,35 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#B89198</string>
+				<string>#B86B79</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Checkbox Marked 3</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced checkbox_marked3.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#6AB8A300</string>
+				<key>background</key>
+				<string>#6AB8A3</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Checkbox Marked 3 - After</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced checkbox_marked3-after.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#6AB8A3</string>
 			</dict>
 		</dict>
 		<dict>
@@ -486,7 +512,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#0000000F</string>
+				<string>#FFFFFF0F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -497,7 +523,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#0000000F</string>
+				<string>#FFFFFF0F</string>
 			</dict>
 		</dict>
 		<dict>

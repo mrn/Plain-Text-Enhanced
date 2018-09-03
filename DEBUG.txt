@@ -71,7 +71,7 @@ $123
 12GHz
 12.3V
 
-*NO*
+# DO NOT MATCH
 č123
 ć123
 đ123
@@ -208,7 +208,7 @@ A1B2C-3D4E5-F6G7H
 QEJUD936472PKDH
 Q2Č6Ć31Ž0
 
-*NO*
+# DO NOT MATCH
 KRPST
 QEJUDGLEOSKRPST
 QEJUD-GLEOS-KRPST // Could hyphenated capitalised word
@@ -227,62 +227,90 @@ deadmau5
 
 	## URI
 
-<*> Text before URI - must be space|quote|bracket|slash (think what else)
+Text before URI - must be space|quote|bracket|slash (think what else)
 
-<*> Should be treated as URI
-	SYNTAX: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
+# MATCH
+SYNTAX: scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
 	> see https://en.wikipedia.org/wiki/URI
 
-	pre.name.com
-	pre.website.co
-	pre.pre2.pre3.website.co.uk
-	x.com
-	x.co
-	name.com/sub/page
-	name.com/sub/page/
-	ab.co
-	abc.com
-	例子.卷筒纸
-	http://example.com
-	https://www.website.com/
-	http://name.com// // Include second slash
-	http://a_.aa/
-	abc+.-://name.com
-	text://name.com // Protocols/schemes can be anything
-	ftp://public.ftp-servers.example.com/mydirectory/myfile.txt
-	example.com/file.7zip // Include numbers in extensions in paths
-	example.com/file.a4
-	example.com/download.php?attachmentid=644
-	example.com/dir?list.3
-	www.site.com/doc.asp?doc=321&language=1
-	example.com./ // Is this valid?
-	http://例子.卷筒纸
-	10fastfingers.com // Numbers sometimes break syntax
-	www.10fastfingers.com
-	1abc://name.com // Scheme must start with ASCII letter
-	'example.com'
-	(example.com)
-	[example.com]
-	{example.com}
+https://example.com/path/resource.txt#fragment
 
-<*> Should not be treated as URI
-	x..
-	~..
-	we.c3% // Ending must be letters only
-	a.b a.b. // 2+ ASCII letters in last part
-	%*-:'.com // First character in name must be ASCII letter or number
-	(.com
-	^*:~.%-|'
-	www.abvc.2a
-	www.*%-:'.com
-	website.ć
-	name.com a // Formatting should end before a space
-	https://w.c
-	http://
-	S.W.A.T.
-	NUMBERS 123.456
-	DATES 23.12.2018
-	DATES 10/03/2018
+*Standard*
+website.com
+sub.website.com
+x.com
+x.co
+w3.or
+3w.co
+10fastfingers.com // Numbers sometimes break syntax
+p.22.p3.pre4.website.co.uk
+例子卷筒纸.ch
+PROTOCOLS
+http://example.com
+https://www.website.com/
+text://x.co
+http://例子/卷筒纸.com
+PATHS
+www.website.com/Addressing/
+wikipedia.org/wiki/Main_Page
+example.com/file.7zip // Include numbers in extensions in paths
+example.com/file.a4
+example.com/dir?list.3
+example.com/download.php?attachmentid=644
+www.site.com/doc.asp?doc=321&language=1
+ftp://public.ftp-servers.example.com/mydirectory/myfile.txt
+
+
+*Special*
+mailto:John.Doe@example.com
+https://john.doe@www.example.com:123/forum/questions/?tag=networking&order=newest#top
+ldap://[2001:db8::7]/c=GB?objectClass?one
+news:comp.infosystems.www.servers.unix
+http://a/b/c/d;p?q
+http://a/b/c/g?y#s
+
+*Other types*
+tel:+1-816-555-1212
+telnet://192.0.2.16:80/
+urn:oasis:names:specification:docbook:dtd:xml:4.1.2
+
+
+*Questionable*
+example.com./ // Is this valid?
+http://name.com// // Include second slash?
+http://a_.aa/ // ?
+abc+.-://name.com
+1abc://name.com // Does scheme have to start with ASCII letter? Numbers allowed?
+
+*Not decided*
+'example.com'
+(example.com)
+[example.com]
+{example.com}
+
+# DO NOT MATCH
+x..
+~..
+we.c3% // Ending must be letters only
+a.b a.b. // 2+ ASCII letters in last part
+%*-:'.com // First character in name must be ASCII letter or number
+(.com
+^*:~.%-|'
+www.abvc.2a
+www.*%-:'.com
+www.a*%-:'.com
+www.*%-:'a.com
+website.ć
+name.com a // Formatting should end before a space
+https://w.c
+http://
+S.W.A.T.
+NUMBERS 123.456
+DATES 23.12.2018
+DATES 10/03/2018
+(www.example.com) // Not surrounding brackets, commas, and other PAIRS of punctuation
+*www.example.com* // Not formatting symbols. Formatting should be applied to the text.
+_http://example.com_
 
 <*> Punctuation after URI TLD should not be formatted, except forward slash (exceptions?)
 	www.website.com.
@@ -323,10 +351,6 @@ text	*	<> item
 123) list item
 1.) list item
 123.) list item
-(1) list item
-(123) list item
-(1.) list item
-(123.) list items
 
 A. list item
 ABC. list item
@@ -334,10 +358,6 @@ A) list item
 ABC) list item
 A.) list item
 ABC.) list item
-(A) list item
-(ABC) list item
-(A.) list item
-(ABC.) list items
 
 1A. list item
 12AB. list item
@@ -345,10 +365,6 @@ ABC.) list item
 12AB) list item
 1A.) list item
 12AB.) list item
-(1A) list item
-(12AB) list item
-(1A.) list item
-(12AB.) list items
 
 
 	## TAG 1, TAG 2
@@ -430,13 +446,12 @@ Text	|| Special 4 after text
 [x] checkbox marked 1
 [X] checkbox marked 1
 [*] checkbox marked 1
-[✓] checkbox marked 1
 [-] checkbox marked 2
-[‐] checkbox marked 2
-[–] checkbox marked 2
 [!] checkbox marked 2
-[A] checkbox "marked 3"
-[~] checkbox "marked 3"
+[+] checkbox marked 3
+[✓] checkbox marked 3
+[A] Alternative "checkbox" (actually special 1)
+[~] Alternative "checkbox" (actually special 1)
 
 ( ) checkbox using parantheses
 (x) checkbox using parantheses marked 1
@@ -499,6 +514,9 @@ Sample text // Comment
 [!] checklist marked 2 *bold* _un-italic_ "quote" *bold* formatting contines
 [!] checklist marked 2 example.com formatting contines $tag tag description // comment
 [!] checklist marked *bold* formatting continues
+[+] checklist marked 2 *bold* _un-italic_ "quote" *bold* formatting contines
+[+] checklist marked 2 example.com formatting contines $tag tag description // comment
+[+] checklist marked *bold* formatting continues
 
 [special1] special item 1 *bold* _un-italic_ "quote" *bold* formatting contines // comment
 [special1] special item 1 example.com formatting contines $tag tag description // comment
