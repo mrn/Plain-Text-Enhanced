@@ -71,7 +71,7 @@ $123
 12GHz
 12.3V
 
-# DO NOT MATCH
+# DO NOT MATCH // Upper case letters will still be matched
 č123
 ć123
 đ123
@@ -83,15 +83,15 @@ $123
 Ħ123
 ʘ123
 ʭ123
-ͱ123	?
+ͱ123
 Б123
 Ӹ123
 բ123
 ש123
 ش123
 ޗ123
-ߢ123		?
-ॴ123	?
+ߢ123	
+ॴ123
 Ⴐ123
 卷123
 
@@ -441,7 +441,7 @@ Text	|| Special 4 after text
 
 
 	## CHECKBOX
-
+^a ^
 [ ] checkbox
 [x] checkbox marked 1
 [X] checkbox marked 1

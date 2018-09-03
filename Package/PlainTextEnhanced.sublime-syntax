@@ -58,7 +58,7 @@ contexts:
     - match: ''
 
   heading1:
-    - match: '(?<=^|\t)#{3}\s+?[^\s]+'
+    - match: '(?<=^|\t)#{3}\s+?\S+'
       comment: Heading - largest
       scope: heading1.txt
       push:
@@ -67,7 +67,7 @@ contexts:
           pop: true
 
   heading2:
-    - match: '(?<=^|\t)#{2}\s+?[^\s]+'
+    - match: '(?<=^|\t)#{2}\s+?\S+'
       comment: Heading - medium
       scope: heading2.txt
       push:
@@ -76,7 +76,7 @@ contexts:
           pop: true
 
   heading3:
-    - match: '(?<=^|\t)#{1}\s+?[^\s]+'
+    - match: '(?<=^|\t)#{1}\s+?\S+'
       comment: Heading - smallest
       scope: heading3.txt
       push:
@@ -108,28 +108,38 @@ contexts:
         - match: $
           pop: true
 
+  # bold:
+  #   - match: '(?<=^|\s)\*[^\s\*][^\*]*\S?'
+  #     comment: Bold
+  #     scope: test.txt
+  #     push:
+  #       - include: italic
+  #       - meta_content_scope: bold.txt
+  #       - match: '(\s+\/\/.*$)?(?<=\S\*)'
+  #         pop: true
+
   bold:
-    - match: '(?<=^|\s)\*[^\s\*][^\*]*[^\s]?'
+    - match: '(?<=^\*|\s\*)[^\s\*][^\*]*'
       comment: Bold
       scope: bold.txt
       push:
         - include: italic
         - meta_content_scope: bold.txt
-        - match: '(\s+\/\/.*$)?(?<=\S\*)'
+        - match: '(\s+\/\/.*$)?(?<=\S)(?=\*)'
           pop: true
 
   italic:
-    - match: '(?<=^|\s)_[^\s_][^_]*[^\s]?'
+    - match: '(?<=^_|\s_)[^\s_][^_]*'
       comment: Italic
       scope: italic.txt
       push:
         - include: bold
         - meta_content_scope: italic.txt
-        - match: '(\s+\/\/.*$)?(?<=\S_)'
+        - match: '(\s+\/\/.*$)?(?<=\S)(?=_)'
           pop: true
 
   quote:
-    - match: '(?<=^|\s)"[^\s"][^"]*[^\s]?'
+    - match: '(?<=^"|\s")[^\s"][^"]*'
       comment: Quote
       scope: quote.txt
       push:
@@ -138,22 +148,14 @@ contexts:
           pop: true
 
   highlight:
-    - match: '(?<=^|\s)\^[^\s\^][^\^]*[^\s]?'
+    - match: '(?<=^\^|\s\^)[^\s\^][^\^]*\S?(?=\^)'
       comment: Highlight
       scope: highlight.txt
-      push:
-        - meta_content_scope: highlight.txt
-        - match: '(\s+\/\/.*$)?(?<=\S\^)'
-          pop: true
 
   highlight2:
-    - match: '(?<=^|\s)\^{2}[^\s\^][^\^]*[^\s]?'
+    - match: '(?<=^\^\^|\s\^\^)[^\s\^][^\^]*\S?(?=\^\^)'
       comment: Highlight thicker
       scope: highlight2.txt
-      push:
-        - meta_content_scope: highlight2.txt
-        - match: '(\s+\/\/.*$)?(?<=\S\^\^)'
-          pop: true
 
   number:
     - match: '(?<!\w)(\d)+'
