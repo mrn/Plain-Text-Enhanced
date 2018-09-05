@@ -30,15 +30,15 @@ contexts:
     - include: checkbox_marked2
     - include: checkbox_marked1
     - include: checkbox
-    - include: special4
-    - include: special3
+    - include: block2
+    - include: block
     - include: special2
     - include: special1
     - include: tag3
     - include: tag2
-    - include: tag1
+    - include: tag
     - include: list2
-    - include: list1
+    - include: list
     - include: uri
     - include: key
     - include: number
@@ -176,22 +176,22 @@ contexts:
       comment: URI, URL, link
       scope: uri.txt
 
-  list1:
+  list:
     - match: '(?<=^|\t){{list_characters}}(?=\s+\S)'
       comment: List item
       scope: list.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
@@ -209,17 +209,17 @@ contexts:
       comment: List item - numbered or lettered
       scope: list.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
@@ -232,24 +232,18 @@ contexts:
         - match: \t|(?=\s+\/\/)|$
           pop: true
 
-  tag1:
-    - match: '(?<=^|\s){{tag_characters}}{1}\p{L}\S*?(?=\s|$)'
-      comment: Tag - type 1
-      scope: tag1.txt
+  tag:
+    - match: '(?<=^|\s)#{1}\p{L}\S*?(?=(\s+#{1}\p{L}\S*)*\s*(\t.*)*$)'
+      comment: Tag - type 3
+      scope: tag.txt
       push:
-        - include: uri
-        - include: highlight2
-        - include: highlight
-        - include: quote
-        - include: italic
-        - include: bold
-        - meta_content_scope: tag1-after.txt
+        - meta_content_scope: tag.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
 
   tag2:
-    - match: '(?<=^|\s){{tag_characters}}{2}\p{L}\S*?(?=\s|$)'
-      comment: Tag - type 2
+    - match: '(?<=^|\s){{tag_characters}}{1}\p{L}\S*?(?=\s|$)'
+      comment: Tag - type 1
       scope: tag2.txt
       push:
         - include: uri
@@ -263,11 +257,17 @@ contexts:
           pop: true
 
   tag3:
-    - match: '(?<=^|\s)#{1}\p{L}\S*?(?=(\s+#{1}\p{L}\S*)*\s*(\t.*)*$)'
-      comment: Tag - type 3
+    - match: '(?<=^|\s){{tag_characters}}{2}\p{L}\S*?(?=\s|$)'
+      comment: Tag - type 2
       scope: tag3.txt
       push:
-        - meta_content_scope: tag3.txt
+        - include: uri
+        - include: highlight2
+        - include: highlight
+        - include: quote
+        - include: italic
+        - include: bold
+        - meta_content_scope: tag3-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
 
@@ -276,17 +276,17 @@ contexts:
       scope: special1.txt
       comment: Special - type 1
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
@@ -304,17 +304,17 @@ contexts:
       comment: Special - type 2
       scope: special2.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
@@ -327,54 +327,54 @@ contexts:
         - match: \t|(?=\s+\/\/)|$
           pop: true
 
-  special3:
+  block:
     - match: '(?<=^|\t)\|(?=[^\r\n\S])'
-      comment: Special - type 3
-      scope: special3.txt
+      comment: Block - type 1
+      scope: block.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
         - include: highlight2
         - include: highlight
-        - meta_content_scope: special3-inside.txt
+        - meta_content_scope: block.txt
         - match: \r\n|\r|\n|.|$
         - match: $
           pop: true
 
-  special4:
+  block2:
     - match: '(?<=^|\t)\|{2}(?=[^\r\n\S])'
-      comment: Special - type 4
-      scope: special4.txt
+      comment: Block - type 2
+      scope: block2.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
         - include: highlight2
         - include: highlight
-        - meta_content_scope: special4-inside.txt
+        - meta_content_scope: block2-inside.txt
         - match: \r\n|\r|\n|.|$
         - match: $
           pop: true
@@ -384,17 +384,17 @@ contexts:
       comment: Checkbox item
       scope: checkbox.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
@@ -421,17 +421,17 @@ contexts:
       comment: Checkbox item - marked as important/high-priority
       scope: checkbox_marked2.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number
@@ -449,17 +449,17 @@ contexts:
       comment: Checkbox item - coloured green
       scope: checkbox_marked3.txt
       push:
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: special2
-        - include: special1
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
+        - include: special2
+        - include: special1
+        - include: tag3
+        - include: tag2
+        - include: tag
         - include: list2
-        - include: list1
+        - include: list
         - include: uri
         - include: key
         - include: number

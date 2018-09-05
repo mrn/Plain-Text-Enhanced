@@ -225,30 +225,13 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Tag 1</string>
+			<string>Plain Text Enhanced - Tag</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced tag1.txt</string>
+			<string>text.plaintextenhanced tag.txt</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string>bold</string>
 				<key>foreground</key>
-				<string>#866BB800</string>
-				<key>background</key>
-				<string>#866BB8</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Tag 1 - After</string>
-			<key>scope</key>
-			<string>text.plaintextenhanced tag1-after.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-				<key>foreground</key>
-				<string>#866BB8</string>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -261,9 +244,9 @@
 				<key>fontStyle</key>
 				<string>bold</string>
 				<key>foreground</key>
-				<string>#B85A6B00</string>
+				<string>#866BB800</string>
 				<key>background</key>
-				<string>#B85A6B</string>
+				<string>#866BB8</string>
 			</dict>
 		</dict>
 		<dict>
@@ -276,7 +259,7 @@
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#B86B79</string>
+				<string>#866BB8</string>
 			</dict>
 		</dict>
 		<dict>
@@ -286,8 +269,25 @@
 			<string>text.plaintextenhanced tag3.txt</string>
 			<key>settings</key>
 			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
 				<key>foreground</key>
-				<string>#FFFFFF3F</string>
+				<string>#B85A6B00</string>
+				<key>background</key>
+				<string>#B85A6B</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Tag 3 - After</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced tag3-after.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#B86B79</string>
 			</dict>
 		</dict>
 		<dict>
@@ -336,9 +336,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Special 3</string>
+			<string>Plain Text Enhanced - Block</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced special3.txt</string>
+			<string>text.plaintextenhanced block.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
@@ -347,9 +347,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Special 3 - Inside</string>
+			<string>Plain Text Enhanced - Block - Inside</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced special3-inside.txt</string>
+			<string>text.plaintextenhanced block-inside.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
@@ -358,9 +358,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Special 4</string>
+			<string>Plain Text Enhanced - Block 2</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced special4.txt</string>
+			<string>text.plaintextenhanced block2.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -371,9 +371,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Plain Text Enhanced - Special 4 - Inside</string>
+			<string>Plain Text Enhanced - Block 2 - Inside</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced special4-inside.txt</string>
+			<string>text.plaintextenhanced block2-inside.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
