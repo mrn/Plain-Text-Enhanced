@@ -38,7 +38,7 @@ contexts:
     - include: tag2
     - include: tag1
     - include: list2
-    - include: list
+    - include: list1
     - include: uri
     - include: key
     - include: number
@@ -176,7 +176,7 @@ contexts:
       comment: URI, URL, link
       scope: uri.txt
 
-  list:
+  list1:
     - match: '(?<=^|\t){{list_characters}}(?=\s+\S)'
       comment: List item
       scope: list.txt
@@ -191,7 +191,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -219,7 +219,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -233,7 +233,7 @@ contexts:
           pop: true
 
   tag1:
-    - match: '(?<=^|\s){{tag_characters}}{1}\p{L}\S+?(?=\s|$)'
+    - match: '(?<=^|\s){{tag_characters}}{1}\p{L}\S*?(?=\s|$)'
       comment: Tag - type 1
       scope: tag1.txt
       push:
@@ -244,11 +244,11 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: tag1-after.txt
-        - match: \t|(?=\s+\/\/|\s``)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   tag2:
-    - match: '(?<=^|\s){{tag_characters}}{2}\p{L}\S+?(?=\s|$)'
+    - match: '(?<=^|\s){{tag_characters}}{2}\p{L}\S*?(?=\s|$)'
       comment: Tag - type 2
       scope: tag2.txt
       push:
@@ -259,13 +259,17 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: tag2-after.txt
-        - match: \t|(?=\s+\/\/|\s``)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   tag3:
-    - match: '(?<=^|\s)#{1}[\p{L}]\S+?(?=(\s#{1}\p{L}*)*\s*(``.*)*$)'
+    - match: '(?<=^|\s)#{1}\p{L}\S*?(?=(\s+#{1}\p{L}\S*)*\s*(\t.*)*$)'
       comment: Tag - type 3
       scope: tag3.txt
+      push:
+        - meta_content_scope: tag3.txt
+        - match: \t|(?=\s+\/\/)|$
+          pop: true
 
   special1:
     - match: '(?<=^|\t)(\[\S+\])'
@@ -282,7 +286,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -310,7 +314,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -338,7 +342,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -364,7 +368,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -390,7 +394,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -404,7 +408,7 @@ contexts:
           pop: true
 
   checkbox_marked1:
-    - match: '(?<=^|\t){{checkbox_open}}[Xx\*]{{checkbox_closed}}(?=[^\r\n\S])'
+    - match: '(?<=^|\t){{checkbox_open}}[xX\*]{{checkbox_closed}}(?=[^\r\n\S])'
       comment: Checkbox item - marked as done/complete/ignored/dismissed
       scope: checkbox_marked1.txt
       push:
@@ -427,7 +431,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
@@ -455,7 +459,7 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: list2
-        - include: list
+        - include: list1
         - include: uri
         - include: key
         - include: number
