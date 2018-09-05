@@ -90,13 +90,17 @@ contexts:
       scope: line.txt
       push:
         - meta_content_scope: line.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   line_solid:
     - match: '(?<=^|\t)#{4,}'
       comment: Horisontal line - thick
       scope: line_solid.txt
+      push:
+        - meta_content_scope: line_solid.txt
+        - match: \t|(?=\s+\/\/)|$
+          pop: true
 
   line_solid_infinite:
     - match: '(?<=^|\t)#{3}$'
@@ -197,7 +201,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: list-after.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   list2:
@@ -225,7 +229,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: list-after.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   tag1:
@@ -240,7 +244,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: tag1-after.txt
-        - match: (?=\s+\/\/|\s``)|$
+        - match: \t|(?=\s+\/\/|\s``)|$
           pop: true
 
   tag2:
@@ -255,7 +259,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: tag2-after.txt
-        - match: (?=\s+\/\/|\s``)|$
+        - match: \t|(?=\s+\/\/|\s``)|$
           pop: true
 
   tag3:
@@ -288,7 +292,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: special1-after.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   special2:
@@ -316,7 +320,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: special2-after.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   special3:
@@ -396,7 +400,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: checkbox-after.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   checkbox_marked1:
@@ -404,8 +408,8 @@ contexts:
       comment: Checkbox item - marked as done/complete/ignored/dismissed
       scope: checkbox_marked1.txt
       push:
-        - match: '.*?$'
-          scope: checkbox_marked1-after.txt
+        - meta_content_scope: checkbox_marked1-after.txt
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   checkbox_marked2:
@@ -433,7 +437,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: checkbox_marked2-after.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   checkbox_marked3:
@@ -461,7 +465,7 @@ contexts:
         - include: italic
         - include: bold
         - meta_content_scope: checkbox_marked3-after.txt
-        - match: (?=\s+\/\/)|$
+        - match: \t|(?=\s+\/\/)|$
           pop: true
 
   comment:
@@ -470,7 +474,7 @@ contexts:
       scope: comment.txt
       push:
         - meta_scope: comment-inside.txt
-        - match: '$(\r\n|\r|\n)?'
+        - match: $(\r\n|\r|\n)?
           pop: true
 
   unformatted:
