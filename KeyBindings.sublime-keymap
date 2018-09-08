@@ -4,8 +4,8 @@
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|\\d)$", "match_all": true },
-			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|\\d)", "match_all": true },
+			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|[\\L\\S]|\\d)$", "match_all": true },
+			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|[\\L\\S]|\\d)", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
@@ -50,8 +50,8 @@
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|\\d)$", "match_all": true },
-			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|\\d)", "match_all": true },
+			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|[\\L\\S]|\\d)$", "match_all": true },
+			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|[\\L\\S]|\\d)", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
@@ -96,8 +96,8 @@
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|\\d)$", "match_all": true },
-			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|\\d)", "match_all": true },
+			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|[\\L\\S]|\\d)$", "match_all": true },
+			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|[\\L\\S]|\\d)", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},

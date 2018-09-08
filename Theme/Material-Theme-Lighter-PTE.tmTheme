@@ -1168,7 +1168,7 @@ a {
 			<key>name</key>
 			<string>Plain Text Enhanced - Line Thick</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced line_solid.txt</string>
+			<string>text.plaintextenhanced line_thick.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -1179,9 +1179,24 @@ a {
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Line Thick After</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced line_thick-after.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+				<key>foreground</key>
+				<string>#6B423E00</string>
+				<key>background</key>
+				<string>#6B423E</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Line Thick Infinite</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced line_solid_infinite.txt</string>
+			<string>text.plaintextenhanced line_thick_infinite.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
