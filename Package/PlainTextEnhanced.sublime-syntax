@@ -40,9 +40,6 @@ contexts:
     - include: tag
     - include: list2
     - include: list
-    - include: uri
-    - include: key
-    - include: number
     - include: highlight2
     - include: highlight
     - include: quote
@@ -54,9 +51,27 @@ contexts:
     - include: heading3
     - include: heading2
     - include: heading1
+    - include: uri
+    - include: key
+    - include: number
 
   base:
     - match: ''
+
+  number:
+    - match: '(?<!\w)(\d)+'
+      comment: Number
+      scope: number.txt
+
+  key:
+    - match: '\b[\p{Lu}\d\-]*(\p{Lu}+\-?\d+|\d+\-?\p{Lu}+)[\p{Lu}\d\-]*\b'
+      comment: Key
+      scope: number.txt
+
+  uri:
+    - match: '{{uri}}'
+      comment: URI, URL, link
+      scope: uri.txt
 
   heading1:
     - match: '(?<=^|\t)#{3}(?=\s|$)'
@@ -68,7 +83,6 @@ contexts:
           pop: true
 
   heading2:
-    # - match: '(?<=^|\t)#{2}\s+?\S+'
     - match: '(?<=^|\t)#{2}(?=\s|$)'
       comment: Heading - medium
       scope: heading2.txt
@@ -114,18 +128,8 @@ contexts:
         - match: $
           pop: true
 
-  # bold:
-  #   - match: '(?<=^|\s)\*[^\s\*][^\*]*\S?'
-  #     comment: Bold
-  #     scope: test.txt
-  #     push:
-  #       - include: italic
-  #       - meta_content_scope: bold.txt
-  #       - match: '(\s+\/\/.*$)?(?<=\S\*)'
-  #         pop: true
-
   bold:
-    - match: '(?<=^\*|\s\*)[^\s\*][^\*]*'
+    - match: '(?<=^\*|\s\*)[^\s\*]'
       comment: Bold
       scope: bold.txt
       push:
@@ -135,22 +139,24 @@ contexts:
           pop: true
 
   italic:
-    - match: '(?<=^_|\s_)[^\s_][^_]*'
+    - match: '(?<=^_|\s_)[^\s_]'
       comment: Italic
       scope: italic.txt
       push:
         - include: bold
         - meta_content_scope: italic.txt
-        - match: '(\s+\/\/.*$)?(?<=\S)(?=_)'
+        - match: '(\s+\/\/.*$)?(?<=\S)(?=_($|[^\p{L}\d]))'
           pop: true
 
   quote:
-    - match: '(?<=^"|\s")[^\s"][^"]*'
+    - match: '(?<=^|\s)"[^\s"]'
       comment: Quote
       scope: quote.txt
       push:
+        - include: bold
+        - include: italic
         - meta_content_scope: quote.txt
-        - match: '(\s+\/\/.*$)?(?<=\S")'
+        - match: '(\s+\/\/.*$)?(?<=\S")(?=($|[^\p{L}\d]))'
           pop: true
 
   highlight:
@@ -162,21 +168,6 @@ contexts:
     - match: '(?<=^\^\^|\s\^\^)[^\s\^][^\^]*\S?(?=\^\^)'
       comment: Highlight thicker
       scope: highlight2.txt
-
-  number:
-    - match: '(?<!\w)(\d)+'
-      comment: Number
-      scope: number.txt
-
-  key:
-    - match: '\b[\p{Lu}\d\-]*(\p{Lu}+\-?\d+|\d+\-?\p{Lu}+)[\p{Lu}\d\-]*\b'
-      comment: Key
-      scope: number.txt
-
-  uri:
-    - match: '{{uri}}'
-      comment: URI, URL, link
-      scope: uri.txt
 
   list:
     - match: '(?<=^|\t){{list_characters}}(?=\s+\S)'
@@ -194,14 +185,14 @@ contexts:
         - include: tag
         - include: list2
         - include: list
-        - include: uri
-        - include: key
-        - include: number
         - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: list-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -222,14 +213,14 @@ contexts:
         - include: tag
         - include: list2
         - include: list
-        - include: uri
-        - include: key
-        - include: number
         - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: list-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -248,12 +239,14 @@ contexts:
       comment: Tag - type 1
       scope: tag2.txt
       push:
-        - include: uri
-        - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
+        - include: highlight2
         - meta_content_scope: tag2-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -263,12 +256,14 @@ contexts:
       comment: Tag - type 2
       scope: tag3.txt
       push:
-        - include: uri
-        - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
+        - include: highlight2
         - meta_content_scope: tag3-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -289,14 +284,14 @@ contexts:
         - include: tag
         - include: list2
         - include: list
-        - include: uri
-        - include: key
-        - include: number
         - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: special1-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -317,14 +312,14 @@ contexts:
         - include: tag
         - include: list2
         - include: list
-        - include: uri
-        - include: key
-        - include: number
         - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: special2-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -345,11 +340,11 @@ contexts:
         - include: tag
         - include: list2
         - include: list
+        - include: highlight2
+        - include: highlight
         - include: uri
         - include: key
         - include: number
-        - include: highlight2
-        - include: highlight
         - meta_content_scope: block.txt
         - match: \r\n|\r|\n|.|$
         - match: $
@@ -371,11 +366,11 @@ contexts:
         - include: tag
         - include: list2
         - include: list
+        - include: highlight2
+        - include: highlight
         - include: uri
         - include: key
         - include: number
-        - include: highlight2
-        - include: highlight
         - meta_content_scope: block2-inside.txt
         - match: \r\n|\r|\n|.|$
         - match: $
@@ -397,14 +392,14 @@ contexts:
         - include: tag
         - include: list2
         - include: list
-        - include: uri
-        - include: key
-        - include: number
         - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: checkbox-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -434,14 +429,14 @@ contexts:
         - include: tag
         - include: list2
         - include: list
-        - include: uri
-        - include: key
-        - include: number
         - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: checkbox_marked2-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true
@@ -462,14 +457,14 @@ contexts:
         - include: tag
         - include: list2
         - include: list
-        - include: uri
-        - include: key
-        - include: number
         - include: highlight2
         - include: highlight
         - include: quote
         - include: italic
         - include: bold
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: checkbox_marked3-after.txt
         - match: \t|(?=\s+\/\/)|$
           pop: true

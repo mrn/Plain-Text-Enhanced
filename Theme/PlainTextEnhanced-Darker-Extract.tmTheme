@@ -12,6 +12,30 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Number</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced number.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6BB5B8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - URI</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced uri.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#6BA1B8</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Heading 1</string>
 			<key>scope</key>
 			<string>text.plaintextenhanced heading1.txt</string>
@@ -164,56 +188,6 @@
 				<string>#FFFFFF00</string>
 				<key>background</key>
 				<string>#FFFFFF</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Number</string>
-			<key>scope</key>
-			<string>text.plaintextenhanced number.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#6BB5B8</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - URI</string>
-			<key>scope</key>
-			<string>text.plaintextenhanced uri.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-				<key>foreground</key>
-				<string>#6BA1B8</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Comment</string>
-			<key>scope</key>
-			<string>text.plaintextenhanced comment.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-				<key>foreground</key>
-				<string>#FFFFFF3F</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>Plain Text Enhanced - Comment Inside</string>
-			<key>scope</key>
-			<string>text.plaintextenhanced comment-inside.txt</string>
-			<key>settings</key>
-			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
-				<key>foreground</key>
-				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -499,6 +473,32 @@
 				<string>italic</string>
 				<key>foreground</key>
 				<string>#6AB8A3</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Comment</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced comment.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#FFFFFF3F</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Comment Inside</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced comment-inside.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic</string>
+				<key>foreground</key>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
