@@ -12,8 +12,8 @@ variables:
   uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^\.\s]*)(\.[^\.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^\.\s/])*/?(?![^\p{L}\s/!?\.$])'
   # uri: '(?<=^|\s)\S*[\p{L}\d]+\.[a-zA-Z]{2,}\S*(?=\s|$)'
   # uri:  ''
-  list_characters: '[\*\+\-~·‐–—•⁃<>]'
-  tag_characters: '[!\$€&\+:;<=>\?@`|~·•]'
+  list_characters: '[\*\+\-<>~«»·‐–—•⁃]'
+  tag_characters: '[!\$&\+:;<=>\?@`|~«»·•€]'
   checkbox_open: '[\[\(\{]'
   checkbox_closed: '[\]\)\}]'
 contexts:
