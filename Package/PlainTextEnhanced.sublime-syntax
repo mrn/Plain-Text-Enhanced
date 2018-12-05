@@ -342,6 +342,9 @@ contexts:
         - include: list
         - include: highlight2
         - include: highlight
+        - include: heading3
+        - include: heading2
+        - include: heading1
         - include: uri
         - include: key
         - include: number
@@ -368,6 +371,9 @@ contexts:
         - include: list
         - include: highlight2
         - include: highlight
+        - include: heading3
+        - include: heading2
+        - include: heading1
         - include: uri
         - include: key
         - include: number
