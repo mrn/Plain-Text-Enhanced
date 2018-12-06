@@ -1610,6 +1610,8 @@ a {
 			<string>text.plaintextenhanced unformatted.txt</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#0000003F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1628,6 +1630,8 @@ a {
 			<string>text.plaintextenhanced unformatted2.txt</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#0000003F</string>
 				<key>background</key>
 				<string>#0000000F</string>
 			</dict>

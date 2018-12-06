@@ -508,6 +508,8 @@
 			<string>text.plaintextenhanced unformatted.txt</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#FFFFFF3F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -526,6 +528,8 @@
 			<string>text.plaintextenhanced unformatted2.txt</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#FFFFFF3F</string>
 				<key>background</key>
 				<string>#FFFFFF0F</string>
 			</dict>
