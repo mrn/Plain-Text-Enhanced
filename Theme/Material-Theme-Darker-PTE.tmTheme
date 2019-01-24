@@ -1242,6 +1242,19 @@ a {
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Bold Italic</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced bold_italic.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold italic</string>
+				<key>foreground</key>
+				<string>#B8726A</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Italic</string>
 			<key>scope</key>
 			<string>text.plaintextenhanced italic.txt</string>
@@ -1255,6 +1268,28 @@ a {
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Plain Text Enhanced - Italic Bold</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced italic_bold.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>italic bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Un-Italic</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced un-italic.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>normal</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Plain Text Enhanced - Quote</string>
 			<key>scope</key>
 			<string>text.plaintextenhanced quote.txt</string>
@@ -1262,6 +1297,17 @@ a {
 			<dict>
 				<key>fontStyle</key>
 				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Plain Text Enhanced - Un-Quote</string>
+			<key>scope</key>
+			<string>text.plaintextenhanced un-quote.txt</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>normal</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1333,9 +1379,9 @@ a {
 				<key>fontStyle</key>
 				<string>bold</string>
 				<key>foreground</key>
-				<string>#866BB800</string>
+				<string>#6BB5B800</string>
 				<key>background</key>
-				<string>#866BB8</string>
+				<string>#6BB5B8</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1348,7 +1394,7 @@ a {
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#866BB8</string>
+				<string>#6BB5B8</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1430,6 +1476,8 @@ a {
 			<string>text.plaintextenhanced block.txt</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#FFFFFF3F</string>
 				<key>background</key>
 				<string>#FFFFFF0F</string>
 			</dict>
@@ -1438,7 +1486,7 @@ a {
 			<key>name</key>
 			<string>Plain Text Enhanced - Block - Inside</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced block-inside.txt</string>
+			<string>text.plaintextenhanced block-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
@@ -1462,7 +1510,7 @@ a {
 			<key>name</key>
 			<string>Plain Text Enhanced - Block 2 - Inside</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced block2-inside.txt</string>
+			<string>text.plaintextenhanced block2-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -1502,8 +1550,6 @@ a {
 			<dict>
 				<key>foreground</key>
 				<string>#FFFFFF3F</string>
-				<key>background</key>
-				<string>#7F7F7F1F</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1592,7 +1638,7 @@ a {
 			<key>name</key>
 			<string>Plain Text Enhanced - Comment Inside</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced comment-inside.txt</string>
+			<string>text.plaintextenhanced comment-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -1616,7 +1662,7 @@ a {
 			<key>name</key>
 			<string>Plain Text Enhanced - Unformatted Inside</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced unformatted-inside.txt</string>
+			<string>text.plaintextenhanced unformatted-after.txt</string>
 			<key>settings</key>
 			<dict>
 			</dict>
@@ -1638,7 +1684,7 @@ a {
 			<key>name</key>
 			<string>Plain Text Enhanced - Unformatted 2 Inside</string>
 			<key>scope</key>
-			<string>text.plaintextenhanced unformatted2-inside.txt</string>
+			<string>text.plaintextenhanced unformatted2-after.txt</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
