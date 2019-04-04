@@ -1,6 +1,5 @@
 %YAML 1.2
 ---
-# See http://www.sublimetext.com/docs/3/syntax.html
 name: Plain Text Enhanced
 file_extensions:
   - txt
@@ -9,11 +8,9 @@ scope: text.plaintextenhanced
 # If there is a heading at the beginning of the file, use Plain Text Extended syntax highlighting
 first_line_match: '(?<=^|\t)#{1,3}\s.'
 variables:
-  uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}0-9]+[^\.\s]*)(\.[^\.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^\.\s/])*/?(?![^\p{L}\s/!?\.$])'
-  # uri: '(?<=^|\s)\S*[\p{L}\d]+\.[a-zA-Z]{2,}\S*(?=\s|$)'
-  # uri:  ''
+  uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}\d]+[^\.\s]*)(\.[^\.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^\.\s/])*/?(?![^\p{L}\s/!?\.$])'
   list_characters: '[\*\+\-<>~«»·‐–—•⁃]'
-  tag_characters: '[!\$&\+:;<=>\?@`|~«»·•€]'
+  tag_characters: '[!\$&\+\-:;=>\?~»·•€]'
   checkbox_open: '[\[\(\{]'
   checkbox_closed: '[\]\)\}]'
 contexts:
@@ -160,13 +157,13 @@ contexts:
           pop: true
 
   highlight:
-    - match: '(?<=^\^|\s\^)[^\s\^][^\^]*\S?(?=\^)'
+    - match: '(?<=^`|\s`)[^\s`][^`]*\S?(?=`)|(?<=^\^|\s\^)[^\s\^`][^\^`]*\S?(?=\^[^\p{L}\d])'
       comment: Highlight
       scope: highlight.txt
 
   highlight2:
-    - match: '(?<=^\^\^|\s\^\^)[^\s\^][^\^]*\S?(?=\^\^)'
-      comment: Highlight thicker
+    - match: '(?<=^[\^`]{2}|\s[\^`]{2})[^\s\^][^\^]*\S?(?=\^\^|``)'
+      comment: Highlight stronger
       scope: highlight2.txt
 
   list:

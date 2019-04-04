@@ -1107,7 +1107,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FFFFFF</string>
+				<string>#EEFFFF</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1161,7 +1161,7 @@ a {
 				<key>foreground</key>
 				<string>#FCC383</string>
 				<key>background</key>
-				<string>#FFFFFF22</string>
+				<string>#EEFFFF22</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1263,7 +1263,7 @@ a {
 				<key>fontStyle</key>
 				<string>italic</string>
 				<key>foreground</key>
-				<string>#FFFFFF9F</string>
+				<string>#B8726A</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1318,7 +1318,7 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FFFFFF</string>
+				<string>#EEFFFF</string>
 				<key>background</key>
 				<string>#546E7AFF</string>
 			</dict>
@@ -1331,9 +1331,9 @@ a {
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#FFFFFF00</string>
+				<string>#EEFFFF00</string>
 				<key>background</key>
-				<string>#FFFFFF</string>
+				<string>#EEFFFF</string>
 			</dict>
 		</dict>
 		<dict>
