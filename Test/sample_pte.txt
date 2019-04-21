@@ -1,0 +1,69 @@
+		### BEAUTIFUL TEXT
+			==============
+
+
+	## HOW TO REVOLUTIONISE TEXT
+
+Make text more beautiful!
+· Highlighted headings
+· Coloured bullet points
+· Emphasised *bold text*, _italic text_, ^highlighted text^ and ^^heavily highlighted text^^
+· Formatting for URI's: www.example.com/page.html
+· Coloured numbers:
+· 12.34, 123Hz, 01.02.2345, 2345/02/01
+
+# List Items
+
+Allow all kinds of characters for list items:
+- List
+• items
+» should be
+> beautiful
+* because
++ they
+~ deserve it
+
+# How to change the world
+
+*To-do List*
+[x] Write some text
+[x] Install the epic highlighting scheme
+[ ] Show the beauty of `formatted text` to others
+[?] Watch the world of text change before your eyes >remember to prepare popcorn
+[!] Don't let it go out of control, we don't want text porn
+
+
+###
+
+
+	## THE PURPOSES OF TEXT
+
+Top priority list:
+1) Looking at text // not for too long
+2) Being amazed by its beauty
+3A) Writing notes !! Warning: causes addiction if using sexy formatting
+	i. Keep your notes tidy
+	ii. Make use of formatting
+3B) Actually reading text (lowest priority)
+
+*tea*aasd
+	## PHYSICAL TEXT ADDICTION
+
+A quote from *ITAA* (International Text Addiction Association):
+
+| "Addiction to beautiful text is a serious and growing issue in our modern digital world.
+| Every day, we see more and more people fall victim to the beauty of formatted text.
+| 
+| While text addiction has never been an issue with plain text, beautifully formatted
+| text has some serious side effects on the brains of victims, similar
+| to those of ^long-term meth abuse^.
+	-> source: https://www.text-addiction.org/get_help
+
+|| Because of the widespread issue of addiction to beautiful text, laws have been made to force
+|| syntax highlighting schemes to implement features that let users write unformatted text.
+
+` Unformatted sections remove all formatting to protect your health
+`` *Bold*, _italic_, www.website.com and others may look boring, but are safer for you.
+
+Tags:
+#text #formatting #health #addiction

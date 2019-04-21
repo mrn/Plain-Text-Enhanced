@@ -1,18 +1,22 @@
 %YAML 1.2
 ---
+# http://www.sublimetext.com/docs/3/syntax.html
 name: Plain Text Enhanced
 file_extensions:
   - txt
   - txte
 scope: text.plaintextenhanced
 # If there is a heading at the beginning of the file, use Plain Text Extended syntax highlighting
-first_line_match: '(?<=^|\t)#{1,3}\s.'
+first_line_match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#{1,3}\s.'
 variables:
-  uri: '(?<![\S])(https?:\/\/|php:\/\/)?([\p{L}\d]+[^\.\s]*)(\.[^\.\s]+)*(\.[a-zA-Z]{2,})(/{0,1}[^\.\s/])*/?(?![^\p{L}\s/!?\.$])'
+  uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}]+[^\s\.]*\.)?(\d?\p{L}[^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
+  uri2: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)([\p{L}\d]+[^\s\.]*[\.:\-])?[^\s\.]+([\.:\-][^\s\.]+)*([\.:\-][\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
+  line_characters: '[^\p{L}\d#\s\(\.\[\{]'
   list_characters: '[\*\+\-<>~«»·‐–—•⁃]'
+  list2_characters: '\d+\p{L}*|\p{Lu}+|\p{Ll}|[ivxlcdm]+'
   tag_characters: '[!\$&\+\-:;=>\?~»·•€]'
-  checkbox_open: '[\[\(\{]'
-  checkbox_closed: '[\]\)\}]'
+  checkbox_open: '[\(\[\{]'
+  checkbox_closed: '[\)\]\}]'
 contexts:
   # The prototype context is prepended to all contexts but those setting
   # meta_include_prototype: false.
@@ -21,33 +25,36 @@ contexts:
     - include: comment
 
   main:
-    - include: test
+    # - include: test
     - include: unformatted2
     - include: unformatted
+    - include: checkbox_marked4
     - include: checkbox_marked3
     - include: checkbox_marked2
     - include: checkbox_marked1
     - include: checkbox
     - include: block2
     - include: block
-    - include: special2
-    - include: special1
+    - include: reference
+    - include: special
+    - include: important
     - include: tag3
     - include: tag2
     - include: tag
     - include: list2
     - include: list
-    - include: highlight2
-    - include: highlight
     - include: quote
+    - include: highlight_heavy
+    - include: highlight
     - include: italic
     - include: bold
-    - include: line_thick_infinite
-    - include: line_thick
+    - include: line_infinite
+    - include: line_heavy
     - include: line
     - include: heading3
     - include: heading2
     - include: heading1
+    - include: uri2
     - include: uri
     - include: key
     - include: number
@@ -56,420 +63,533 @@ contexts:
     - match: ''
 
   number:
-    - match: '(?<!\w)(\d)+'
+    - match: '(?<!\w)(\d)+(?!\w+\d)'
       comment: Number
       scope: number.txt
 
   key:
-    - match: '\b[\p{Lu}\d\-]*(\p{Lu}+\-?\d+|\d+\-?\p{Lu}+)[\p{Lu}\d\-]*\b'
-      comment: Key
+    # - match: '(?<![\S])([\p{Lu}\d][\p{Lu}\d\-]*)?(\p{Lu}+\-?\d+|\d+\-?\p{Lu}+)([\p{Lu}\d\-]*[\p{Lu}\d])?(?!\w)'
+    # - match: '(?<![\S])([\p{Lu}\d][\p{Lu}\d\-]{2,}[\p{Lu}\d])+(?!\w)'
+    - match: '(?<![\S])(\p{Lu}+\-?\d+|\d+\-?\p{Lu}+)(?!\w)'
+      comment: Key (string of numbers and capital letters)
       scope: number.txt
 
   uri:
-    - match: '{{uri}}'
+    - match: '{{uri}}|{{uri2}}'
       comment: URI, URL, link
       scope: uri.txt
 
   heading1:
-    - match: '(?<=^|\t)#{3}(?=\s|$)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#{3}\s(?=\S)(?!\/\/)'
       comment: Heading - largest
-      scope: heading1.txt
+      scope: heading-beginning.txt
       push:
         - meta_content_scope: heading1.txt
-        - match: $|(?=\s\/\/)
+        - match: $|\s+$|(?=\s+\/\/)
           pop: true
 
   heading2:
-    - match: '(?<=^|\t)#{2}(?=\s|$)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#{2}\s(?=\S)(?!\/\/)'
       comment: Heading - medium
-      scope: heading2.txt
+      scope: heading-beginning.txt
       push:
         - meta_content_scope: heading2.txt
-        - match: $|(?=\s+\/\/)
+        - match: $|\s+$|(?=\s+\/\/)
           pop: true
 
   heading3:
-    - match: '(?<=^|\t)#{1}(?=\s|$)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#\s(?=\S)(?!\/\/)'
       comment: Heading - smallest
-      scope: heading3.txt
+      scope: heading-beginning.txt
       push:
         - meta_content_scope: heading3.txt
-        - match: $|(?=\s+\/\/)
+        - match: $|\s+$|(?=\s+\/\/)
           pop: true
 
   line:
-    - match: '(?<=^|\t)([^\p{L}\d#\s\.]){3,}'
-      comment: Horisontal line - normal
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})({{line_characters}})\1{2,}[^\p{L}\d#\s\(\.\[\{]*'
+      comment: Horisontal line
       scope: line.txt
       push:
         - meta_content_scope: line.txt
-        - match: $|\t|(?=\s+\/\/)
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  line_thick:
-    - match: '(?<=^|\t)#{4,}(?=\s)'
-      comment: Horisontal line - thick
-      scope: line_thick.txt
+  line_heavy:
+    - match: '(?<=^|\t)#{4,}(?=$|\s)'
+      comment: Horisontal line - heavy
+      scope: line_heavy.txt
       push:
-        - meta_content_scope: line_thick-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: line_heavy-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  line_thick_infinite:
-    - match: '(?<=^)#{3}$'
-      comment: Horisontal line - thick and extending until the end of the window
-      scope: line_thick_infinite.txt
+  line_infinite:
+    - match: '(?<=^)[#\-]{3}$'
+      comment: Horisontal line - heavy and extending to the right
+      scope: line_infinite.txt
       push:
-        - meta_content_scope: line_thick_infinite.txt
-        - match: \r\n|\r|\n|$
-        - match: $
+        - meta_content_scope: line_infinite.txt
+        - match: $|\r\n|\r|\n
+        - match: $|(?=\s+\/\/)
           pop: true
 
   bold:
-    - match: '(?<=^\*|\s\*)[^\s\*]'
+    - match: '(?<!\*\*)(?<=^\*|\s\*|^_\*|\s_\*)(?=[^\s\*])'
       comment: Bold
       scope: bold.txt
       push:
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
+        - include: uri2
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: bold.txt
-        - match: '(\s+\/\/.*$)?(?<=\S)(?=\*($|[^\p{L}\d]))'
+        - match: '$|(\s+\/\/)?(?<=\S)(?=\*($|[^\p{L}\d]))'
           pop: true
 
   italic:
-    - match: '(?<=^_|\s_)[^\s_]'
+    - match: '(?<!__)(?<=^_|\s_|^\*_|\s\*_)(?=[^\s_])'
       comment: Italic
       scope: italic.txt
       push:
+        - include: highlight_heavy
+        - include: highlight
         - include: bold
+        - include: uri2
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: italic.txt
-        - match: '(\s+\/\/.*$)?(?<=\S)(?=_($|[^\p{L}\d]))'
+        - match: '$|(\s+\/\/)?(?<=\S)(?=_($|[^\p{L}\d]))'
           pop: true
+
+  highlight:
+  # - match: '(?<=^`|\s`)[^\s`\^][^`\^]*(?=`($|[^\p{L}\d]))|(?<=^\^|\s\^)[^\s`\^][^`\^]*(?=\^($|[^\p{L}\d]))'
+    - match: '(?<=^`|\s`)[^\s`](.*[^`])?(?=`($|[^\p{L}\d`\^]))|(?<=^\^|\s\^)[^\s\^](.*[^\^])?(?=\^($|[^\p{L}\d`\^]))'
+      comment: Highlight
+      scope: highlight.txt
+
+  highlight_heavy:
+    - match: '(?<=^``|\s``)[^\s`](.*[^`])?(?=``($|[^\p{L}\d]))|(?<=^\^\^|\s\^\^)[^\s\^](.*[^\^])?(?=\^\^($|[^\p{L}\d]))'
+      comment: Highlight heavy
+      scope: highlight_heavy.txt
 
   quote:
     - match: '(?<=^|\s)"[^\s"]'
       comment: Quote
       scope: quote.txt
       push:
-        - include: bold
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
+        - include: bold
+        - include: uri2
+        - include: uri
+        - include: key
+        - include: number
         - meta_content_scope: quote.txt
-        - match: '(\s+\/\/.*$)?(?<=\S")(?=($|[^\p{L}\d]))'
+        - match: '$|(\s+\/\/)?(?<=\S")(?=$|[^\p{L}\d])'
           pop: true
 
-  highlight:
-    - match: '(?<=^`|\s`)[^\s`][^`]*\S?(?=`)|(?<=^\^|\s\^)[^\s\^`][^\^`]*\S?(?=\^[^\p{L}\d])'
-      comment: Highlight
-      scope: highlight.txt
-
-  highlight2:
-    - match: '(?<=^[\^`]{2}|\s[\^`]{2})[^\s\^][^\^]*\S?(?=\^\^|``)'
-      comment: Highlight stronger
-      scope: highlight2.txt
-
   list:
-    - match: '(?<=^|\t){{list_characters}}(?=\s+\S)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{list_characters}}(?= \S)'
       comment: List item
       scope: list.txt
       push:
-        - include: checkbox_marked3
-        - include: checkbox_marked2
-        - include: checkbox_marked1
-        - include: checkbox
-        - include: special2
-        - include: special1
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
-        - include: list2
-        - include: list
-        - include: highlight2
-        - include: highlight
+        # - include: list2
+        # - include: list
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: list-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: list-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   list2:
-    - match: '(?<=^|\t)(\d+\p{L}*|\d*\p{L}+)(\.?\)|\.\)?)(?=\s+\S)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})({{list2_characters}})(\.?\)|\.\)?)(?= \S)'
       comment: List item - numbered or lettered
       scope: list.txt
       push:
-        - include: checkbox_marked3
-        - include: checkbox_marked2
-        - include: checkbox_marked1
-        - include: checkbox
-        - include: special2
-        - include: special1
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
-        - include: list2
-        - include: list
-        - include: highlight2
-        - include: highlight
+        # - include: list2
+        # - include: list
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: list-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: list-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   tag:
-    - match: '(?<=^|\s)#{1}\p{L}\S*?(?=(\s+#{1}\p{L}\S*)*\s*(\t.*)*$)'
-      comment: Tag - type 3
+    - match: '(?<=^|\s)#\p{L}\S*(?=\s*$|\s+#\p{L}\S*|\s+\/\/)'
+      comment: Tag - type 1
       scope: tag.txt
-      push:
-        - meta_content_scope: tag.txt
-        - match: \t|(?=\s+\/\/)|$
-          pop: true
 
   tag2:
-    - match: '(?<=^|\s){{tag_characters}}{1}\p{L}\S*?(?=\s|$)'
+    - match: '(?<=^|\s){{tag_characters}}\p{L}\S*?(?=$|\s)'
       comment: Tag - type 1
       scope: tag2.txt
       push:
-        - include: highlight
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - include: highlight2
-        - meta_content_scope: tag2-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: tag2-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   tag3:
-    - match: '(?<=^|\s){{tag_characters}}{2}\p{L}\S*?(?=\s|$)'
-      comment: Tag - type 2
+    - match: '(?<=^|\s){{tag_characters}}{2}\p{L}\S*?(?=$|\s)'
+      comment: Tag - type 3
       scope: tag3.txt
       push:
-        - include: highlight
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - include: highlight2
-        - meta_content_scope: tag3-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: tag3-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  special1:
-    - match: '(?<=^|\t)(\[\S+\])'
-      scope: special1.txt
-      comment: Special - type 1
+  important:
+    - match: '(?<=^|\s)!!(?=[^\r\n\S]+\S)'
+      scope: important.txt
       push:
+        - include: checkbox_marked4
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
-        - include: special2
-        - include: special1
+        - include: reference
+        - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
         - include: list2
         - include: list
-        - include: highlight2
-        - include: highlight
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: special1-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: important-content.txt
+        - match: $|\s+$|(?=\s+\/\/)
           pop: true
 
-  special2:
-    - match: '(?<=^|\t)(<\S{0,3}>)(?=(?=\s|$))'
-      comment: Special - type 2
-      scope: special2.txt
+  special:
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})(\[[^\[\]]+\])(?!\S)'
+      scope: special.txt
+      comment: Special
       push:
-        - include: checkbox_marked3
-        - include: checkbox_marked2
-        - include: checkbox_marked1
-        - include: checkbox
-        - include: special2
-        - include: special1
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
-        - include: list2
-        - include: list
-        - include: highlight2
-        - include: highlight
+        # - include: list2
+        # - include: list
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: special2-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: special-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
+          pop: true
+
+  reference:
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})(\S+>)(?= \S)'
+      comment: Reference
+      scope: reference.txt
+      push:
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
+        - include: tag3
+        - include: tag2
+        - include: tag
+        # - include: list2
+        # - include: list
+        - include: quote
+        - include: highlight_heavy
+        - include: highlight
+        - include: italic
+        - include: bold
+        - include: uri2
+        - include: uri
+        - include: key
+        - include: number
+        - meta_content_scope: reference-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   block:
-    - match: '(?<=^|\t)\|(?=[^\r\n\S])'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})\|(?=[ \t]+($|\S))'
       comment: Block - type 1
       scope: block.txt
       push:
+        - include: checkbox_marked4
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
-        - include: special2
-        - include: special1
+        - include: reference
+        - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
         - include: list2
         - include: list
-        - include: highlight2
+        - include: quote
+        - include: highlight_heavy
         - include: highlight
+        - include: italic
+        - include: bold
         - include: heading3
         - include: heading2
         - include: heading1
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: block-after.txt
-        - match: \r\n|\r|\n|.|$
+        - meta_content_scope: block-content.txt
+        - match: $|\r\n|\r|\n
         - match: $
           pop: true
 
   block2:
-    - match: '(?<=^|\t)\|{2}(?=[^\r\n\S])'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})\|{2}(?=[ \t]+($|\S))'
       comment: Block - type 2
       scope: block2.txt
       push:
+        - include: checkbox_marked4
         - include: checkbox_marked3
         - include: checkbox_marked2
         - include: checkbox_marked1
         - include: checkbox
-        - include: special2
-        - include: special1
+        - include: reference
+        - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
         - include: list2
         - include: list
-        - include: highlight2
+        - include: quote
+        - include: highlight_heavy
         - include: highlight
+        - include: italic
+        - include: bold
         - include: heading3
         - include: heading2
         - include: heading1
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: block2-after.txt
-        - match: \r\n|\r|\n|.|$
+        - meta_content_scope: block2-content.txt
+        - match: $|\r\n|\r|\n
         - match: $
           pop: true
 
   checkbox:
-    - match: '(?<=^|\t){{checkbox_open}}\s{{checkbox_closed}}(?=[^\r\n\S])'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{checkbox_open}}\s{{checkbox_closed}}(?!\S)'
       comment: Checkbox item
       scope: checkbox.txt
       push:
-        - include: checkbox_marked3
-        - include: checkbox_marked2
-        - include: checkbox_marked1
-        - include: checkbox
-        - include: special2
-        - include: special1
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
-        - include: list2
-        - include: list
-        - include: highlight2
-        - include: highlight
+        # - include: list2
+        # - include: list
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: checkbox-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: checkbox-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   checkbox_marked1:
-    - match: '(?<=^|\t){{checkbox_open}}[xX\*]{{checkbox_closed}}(?=[^\r\n\S])'
-      comment: Checkbox item - marked as done/complete/ignored/dismissed
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{checkbox_open}}[xX\*]{{checkbox_closed}}(?!\S)'
+      comment: Checkbox item - coloured grey
       scope: checkbox_marked1.txt
       push:
-        - meta_content_scope: checkbox_marked1-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: checkbox_marked1-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   checkbox_marked2:
-    - match: '(?<=^|\t){{checkbox_open}}[\-!]{{checkbox_closed}}(?=[^\r\n\S])'
-      comment: Checkbox item - marked as important/high-priority
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{checkbox_open}}[\-!]{{checkbox_closed}}(?!\S)'
+      comment: Checkbox item - coloured red
       scope: checkbox_marked2.txt
       push:
-        - include: checkbox_marked3
-        - include: checkbox_marked2
-        - include: checkbox_marked1
-        - include: checkbox
-        - include: special2
-        - include: special1
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
-        - include: list2
-        - include: list
-        - include: highlight2
-        - include: highlight
+        # - include: list2
+        # - include: list
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: checkbox_marked2-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: checkbox_marked2-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   checkbox_marked3:
-    - match: '(?<=^|\t){{checkbox_open}}[\+✓]{{checkbox_closed}}(?=[^\r\n\S])'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{checkbox_open}}[\+✓]{{checkbox_closed}}(?!\S)'
       comment: Checkbox item - coloured green
       scope: checkbox_marked3.txt
       push:
-        - include: checkbox_marked3
-        - include: checkbox_marked2
-        - include: checkbox_marked1
-        - include: checkbox
-        - include: special2
-        - include: special1
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
         - include: tag3
         - include: tag2
         - include: tag
-        - include: list2
-        - include: list
-        - include: highlight2
-        - include: highlight
+        # - include: list2
+        # - include: list
         - include: quote
+        - include: highlight_heavy
+        - include: highlight
         - include: italic
         - include: bold
+        - include: uri2
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: checkbox_marked3-after.txt
-        - match: \t|(?=\s+\/\/)|$
+        - meta_content_scope: checkbox_marked3-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
+          pop: true
+
+  checkbox_marked4:
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{checkbox_open}}[\?~]{{checkbox_closed}}(?!\S)'
+      comment: Checkbox item - coloured green
+      scope: checkbox_marked4.txt
+      push:
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        # - include: special
+        - include: important
+        - include: tag3
+        - include: tag2
+        - include: tag
+        # - include: list2
+        # - include: list
+        - include: quote
+        - include: highlight_heavy
+        - include: highlight
+        - include: italic
+        - include: bold
+        - include: uri2
+        - include: uri
+        - include: key
+        - include: number
+        - meta_content_scope: checkbox_marked4-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
   comment:
@@ -477,28 +597,28 @@ contexts:
       comment: Comment
       scope: comment.txt
       push:
-        - meta_scope: comment-after.txt
-        - match: $(\r\n|\r|\n)?
+        - meta_scope: comment-content.txt
+        - match: $
           pop: true
 
   unformatted:
-    - match: (?<=^|\t)`(?=[^\r\n\S])
+    - match: (?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})`(?=[ \t]+\S)
       comment: Unformatted
       scope: unformatted.txt
       push:
         - meta_include_prototype: false
-        - meta_content_scope: unformatted-after.txt
-        - match: \r\n|\r|\n|.|$
+        - meta_content_scope: unformatted-content.txt
+        - match: $|\r\n|\r|\n
         - match: $
           pop: true
 
   unformatted2:
-    - match: (?<=^|\t)`{2}(?=[^\r\n\S])
-      comment: Unformatted and highlighted
+    - match: (?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})`{2}(?=[ \t]+\S)
+      comment: Unformatted with background
       scope: unformatted2.txt
       push:
         - meta_include_prototype: false
-        - meta_content_scope: unformatted2-after.txt
-        - match: \r\n|\r|\n|.|$
+        - meta_content_scope: unformatted2-content.txt
+        - match: $|\r\n|\r|\n
         - match: $
           pop: true

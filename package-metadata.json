@@ -1,1 +1,8 @@
-{"version": "0.2", "sublime_text": "*", "platforms": ["*"], "description": "Sublime Text 3 syntax highlighting for plain text.", "url": "https://github.com/vinturei", "dependencies": []}
+{
+	"version": "0.81",
+	"sublime_text": "*",
+	"platforms": ["*"],
+	"description": "Sublime Text 3 syntax highlighting for Plain Text.txt",
+	"url": "https://github.com/vinturei/PlainTextEnhanced",
+	"dependencies": []
+}

@@ -1,0 +1,5 @@
+[
+    {"command": "insert_snippet", "args": {"contents": " "} },
+    {"command": "right_delete" },
+    {"command": "right_delete" },
+]
