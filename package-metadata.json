@@ -1,5 +1,5 @@
 {
-	"version": "0.81",
+	"version": "Alpha 0.82",
 	"sublime_text": "*",
 	"platforms": ["*"],
 	"description": "Sublime Text 3 syntax highlighting for Plain Text.txt",

@@ -86,6 +86,16 @@
 			"background": "color(var(pte-black) alpha(0.1875))",
 		},
 		{
+			"name": "Plain Text Enhanced - Bold Around",
+			"scope": "text.plaintextenhanced bold_around.txt",
+			"foreground": "color(var(pte-grey) alpha(0.5))",
+		},
+		{
+			"name": "Plain Text Enhanced - Italic Around",
+			"scope": "text.plaintextenhanced italic_around.txt",
+			"foreground": "color(var(pte-grey) alpha(0.5))",
+		},
+		{
 			"name": "Plain Text Enhanced - Bold",
 			"scope": "text.plaintextenhanced bold.txt",
 			"font_style": "bold",
@@ -275,7 +285,7 @@
 			"name": "Plain Text Enhanced - Checkbox Marked 4",
 			"scope": "text.plaintextenhanced checkbox_marked4.txt",
 			"font_style": "bold",
-			"foreground": "var(pte-yellow)",
+			"foreground": "var(pte-brown)",
 		},
 		{
 			"name": "Plain Text Enhanced - Checkbox Marked 4 - Content",
@@ -315,12 +325,6 @@
 			"scope": "text.plaintextenhanced unformatted2-content.txt",
 			"foreground": "color(var(pte-white) alpha(0.75))",
 			"background": "color(var(pte-black) alpha(0.1875))",
-		},
-		{
-			"name": "Plain Text Enhanced - Test",
-			"scope": "text.plaintextenhanced test.txt",
-			"foreground": "color(var(pte-test) alpha(0))",
-			"background": "var(pte-test)",
 		},
 	],
 }

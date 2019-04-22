@@ -116,16 +116,18 @@
 *a*
 *Lorem*
 *Lorem ipsum*
+*Lorem ipsum*dolor sit amet
+*Lorem ipsum* dolor sit amet
 *Lorem ipsum*+
 +*Lorem ipsum*
 *Lorem ipsum *
 *Lorem ipsum
 +*Lorem ipsum
+*Lorem ipsum //
 *Lorem ipsum //*
 *Lorem ipsum // *
-*Lorem ipsum // comment*
-*Lorem ipsum //
 *Lorem ipsum // comment
+*Lorem ipsum // comment*
 Lorem ipsum *dolor sit amet
 Lorem ipsum +*dolor sit amet
 Lorem ipsum dolor sit amet.* Lorem ipsum
@@ -145,16 +147,18 @@ __
 _a_
 _Lorem_
 _Lorem ipsum_
+_Lorem ipsum_dolor sit amet
+_Lorem ipsum_ dolor sit amet
 _Lorem ipsum_+
 +_Lorem ipsum_
 _Lorem ipsum _
 _Lorem ipsum
 +_Lorem ipsum
+_Lorem ipsum //
 _Lorem ipsum //_
 _Lorem ipsum // _
-_Lorem ipsum // comment_
-_Lorem ipsum //
 _Lorem ipsum // comment
+_Lorem ipsum // comment_
 Lorem ipsum _dolor sit amet
 Lorem ipsum +_dolor sit amet
 Lorem ipsum dolor sit amet._ Lorem ipsum
@@ -178,11 +182,25 @@ _italic and *bold*_
 _*bold* and italic_
 _italicised and *bolded* text_
 
+ *_bold and italic_*
+ *bold and _italic_*
+ *_italic_ and bold*
+ *bolded and _italicised_ text*
+ 
+ _*italic and bold*_
+ _italic and *bold*_
+ _*bold* and italic_
+ _italicised and *bolded* text_
+
+*.
+*_
 *_*
 *__*
 *_*_*
 *_**
 
+_.
+_*
 _*_
 _**_
 _*_*_
@@ -198,16 +216,18 @@ _*_
 `a`
 `Lorem`
 `Lorem ipsum`
+`Lorem ipsum`dolor sit amet
+`Lorem ipsum` dolor sit amet
 `Lorem ipsum`+
 +`Lorem ipsum`
 `Lorem ipsum `
 `Lorem ipsum
 +`Lorem ipsum
+`Lorem ipsum //
 `Lorem ipsum //`
 `Lorem ipsum // `
-`Lorem ipsum // comment`
-`Lorem ipsum //
 `Lorem ipsum // comment
+`Lorem ipsum // comment`
 Lorem ipsum `dolor sit amet
 Lorem ipsum +`dolor sit amet
 Lorem ipsum dolor sit amet.` Lorem ipsum
@@ -225,16 +245,18 @@ Lorem (ipsum dolor)` sit amet
 ^a^
 ^Lorem^
 ^Lorem ipsum^
+^Lorem ipsum^dolor sit amet
+^Lorem ipsum^ dolor sit amet
 ^Lorem ipsum^+
 +^Lorem ipsum^
 ^Lorem ipsum ^
 ^Lorem ipsum
 +^Lorem ipsum
+^Lorem ipsum //
 ^Lorem ipsum //^
 ^Lorem ipsum // ^
-^Lorem ipsum // comment^
-^Lorem ipsum //
 ^Lorem ipsum // comment
+^Lorem ipsum // comment^
 Lorem ipsum ^dolor sit amet
 Lorem ipsum +^dolor sit amet
 Lorem ipsum dolor sit amet.^ Lorem ipsum
@@ -254,16 +276,18 @@ Lorem (ipsum dolor)^ sit amet
 ``a``
 ``Lorem``
 ``Lorem ipsum``
+``Lorem ipsum``dolor sit amet
+``Lorem ipsum`` dolor sit amet
 ``Lorem ipsum``+
 +``Lorem ipsum``
 ``Lorem ipsum ``
 ``Lorem ipsum
 +``Lorem ipsum
+``Lorem ipsum //
 ``Lorem ipsum //``
 ``Lorem ipsum // ``
-``Lorem ipsum // comment``
-``Lorem ipsum //
 ``Lorem ipsum // comment
+``Lorem ipsum // comment``
 Lorem ipsum ``dolor sit amet
 Lorem ipsum +``dolor sit amet
 Lorem ipsum dolor sit amet.`` Lorem ipsum
@@ -283,16 +307,18 @@ Lorem (ipsum dolor)`` sit amet
 ^^a^^
 ^^Lorem^^
 ^^Lorem ipsum^^
+^^Lorem ipsum^^dolor sit amet
+^^Lorem ipsum^^ dolor sit amet
 ^^Lorem ipsum^^+
 +^^Lorem ipsum^^
 ^^Lorem ipsum ^^
 ^^Lorem ipsum
 +^^Lorem ipsum
+^^Lorem ipsum //
 ^^Lorem ipsum //^^
 ^^Lorem ipsum // ^^
-^^Lorem ipsum // comment^^
-^^Lorem ipsum //
 ^^Lorem ipsum // comment
+^^Lorem ipsum // comment^^
 Lorem ipsum ^^dolor sit amet
 Lorem ipsum +^^dolor sit amet
 Lorem ipsum dolor sit amet.^^ Lorem ipsum
@@ -374,11 +400,11 @@ Lorem (ipsum dolor)^^ sit amet
 "Lorem ipsum "
 "Lorem ipsum
 +"Lorem ipsum
+"Lorem ipsum //
 "Lorem ipsum //"
 "Lorem ipsum // "
-"Lorem ipsum // comment"
-"Lorem ipsum //
 "Lorem ipsum // comment
+"Lorem ipsum // comment"
 Lorem ipsum "dolor sit amet
 Lorem ipsum +"dolor sit amet
 Lorem ipsum dolor sit amet." Lorem ipsum
@@ -389,7 +415,18 @@ Lorem (ipsum dolor)" sit amet
 "lorem ipsum 123"
 "lorem www.example.com ipsum"
 "lorem ipsum www.example.com"
+"lorem ipsum www.example.com "
 
+"Lorem ipsum *dolor* sit amet"
+"Lorem ipsum _dolor_ sit amet"
+"Lorem *ipsum*"
+"Lorem _ipsum_"
+"*Lorem*"
+"_Lorem_"
+"*Lorem* ipsum"
+"_Lorem_ ipsum"
+"Lorem *ipsum _dolor_ sit* amet"
+"Lorem _ipsum *dolor* sit_ amet"
 
 	## NUMBER
 
@@ -459,7 +496,7 @@ A11
 1AA
 1A1
 11A
-AB12 // minimum 4
+AB12
 12AB
 ABC1
 1ABC
@@ -481,28 +518,28 @@ A-1
 1-2
 12-34
 
-A-A-A // not formatted
-A-A-1 // when hyphens are present, there is no minimum
+A-A-A // do not format
+A-A-1
 A-1-A
 A-1-1
 1-A-A
 1-A-1
 1-1-A
-1-1-1 // not formatted
+1-1-1 // do not format hyphens
 
 AB-12
 12-AB
 
-AB-AB-AB // not formatted, could be hyphenated capitalised word
+AB-AB-AB // do not format, could be hyphenated capitalised word
 AB-AB-12
 AB-12-AB
 AB-12-34
 12-AB-AB
 12-AB-34
 12-34-AB
-12-34-56 // not formatted
+12-34-56 // do not format hyphens
 
-AB-AB-AB-AB // not formatted, could be hyphenated capitalised word
+AB-AB-AB-AB // do not format, could be hyphenated capitalised word
 AB-AB-AB-12
 AB-AB-12-AB
 AB-AB-12-12
@@ -517,19 +554,19 @@ AB-12-12-12
 12-12-AB-AB
 12-12-AB-12
 12-12-12-AB
-12-12-12-12 // not formatted
+12-12-12-12 // do not format hyphens
 
 ABCDE-12345
 12345-ABCDE
 
-ABCDE-FGHIJ-KLMNO // no, could be hyphenated capitalised word
+ABCDE-FGHIJ-KLMNO // do not format, could be hyphenated capitalised word
 ABCDE-FGHIJ-12345
 ABCDE-12345-FGHIJ
 ABCDE-12345-67890
 12345-ABCDE-FGHIJ
 12345-ABCDE-67890
 12345-67890-ABCDE
-12345-67890-12345 // not formatted
+12345-67890-12345 // do not format
 
 93AKW-QEJ2D-J36NC.
 (93AKW-QEJ2D-J36NC)
@@ -544,11 +581,11 @@ Q2Č6Ć31Ž0
 
 # DO NOT MATCH
 
-KRPST
+QEJUD
 QEJUDGLEOSKRPST
-QEJUD-GLEOS-KRPST // could hyphenated capitalised word
-93647-58304-04736 // not dashes
-93AKW QEJUD EPKDH 93647 // not only letters or numbers if separated by not dash
+QEJUD-GLEOS-KRPST
+93647-58304-04736
+93AKW QEJUD EPKDH 93647 // // do not format only letters or numbers if separated by not dash
 abc1A2B
 abcA1B2
 1A2Babc
