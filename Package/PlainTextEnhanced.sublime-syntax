@@ -9,7 +9,7 @@ scope: text.plaintextenhanced
 # If there is a heading at the beginning of the file, use Plain Text Extended syntax highlighting
 first_line_match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#{1,3}\s.'
 variables:
-  uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}]+[^\s\.]*\.)?(\d?\p{L}[^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
+  uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   uri2: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)([\p{L}\d]+[^\s\.]*[\.:\-])?[^\s\.]+([\.:\-][^\s\.]+)*([\.:\-][\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   line_characters: '[^\p{L}\d#\s\(\.\[\{]'
   list_characters: '[\*\+\-<>~«»·‐–—•⁃]'
@@ -25,6 +25,7 @@ contexts:
     - include: comment
 
   main:
+    - include: test
     - include: unformatted2
     - include: unformatted
     - include: checkbox_marked4
@@ -58,7 +59,7 @@ contexts:
     - include: uri2
     - include: uri
     - include: key
-    - include: number
+    # - include: number
 
   base:
     - match: ''
@@ -686,3 +687,7 @@ contexts:
         - match: $|\r\n|\r|\n
         - match: $
           pop: true
+
+  # test:
+  #   - match: '([\p{Lu}\d]\-?)*\p{Lu}+[\p{Lu}\d]*\-?[\p{Lu}\d]*\d+[\p{Lu}\d]*(\-?[\p{Lu}\d])*|([\p{Lu}\d]\-?)*\d+[\p{Lu}\d]*\-?[\p{Lu}\d]*\p{Lu}+[\p{Lu}\d]*(\-?[\p{Lu}\d])*'
+  #     scope: test.txt

@@ -640,6 +640,11 @@ https://example.com/path/resource.ext?query#fragment
 
 *Standard*
 website.com
+10fastfingers.com
+1_a.com
+a_1.com
+'a.com
+a'.com
 www.website.com
 www.x.com
 www.x.co
