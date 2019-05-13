@@ -12,7 +12,7 @@ variables:
   uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   uri2: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)([\p{L}\d]+[^\s\.]*[\.:\-])?[^\s\.]+([\.:\-][^\s\.]+)*([\.:\-][\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   line_characters: '[^\p{L}\d#\s\(\.\[\{]'
-  list_characters: '[\*\+\-<>~«»·‐–—•⁃]'
+  list_characters: '[\*\+\-<>~«»·‐–—―•⁃]'
   list2_characters: '\d+\p{L}*|\p{Lu}+|\p{Ll}|[ivxlcdm]+'
   tag_characters: '[!\$&\+\-:;=>\?~»·•€]'
   brackets_open: '[\(\[\{]'
@@ -59,7 +59,7 @@ contexts:
     - include: uri2
     - include: uri
     - include: key
-    # - include: number
+    - include: number
 
   base:
     - match: ''
