@@ -11,8 +11,8 @@ first_line_match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#{1,3}\s.'
 variables:
   uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   uri2: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)([\p{L}\d]+[^\s\.]*[\.:\-])?[^\s\.]+([\.:\-][^\s\.]+)*([\.:\-][\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
-  line_characters: '[^\p{L}\d#\s\(\.\[\{]'
-  list_characters: '[\*\+\-<>~«»·‐–—―•⁃]'
+  line_characters: '[^\p{L}\d!#\s\(\.\[\{]'
+  list_characters: '[\*\+\-<>\?~«»·‐–—―•⁃↳≡└┗]'
   list2_characters: '\d+\p{L}*|\p{Lu}+|\p{Ll}|[ivxlcdm]+'
   tag_characters: '[!\$&\+\-:;=>\?~»·•€]'
   brackets_open: '[\(\[\{]'
@@ -37,7 +37,9 @@ contexts:
     - include: block
     - include: reference
     - include: special
-    - include: important
+    - include: priority1
+    - include: priority2
+    - include: priority3
     - include: tag3
     - include: tag2
     - include: tag
@@ -245,7 +247,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -278,7 +282,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -344,9 +350,9 @@ contexts:
         - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  important:
-    - match: '(?<=^|\s)!!(?=[ \t]\s*\S)'
-      scope: important.txt
+  priority3:
+    - match: '(?<=^|\s)!(?=[ \t]\s*\S)'
+      scope: priority3.txt
       push:
         - include: checkbox_marked4
         - include: checkbox_marked3
@@ -355,7 +361,9 @@ contexts:
         - include: checkbox
         - include: reference
         - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -372,7 +380,75 @@ contexts:
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: important-content.txt
+        - meta_content_scope: priority3-content.txt
+        - match: $|\s+$|(?=\s+\/\/)
+          pop: true
+
+  priority2:
+    - match: '(?<=^|\s)!!(?=[ \t]\s*\S)'
+      scope: priority2.txt
+      push:
+        - include: checkbox_marked4
+        - include: checkbox_marked3
+        - include: checkbox_marked2
+        - include: checkbox_marked1
+        - include: checkbox
+        - include: reference
+        - include: special
+        - include: priority1
+        - include: priority2
+        - include: priority3
+        - include: tag3
+        - include: tag2
+        - include: tag
+        - include: list2
+        - include: list
+        - include: quote
+        - include: highlight_heavy
+        - include: highlight
+        - include: italic
+        - include: bold
+        - include: italic_around
+        - include: bold_around
+        - include: uri2
+        - include: uri
+        - include: key
+        - include: number
+        - meta_content_scope: priority2-content.txt
+        - match: $|\s+$|(?=\s+\/\/)
+          pop: true
+
+  priority1:
+    - match: '(?<=^|\s)!!!(?=[ \t]\s*\S)'
+      scope: priority1.txt
+      push:
+        - include: checkbox_marked4
+        - include: checkbox_marked3
+        - include: checkbox_marked2
+        - include: checkbox_marked1
+        - include: checkbox
+        - include: reference
+        - include: special
+        - include: priority1
+        - include: priority2
+        - include: priority3
+        - include: tag3
+        - include: tag2
+        - include: tag
+        - include: list2
+        - include: list
+        - include: quote
+        - include: highlight_heavy
+        - include: highlight
+        - include: italic
+        - include: bold
+        - include: italic_around
+        - include: bold_around
+        - include: uri2
+        - include: uri
+        - include: key
+        - include: number
+        - meta_content_scope: priority1-content.txt
         - match: $|\s+$|(?=\s+\/\/)
           pop: true
 
@@ -388,7 +464,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -421,7 +499,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -454,7 +534,9 @@ contexts:
         - include: checkbox
         - include: reference
         - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -491,7 +573,9 @@ contexts:
         - include: checkbox
         - include: reference
         - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -528,7 +612,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -570,7 +656,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -603,7 +691,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag
@@ -636,7 +726,9 @@ contexts:
         # - include: checkbox
         # - include: reference
         # - include: special
-        - include: important
+        - include: priority1
+        - include: priority2
+        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag

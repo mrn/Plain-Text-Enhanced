@@ -1,23 +1,40 @@
 {
 	// http://www.sublimetext.com/docs/3/color_schemes.html
 	"variables": {
+		"pte-test": "#FF00FF",
+		"pte-pink": "#FF3F7F",
+		"pte-peach": "#FF7F7F",
 		"pte-black": "#000000",
 		"pte-white": "#FFFFFF",
 		"pte-grey": "#7D8B99",
 		"pte-turquoise": "#6FBDBF",
 		"pte-blue": "#6FA7BF",
-		"pte-yellow": "#FCBD92",
+		"pte-yellow": "#FCB692",
+		// "pte-yellow-old": "#FCBD92",
 		"pte-brown": "#BF776F",
 		"pte-red": "#BF6371",
 		"pte-green": "#6FBFAA",
+		"pte-orange": "#BF936F",
 	},
 	"globals": {
-		// "caret": "#FF3F7F",
+		// "selection": "var(blue2)",
+		"selection_border": "var(pte-peach)",
+		"highlight": "var(pte-peach)",
+		// "find_highlight_foreground": "var(grey)",
+        "find_highlight": "var(pte-peach)",
+		"caret": "var(pte-peach)",
+		"highlight_find_match": "var(pte-peach)",
 	},
 	"rules": [
 		{
 			// "scope": "string",
 			// "foreground": "#3F7F3F",
+		},
+		// Personal
+		{
+			"name": "Comment",
+			"scope": "comment, punctuation.definition.comment",
+			"foreground": "var(pte-grey)",
 		},
 		// Plain Text Enhanced
 		{
@@ -53,7 +70,7 @@
 			"scope": "text.plaintextenhanced heading2.txt",
 			"font_style": "bold",
 			"foreground": "var(pte-yellow)",
-			"background": "color(var(pte-white) alpha(0.13671875))",
+			"background": "color(var(pte-white) alpha(0.125))",
 		},
 		{
 			"name": "Plain Text Enhanced - Heading 3",
@@ -85,6 +102,16 @@
 			"foreground": "color(var(pte-grey) alpha(0.5))",
 			"background": "color(var(pte-black) alpha(0.1875))",
 		},
+		// {
+		// 	"name": "Plain Text Enhanced - Emphasis Around",
+		// 	"scope": "text.plaintextenhanced emphasis_around.txt",
+		// 	"foreground": "color(var(pte-grey) alpha(0.5))",
+		// },
+		// {
+		// 	"name": "Plain Text Enhanced - Bold and Italic Around",
+		// 	"scope": "text.plaintextenhanced bold_around.txt italic_around.txt | italic_around.txt bold_around.txt",
+		// 	"foreground": "color(var(pte-grey) alpha(0.5))",
+		// },
 		{
 			"name": "Plain Text Enhanced - Bold Around",
 			"scope": "text.plaintextenhanced bold_around.txt",
@@ -117,7 +144,10 @@
 			"name": "Plain Text Enhanced - Highlight",
 			"scope": "text.plaintextenhanced highlight.txt",
 			"foreground": "var(pte-white)",
-			"background": "color(var(pte-brown) alpha(0.375))",
+			// "foreground": "var(pte-brown)",
+			// "background": "color(var(pte-grey) alpha(0.375))",
+			"background": "color(var(pte-grey) alpha(0.5))",
+			// "background": "color(var(pte-brown) alpha(0.375))",
 		},
 		{
 			"name": "Plain Text Enhanced - Highlight Heavy",
@@ -174,15 +204,43 @@
 			"foreground": "var(pte-red)",
 		},
 		{
-			"name": "Plain Text Enhanced - Important - Beginning",
-			"scope": "text.plaintextenhanced important.txt",
+			"name": "Plain Text Enhanced - Priority 3 - Beginning",
+			"scope": "text.plaintextenhanced priority3.txt",
+			"font_style": "bold",
+			"foreground": "color(var(pte-blue) alpha(0))",
+			"background": "var(pte-blue)",
+		},
+		{
+			"name": "Plain Text Enhanced - Priority 3 - Content",
+			"scope": "text.plaintextenhanced priority3-content.txt",
+			"font_style": "bold",
+			"foreground": "var(pte-blue)",
+			"background": "color(var(pte-blue) alpha(0.125)",
+		},
+		{
+			"name": "Plain Text Enhanced - Priority 2 - Beginning",
+			"scope": "text.plaintextenhanced priority2.txt",
+			"font_style": "bold",
+			"foreground": "color(var(pte-orange) alpha(0))",
+			"background": "var(pte-orange)",
+		},
+		{
+			"name": "Plain Text Enhanced - Priority 2 - Content",
+			"scope": "text.plaintextenhanced priority2-content.txt",
+			"font_style": "bold",
+			"foreground": "var(pte-orange)",
+			"background": "color(var(pte-orange) alpha(0.125)",
+		},
+		{
+			"name": "Plain Text Enhanced - Priority 1 - Beginning",
+			"scope": "text.plaintextenhanced priority1.txt",
 			"font_style": "bold",
 			"foreground": "color(var(pte-red) alpha(0))",
 			"background": "var(pte-red)",
 		},
 		{
-			"name": "Plain Text Enhanced - Important - Content",
-			"scope": "text.plaintextenhanced important-content.txt",
+			"name": "Plain Text Enhanced - Priority 1 - Content",
+			"scope": "text.plaintextenhanced priority1-content.txt",
 			"font_style": "bold",
 			"foreground": "var(pte-red)",
 			"background": "color(var(pte-red) alpha(0.125)",
@@ -211,8 +269,8 @@
 		{
 			"name": "Plain Text Enhanced - Block - Beginning",
 			"scope": "text.plaintextenhanced block.txt",
-			"foreground": "color(var(pte-grey) alpha(0.75))",
-			"background": "color(var(pte-grey) alpha(0.75))",
+			"foreground": "color(var(pte-grey) alpha(1))",
+			"background": "color(var(pte-grey) alpha(1))",
 		},
 		{
 			"name": "Plain Text Enhanced - Block - Content",
@@ -325,6 +383,12 @@
 			"scope": "text.plaintextenhanced unformatted2-content.txt",
 			"foreground": "color(var(pte-white) alpha(0.75))",
 			"background": "color(var(pte-black) alpha(0.1875))",
+		},
+		{
+			"name": "Plain Text Enhanced - Test",
+			"scope": "text.plaintextenhanced test.txt",
+			"foreground": "color(var(pte-test) alpha(0))",
+			"background": "var(pte-test)",
 		},
 	],
 }
