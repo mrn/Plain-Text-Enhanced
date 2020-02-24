@@ -82,7 +82,7 @@
 			"name": "Plain Text Enhanced - Line Infinite",
 			"scope": "text.plaintextenhanced line_infinite.txt",
 			"foreground": "color(var(pte-grey) alpha(0.5))",
-			"background": "color(var(pte-black) alpha(0.1875))",
+			"background": "color(var(pte-black) alpha(0.2))",
 		},
 		// {
 		// 	"name": "Plain Text Enhanced - Emphasis Around",
@@ -251,12 +251,12 @@
 			"scope": "text.plaintextenhanced block.txt",
 			"foreground": "color(var(pte-grey) alpha(1))",
 			// "background": "color(var(pte-grey) alpha(1))",
-			"background": "color(var(pte-black) alpha(0.1875))",
+			"background": "color(var(pte-black) alpha(0.2))",
 		},
 		{
 			"name": "Plain Text Enhanced - Block - Content",
 			"scope": "text.plaintextenhanced block-content.txt",
-			"background": "color(var(pte-black) alpha(0.1875))",
+			"background": "color(var(pte-black) alpha(0.2))",
 		},
 		{
 			"name": "Plain Text Enhanced - Block 2 - Beginning",
@@ -358,13 +358,13 @@
 			"name": "Plain Text Enhanced - Unformatted 2 - Beginning",
 			"scope": "text.plaintextenhanced unformatted2.txt",
 			"foreground": "var(pte-grey)",
-			"background": "color(var(pte-black) alpha(0.1875))",
+			"background": "color(var(pte-black) alpha(0.2))",
 		},
 		{
 			"name": "Plain Text Enhanced - Unformatted 2 - Content",
 			"scope": "text.plaintextenhanced unformatted2-content.txt",
 			"foreground": "color(var(pte-white2) alpha(1))",
-			"background": "color(var(pte-black) alpha(0.1875))",
+			"background": "color(var(pte-black) alpha(0.2))",
 		},
 		{
 			"name": "Plain Text Enhanced - Test",
