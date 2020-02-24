@@ -52,7 +52,7 @@ contexts:
     - include: bold
     - include: italic_around
     - include: bold_around
-    - include: line_infinite
+    - include: separator
     - include: line_heavy
     - include: line
     - include: heading3
@@ -126,12 +126,12 @@ contexts:
         - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  line_infinite:
+  separator:
     - match: '(?<=^)[#\-]{3}$'
-      comment: Horisontal line - heavy and extending to the right
-      scope: line_infinite.txt
+      comment: Horisontal line - heavy and extending to the edge of the window
+      scope: separator.txt
       push:
-        - meta_content_scope: line_infinite.txt
+        - meta_content_scope: separator.txt
         - match: $|\r\n|\r|\n
         - match: $|(?=\s+\/\/)
           pop: true

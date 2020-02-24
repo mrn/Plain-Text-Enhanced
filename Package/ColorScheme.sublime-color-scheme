@@ -79,8 +79,8 @@
 			"background": "var(pte-yellow)",
 		},
 		{
-			"name": "Plain Text Enhanced - Line Infinite",
-			"scope": "text.plaintextenhanced line_infinite.txt",
+			"name": "Plain Text Enhanced - Separator",
+			"scope": "text.plaintextenhanced separator.txt",
 			"foreground": "color(var(pte-grey) alpha(0.5))",
 			"background": "color(var(pte-black) alpha(0.25))",
 		},
