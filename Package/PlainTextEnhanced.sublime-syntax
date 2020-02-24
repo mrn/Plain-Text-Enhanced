@@ -759,7 +759,7 @@ contexts:
           pop: true
 
   unformatted:
-    - match: (?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})`(?=[ \t]+\S)
+    - match: (?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})`(?=[ \t]+($|\S))
       comment: Unformatted
       scope: unformatted.txt
       push:
@@ -770,7 +770,7 @@ contexts:
           pop: true
 
   unformatted2:
-    - match: (?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})`{2}(?=[ \t]+\S)
+    - match: (?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})`{2}(?=[ \t]+($|\S))
       comment: Unformatted with background
       scope: unformatted2.txt
       push:
