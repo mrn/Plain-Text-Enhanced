@@ -1,7 +1,6 @@
+// About sublime color scheme files:
+// http://www.sublimetext.com/docs/3/color_schemes.html
 {
-	// About sublime color scheme files:
-	// http://www.sublimetext.com/docs/3/color_schemes.html
-
 	"variables": {
 		"pte-test": "#FF00FF",
 		"pte-pink": "#FF3F7F",
@@ -14,33 +13,12 @@
 		"pte-cyan": "#6FA7BF",
 		"pte-navy": "#4C698F",
 		"pte-yellow": "#FCB692",
-		// "pte-yellow-old": "#FCBD92",
 		"pte-brown": "#BF776F",
 		"pte-red": "#BF6371",
 		"pte-green": "#6FBFAA",
 		"pte-orange": "#C79F67",
 	},
-	"globals": {
-		// "selection": "var(blue2)",
-		"selection_border": "var(pte-white2)",
-		"highlight": "var(pte-peach)",
-		// "find_highlight_foreground": "var(grey)",
-        "find_highlight": "var(pte-peach)",
-		"caret": "var(pte-turquoise)",
-		"highlight_find_match": "var(pte-peach)",
-	},
 	"rules": [
-		{
-			// "scope": "string",
-			// "foreground": "#3F7F3F",
-		},
-		// Personal
-		// {
-		// 	"name": "Comment",
-		// 	"scope": "comment, punctuation.definition.comment",
-		// 	"foreground": "var(pte-grey)",
-		// },
-		// Plain Text Enhanced
 		{
 			"name": "Plain Text Enhanced - Plain",
 			"scope": "text.plaintextenhanced",
