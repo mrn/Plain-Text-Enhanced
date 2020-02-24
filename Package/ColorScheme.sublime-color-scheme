@@ -127,7 +127,6 @@
 			"scope": "text.plaintextenhanced highlight.txt",
 			"foreground": "color(var(pte-white2) alpha(1))",
 			"background": "color(var(pte-cyan) alpha(0.3))",
-			// "background": "color(var(pte-cyan) alpha(0.375))",
 		},
 		{
 			"name": "Plain Text Enhanced - Highlight Heavy",
