@@ -261,15 +261,14 @@
 		{
 			"name": "Plain Text Enhanced - Block 2 - Beginning",
 			"scope": "text.plaintextenhanced block2.txt",
-			"foreground": "color(var(pte-white1) alpha(1))",
-			// "background": "color(var(pte-white1) alpha(1))",
-			"background": "color(var(pte-white1) alpha(0.125))",
+			"foreground": "color(var(pte-white2) alpha(1))",
+			"background": "color(var(pte-white2) alpha(0.125))",
 		},
 		{
 			"name": "Plain Text Enhanced - Block 2 - Content",
 			"scope": "text.plaintextenhanced block2-content.txt",
-			"foreground": "var(pte-white1)",
-			"background": "color(var(pte-white1) alpha(0.125))",
+			"foreground": "var(pte-white2)",
+			"background": "color(var(pte-white2) alpha(0.125))",
 		},
 		{
 			"name": "Plain Text Enhanced - Checkbox",
