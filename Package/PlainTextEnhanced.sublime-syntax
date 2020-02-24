@@ -636,7 +636,7 @@ contexts:
           pop: true
 
   checkbox_marked1:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{brackets_open}}[xX\*]{{brackets_closed}}(?!\S)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{brackets_open}}[xX\*\/]{{brackets_closed}}(?!\S)'
       comment: Checkbox item - coloured grey
       scope: checkbox_marked1.txt
       push:
