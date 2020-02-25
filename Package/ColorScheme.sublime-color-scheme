@@ -5,7 +5,7 @@
 		// "pte-test": "#FF00FF",
 		"pte-black": "#000000",
 		"pte-white1": "#FFFFFF",
-		"pte-white2": "#DCE7F2",
+		"pte-white2": "#D1DBE6",
 		"pte-grey": "#7D8B99",
 		"pte-turquoise": "#6FBDBF",
 		"pte-cyan": "#6FA7BF",
@@ -113,14 +113,15 @@
 		{
 			"name": "Plain Text Enhanced - Highlight",
 			"scope": "text.plaintextenhanced highlight.txt",
-			"foreground": "color(var(pte-white2) alpha(1))",
+			"foreground": "color(var(pte-white1) alpha(1))",
 			"background": "color(var(pte-cyan) alpha(0.3))",
+			// "background": "color(var(pte-white2) alpha(0.25))",
 		},
 		{
 			"name": "Plain Text Enhanced - Highlight Heavy",
 			"scope": "text.plaintextenhanced highlight_heavy.txt",
-			"foreground": "color(var(pte-white1) alpha(0))",
-			"background": "var(pte-white1)",
+			"foreground": "color(var(pte-white2) alpha(0))",
+			"background": "var(pte-white2)",
 		},
 		{
 			"name": "Plain Text Enhanced - Quote",
