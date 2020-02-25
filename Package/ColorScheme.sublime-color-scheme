@@ -2,9 +2,7 @@
 // http://www.sublimetext.com/docs/3/color_schemes.html
 {
 	"variables": {
-		"pte-test": "#FF00FF",
-		"pte-pink": "#FF3F7F",
-		"pte-peach": "#FF7F7F",
+		// "pte-test": "#FF00FF",
 		"pte-black": "#000000",
 		"pte-white1": "#FFFFFF",
 		"pte-white2": "#DCE7F2",
@@ -84,16 +82,6 @@
 			"foreground": "color(var(pte-grey) alpha(0.5))",
 			"background": "color(var(pte-black) alpha(0.25))",
 		},
-		// {
-		// 	"name": "Plain Text Enhanced - Emphasis Around",
-		// 	"scope": "text.plaintextenhanced emphasis_around.txt",
-		// 	"foreground": "color(var(pte-grey) alpha(0.2))",
-		// },
-		// {
-		// 	"name": "Plain Text Enhanced - Bold and Italic Around",
-		// 	"scope": "text.plaintextenhanced bold_around.txt italic_around.txt | italic_around.txt bold_around.txt",
-		// 	"foreground": "color(var(pte-grey) alpha(0.2))",
-		// },
 		{
 			"name": "Plain Text Enhanced - Bold Around",
 			"scope": "text.plaintextenhanced bold_around.txt",
@@ -364,11 +352,11 @@
 			"foreground": "color(var(pte-white2) alpha(1))",
 			"background": "color(var(pte-black) alpha(0.25))",
 		},
-		{
-			"name": "Plain Text Enhanced - Test",
-			"scope": "text.plaintextenhanced test.txt",
-			"foreground": "color(var(pte-test) alpha(0))",
-			"background": "var(pte-test)",
-		},
+		// {
+		// 	"name": "Plain Text Enhanced - Test",
+		// 	"scope": "text.plaintextenhanced test.txt",
+		// 	"foreground": "color(var(pte-test) alpha(0))",
+		// 	"background": "var(pte-test)",
+		// },
 	],
 }
