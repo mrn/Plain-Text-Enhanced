@@ -217,7 +217,7 @@ contexts:
       scope: highlight_heavy.txt
 
   quote:
-    - match: '(?<=^|\s|{{brackets_open}})"[^\s"]'
+    - match: '(?<=^|\s|{{brackets_open}})"(?!=[\s"])'
       comment: Quote
       scope: quote.txt
       push:
@@ -752,9 +752,11 @@ contexts:
   comment:
     - match: '(?<=^|\s)\/\/'
       comment: Comment
+      # scope: comment punctuation.definition.comment
       scope: comment.txt
       push:
         - meta_scope: comment-content.txt
+        # - meta_scope: comment punctuation.definition.comment
         - match: $
           pop: true
 
