@@ -139,8 +139,8 @@
 			"font_style": "italic",
 		},
 		{
-			"name": "Plain Text Enhanced - Tag",
-			"scope": "text.plaintextenhanced tag.txt",
+			"name": "Plain Text Enhanced - Tag 1",
+			"scope": "text.plaintextenhanced tag1.txt",
 			"font_style": "bold",
 			"foreground": "color(var(pte-grey) alpha(0))",
 			"background": "var(pte-grey)",
@@ -149,14 +149,15 @@
 			"name": "Plain Text Enhanced - Tag 2",
 			"scope": "text.plaintextenhanced tag2.txt",
 			"font_style": "bold",
-			"foreground": "color(var(pte-turquoise) alpha(0))",
-			"background": "var(pte-turquoise)",
+			"foreground": "color(var(pte-cyan) alpha(0))",
+			"background": "var(pte-cyan)",
 		},
 		{
 			"name": "Plain Text Enhanced - Tag 2 - Content",
 			"scope": "text.plaintextenhanced tag2-content.txt",
 			"font_style": "italic",
-			"foreground": "var(pte-turquoise)",
+			"foreground": "var(pte-cyan)",
+			"background": "color(var(pte-cyan) alpha(0.125)",
 		},
 		{
 			"name": "Plain Text Enhanced - Tag 3",
@@ -170,6 +171,7 @@
 			"scope": "text.plaintextenhanced tag3-content.txt",
 			"font_style": "italic",
 			"foreground": "var(pte-red)",
+			"background": "color(var(pte-red) alpha(0.125)",
 		},
 		{
 			"name": "Plain Text Enhanced - Priority 3 - Beginning",
@@ -235,15 +237,15 @@
 			"font_style": "italic",
 		},
 		{
-			"name": "Plain Text Enhanced - Block - Beginning",
-			"scope": "text.plaintextenhanced block.txt",
+			"name": "Plain Text Enhanced - Block 1 - Beginning",
+			"scope": "text.plaintextenhanced block1.txt",
 			"foreground": "color(var(pte-grey) alpha(1))",
 			// "background": "color(var(pte-grey) alpha(1))",
 			"background": "color(var(pte-black) alpha(0.25))",
 		},
 		{
-			"name": "Plain Text Enhanced - Block - Content",
-			"scope": "text.plaintextenhanced block-content.txt",
+			"name": "Plain Text Enhanced - Block 1 - Content",
+			"scope": "text.plaintextenhanced block1-content.txt",
 			"background": "color(var(pte-black) alpha(0.25))",
 		},
 		{
@@ -333,12 +335,12 @@
 		},
 		{
 			"name": "Plain Text Enhanced - Unformatted - Beginning",
-			"scope": "text.plaintextenhanced unformatted.txt",
+			"scope": "text.plaintextenhanced unformatted1.txt",
 			"foreground": "var(pte-grey)",
 		},
 		{
-			"name": "Plain Text Enhanced - Unformatted - Content",
-			"scope": "text.plaintextenhanced unformatted-content.txt",
+			"name": "Plain Text Enhanced - Unformatted 1 - Content",
+			"scope": "text.plaintextenhanced unformatted1-content.txt",
 			"foreground": "color(var(pte-white2) alpha(1))",
 		},
 		{

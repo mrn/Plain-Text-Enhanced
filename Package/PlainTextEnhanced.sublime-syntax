@@ -527,6 +527,8 @@ contexts:
       comment: Block - type 1
       scope: block.txt
       push:
+        - include: unformatted2
+        - include: unformatted
         - include: checkbox_marked4
         - include: checkbox_marked3
         - include: checkbox_marked2
@@ -566,6 +568,8 @@ contexts:
       comment: Block - type 2
       scope: block2.txt
       push:
+        - include: unformatted2
+        - include: unformatted
         - include: checkbox_marked4
         - include: checkbox_marked3
         - include: checkbox_marked2
