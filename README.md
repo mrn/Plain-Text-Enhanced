@@ -8,7 +8,11 @@ Plain Text Enhanced is a syntax highlighting scheme for plain text files in Subl
 
 PTE has useful formatting features to make note-taking more sophisticated and to make notes much more readable.
 
-Imagine markdown but instead of the purpose to be rendered to HTML, it was designed solely for taking notes in plain text.
+Imagine markdown but instead of the purpose to be rendered to HTML, it was designed for taking notes in plain text.
+
+# Example
+
+![Example screenshot showing formatted text](/images/pte-example.png)
 
 # Setup
 
