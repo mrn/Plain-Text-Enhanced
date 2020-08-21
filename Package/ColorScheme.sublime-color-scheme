@@ -129,12 +129,12 @@
 			"font_style": "italic",
 		},
 		{
-			"name": "Plain Text Enhanced - List - Beginning",
+			"name": "Plain Text Enhanced - List 1 - Beginning",
 			"scope": "text.plaintextenhanced list.txt",
 			"foreground": "var(pte-brown)",
 		},
 		{
-			"name": "Plain Text Enhanced - List - Content",
+			"name": "Plain Text Enhanced - List 1 - Content",
 			"scope": "text.plaintextenhanced list-content.txt",
 			"font_style": "italic",
 		},
@@ -334,7 +334,7 @@
 			"foreground": "var(pte-grey)",
 		},
 		{
-			"name": "Plain Text Enhanced - Unformatted - Beginning",
+			"name": "Plain Text Enhanced - Unformatted 1 - Beginning",
 			"scope": "text.plaintextenhanced unformatted1.txt",
 			"foreground": "var(pte-grey)",
 		},

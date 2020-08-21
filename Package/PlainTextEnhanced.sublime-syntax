@@ -27,14 +27,14 @@ contexts:
   main:
     - include: test
     - include: unformatted2
-    - include: unformatted
+    - include: unformatted1
     - include: checkbox_marked4
     - include: checkbox_marked3
     - include: checkbox_marked2
     - include: checkbox_marked1
     - include: checkbox
     - include: block2
-    - include: block
+    - include: block1
     - include: reference
     - include: special
     - include: priority1
@@ -42,9 +42,9 @@ contexts:
     - include: priority3
     - include: tag3
     - include: tag2
-    - include: tag
+    - include: tag1
     - include: list2
-    - include: list
+    - include: list1
     - include: quote
     - include: highlight_heavy
     - include: highlight
@@ -235,7 +235,7 @@ contexts:
         - match: '$|(\s+\/\/.)?(?<=\S")(?<!\/\/")(?=$|[^\p{L}\d])'
           pop: true
 
-  list:
+  list1:
     - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{list_characters}}(?= \S)'
       comment: List item
       scope: list.txt
@@ -252,9 +252,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -287,9 +287,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -305,14 +305,14 @@ contexts:
         - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  tag:
+  tag1:
     - match: '(?<=^|\s)#\p{L}\S*(?=\s*$|\s+#\p{L}\S*|\s+\/\/)'
       comment: Tag - type 1
-      scope: tag.txt
+      scope: tag1.txt
 
   tag2:
     - match: '(?<=^|\s){{tag_characters}}\p{L}\S*?(?=$|\s)'
-      comment: Tag - type 1
+      comment: Tag - type 2
       scope: tag2.txt
       push:
         - include: quote
@@ -366,9 +366,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         - include: list2
-        - include: list
+        - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -400,9 +400,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         - include: list2
-        - include: list
+        - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -434,9 +434,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         - include: list2
-        - include: list
+        - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -469,9 +469,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -504,9 +504,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -522,13 +522,13 @@ contexts:
         - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  block:
+  block1:
     - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})\|(?=[ \t]+($|\S))'
       comment: Block - type 1
-      scope: block.txt
+      scope: block1.txt
       push:
         - include: unformatted2
-        - include: unformatted
+        - include: unformatted1
         - include: checkbox_marked4
         - include: checkbox_marked3
         - include: checkbox_marked2
@@ -541,9 +541,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         - include: list2
-        - include: list
+        - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -558,7 +558,7 @@ contexts:
         - include: uri
         - include: key
         - include: number
-        - meta_content_scope: block-content.txt
+        - meta_content_scope: block1-content.txt
         - match: $|\r\n|\r|\n
         - match: $
           pop: true
@@ -569,7 +569,7 @@ contexts:
       scope: block2.txt
       push:
         - include: unformatted2
-        - include: unformatted
+        - include: unformatted1
         - include: checkbox_marked4
         - include: checkbox_marked3
         - include: checkbox_marked2
@@ -582,9 +582,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         - include: list2
-        - include: list
+        - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -621,9 +621,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -665,9 +665,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -700,9 +700,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -735,9 +735,9 @@ contexts:
         - include: priority3
         - include: tag3
         - include: tag2
-        - include: tag
+        - include: tag1
         # - include: list2
-        # - include: list
+        # - include: list1
         - include: quote
         - include: highlight_heavy
         - include: highlight
@@ -764,13 +764,13 @@ contexts:
         - match: $
           pop: true
 
-  unformatted:
+  unformatted1:
     - match: (?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})`(?=[ \t]+($|\S))
       comment: Unformatted
-      scope: unformatted.txt
+      scope: unformatted1.txt
       push:
         - meta_include_prototype: false
-        - meta_content_scope: unformatted-content.txt
+        - meta_content_scope: unformatted1-content.txt
         - match: $|\r\n|\r|\n
         - match: $
           pop: true
