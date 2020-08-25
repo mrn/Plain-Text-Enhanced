@@ -12,7 +12,7 @@ Imagine markdown but instead of the purpose to be rendered to HTML, it was desig
 
 # Example
 
-![Example screenshot showing formatted text](/images/pte-example.png)
+![Example screenshot showing formatted text](/images/pte-screenshot.png)
 
 # Setup
 
