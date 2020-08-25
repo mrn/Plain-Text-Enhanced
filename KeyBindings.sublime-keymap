@@ -1,4 +1,19 @@
 [
+	{ "keys": ["ctrl+shift+alt+."], "command": "alignment" },
+	{ "keys": ["ctrl+tab"], "command": "next_view" },
+	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+	{ "keys": ["ctrl+alt+w"], "command": "close_workspace" },
+	{ "keys": ["ctrl+alt+p"], "command": "prompt_select_workspace" },
+	{ "keys": ["ctrl+shift+w"], "command": "close_all" },
+	// Fix Beginning of line
+	// { "keys": ["home"], "command": "move_to", "args": {"to": "hardbol", "extend": false} },
+	// Fix End of line
+	{ "keys": ["end"], "command": "move_to", "args": {"to": "hardeol", "extend": false} },
+	// Fix beginning of line + select
+	{ "keys": ["shift+home"], "command": "move_to", "args": {"to": "hardbol", "extend": true} },
+	// Fix end of line + select
+	{ "keys": ["shift+end"], "command": "move_to", "args": {"to": "hardeol", "extend": true} },
+
 	// Auto pair asterisks
 	{ "keys": ["*"], "command": "insert_snippet", "args": {"contents": "*$0*"}, "context":
 		[
@@ -36,7 +51,7 @@
 		]
 	},
 	// Remove following asterisk
-	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Delete Right.sublime-macro"}, "context":
+	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -83,7 +98,7 @@
 		]
 	},
 	// Remove following underscore
-	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Delete Right.sublime-macro"}, "context":
+	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -138,7 +153,7 @@
 		]
 	},
 	// Remove following grave accent
-	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Delete Right.sublime-macro"}, "context":
+	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -148,7 +163,7 @@
 		]
 	},
 	// Remove following double grave accents
-	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Delete Right 2.sublime-macro"}, "context":
+	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right 2.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -203,7 +218,7 @@
 		]
 	},
 	// Remove following circumflex accent
-	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Delete Right.sublime-macro"}, "context":
+	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -213,7 +228,7 @@
 		]
 	},
 	// Remove following double circumflex accents
-	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Delete Right 2.sublime-macro"}, "context":
+	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right 2.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -260,7 +275,7 @@
 		]
 	},
 	// Remove following quotation marks
-	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Delete Right.sublime-macro"}, "context":
+	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -271,7 +286,7 @@
 	},
 
 	// Checkboxes - caret movement
-	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Insert Space, Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Insert Space, Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -280,7 +295,7 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -289,7 +304,7 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Move Caret after Checkbox and Insert Space.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -298,7 +313,7 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret after Checkbox.sublime-macro"}, "context":
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Move Caret after Checkbox.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -307,7 +322,7 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret after Checkbox.sublime-macro"}, "context":
+	{ "keys": ["tab"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Move Caret after Checkbox.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -317,7 +332,7 @@
 		]
 	},
 	// Select checkbox contents
-	{ "keys": ["alt+home"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret into Checkbox and Select Contents.sublime-macro"}, "context":
+	{ "keys": ["alt+home"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Move Caret into Checkbox and Select Contents.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
@@ -326,7 +341,7 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	{ "keys": ["alt+home"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/Move Caret into Checkbox.sublime-macro"}, "context":
+	{ "keys": ["alt+home"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Move Caret into Checkbox.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
