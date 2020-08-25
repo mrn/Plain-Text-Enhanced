@@ -17,11 +17,11 @@
 		// "pte-test": "#FF00FF",
 	},
 	"rules": [
-		{
-			"name": "Plain Text Enhanced - Plain",
-			"scope": "text.plaintextenhanced",
-			"foreground": "var(pte-white2)",
-		},
+		// {
+		// 	"name": "Plain Text Enhanced - Plain",
+		// 	"scope": "text.plaintextenhanced",
+		// 	"foreground": "var(pte-white2)",
+		// },
 		{
 			"name": "Plain Text Enhanced - Number",
 			"scope": "text.plaintextenhanced number.txt",
@@ -114,7 +114,7 @@
 			"name": "Plain Text Enhanced - Highlight",
 			"scope": "text.plaintextenhanced highlight.txt",
 			"foreground": "color(var(pte-white1) alpha(1))",
-			"background": "color(var(pte-cyan) alpha(0.3))",
+			"background": "color(var(pte-cyan) alpha(0.25)",
 			// "background": "color(var(pte-white2) alpha(0.25))",
 		},
 		{

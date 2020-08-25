@@ -58,7 +58,6 @@ contexts:
     - include: heading3
     - include: heading2
     - include: heading1
-    - include: uri2
     - include: uri
     - include: key
     - include: number
@@ -146,7 +145,6 @@ contexts:
         # - include: italic
         - include: bold
         # - include: italic_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -164,7 +162,6 @@ contexts:
         - include: italic
         # - include: bold
         # - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -181,7 +178,6 @@ contexts:
         - include: highlight
         - include: italic
         - include: italic_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -198,7 +194,6 @@ contexts:
         - include: highlight
         - include: bold
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -227,7 +222,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -262,7 +256,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -297,7 +290,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -322,7 +314,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -342,7 +333,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -376,7 +366,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -410,7 +399,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -444,7 +432,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -479,7 +466,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -514,7 +500,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -554,7 +539,6 @@ contexts:
         - include: heading3
         - include: heading2
         - include: heading1
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -595,7 +579,6 @@ contexts:
         - include: heading3
         - include: heading2
         - include: heading1
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -631,7 +614,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -675,7 +657,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -710,7 +691,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
@@ -745,7 +725,6 @@ contexts:
         - include: bold
         - include: italic_around
         - include: bold_around
-        - include: uri2
         - include: uri
         - include: key
         - include: number
