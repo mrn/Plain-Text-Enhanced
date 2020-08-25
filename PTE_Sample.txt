@@ -1,0 +1,72 @@
+
+		### MAIN HEADING
+
+	## Section Title
+
+# Subsection 1
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. `Ut enim ad minim` veniam
+quis nostrud exercitation *ullamco _laboris nisi_ ut aliquip* ex ea commodo
+Duis aute irure dolor in _reprehenderit_ in voluptate velit esse
+cillum ``dolore eu fugiat`` nulla pariatur. // Excepteur sint occaecat cupidatat
+
+! Dolor sit amet
+!! Sunt in culpa qui officia deserunt
+!!! mollit anim id est laborum
+
+Visit the website:
+	https://www.example.com/path/to/page.html
+Contact email:
+	email.address@domain.com
+
+Ut enim ad minim veniam quis nostrud exercitation #more #tags
+-> Source: the following website by Dr. Smith
+	https://www.example.com/example/link
+
+# Lists
+
+• Lorem ipsum dolor sit
+• amet, consectetur ·adipisicing
+	> elit sed do
+	> eiusmod tempor incididunt ut
+• labore et dolore magna ··aliqua occaecat cupidatat
+
+1) Ut enim ad minim veniam
+	1a) quis nostrud exercitation
+	1b) ullamco _laboris nisi_
+
+I) ut aliquip ex ea commodo >dolore magna aliqua
+II) consequat duis aute irure
+III) dolor `in reprehenderit`
+IV) in voluptate velit esse
+	a) dolor sit amet
+	b) veniam quis nostrud
+
+[ ] lorem ipsum! Dolor sit amet
+[x] consectetur adipisicing elit
+[+] sed do eiusmod tempor
+[ ] incididunt ut labore ! et dolore
+[!] magna aliqua
+[?] ut enim ad minim veniam
+
+---
+
+	## Section 2 Title
+
+# Blockquotes and more
+
+Quis nostrud exercitation #ullamco
+| ut enim *ad minim* veniam
+| aliquip ex ea commodo
+| ex ea commodo `consequat duis` aute irure
+
+Laboris nisi ut aliquip
+||	esse cillum dolore eu fugiat nulla >pariatur
+||	> voluptate velit
+
+` No formatting block
+` Formatting rules aren't applied ·tags don't get marked
+`` Highlighted *unformatted* block
+`` Plain text >without formatting
+
