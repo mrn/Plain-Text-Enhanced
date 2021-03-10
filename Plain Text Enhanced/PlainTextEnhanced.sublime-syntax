@@ -14,7 +14,7 @@ variables:
   line_characters: '[^\p{L}\d!#\s\(\.\[\{]'
   list1_characters: '[\*\+\-<>\?~«»·‐–—―•⁃↳≡└┗]'
   list2_characters: '\d+\p{L}*|\p{Lu}+|\p{Ll}|[ivxlcdm]+'
-  tag_characters: '[!\$&\+\-:;=>\?~»·•€]'
+  tag_characters: '[!\$&\+\-:;=>\?~»·•⁃€≡]'
   brackets_open: '[\(\[\{]'
   brackets_closed: '[\)\]\}]'
 contexts:
