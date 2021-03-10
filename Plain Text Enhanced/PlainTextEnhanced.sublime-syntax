@@ -12,7 +12,7 @@ variables:
   uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   uri2: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)([\p{L}\d]+[^\s\.]*[\.:\-])?[^\s\.]+([\.:\-][^\s\.]+)*([\.:\-][\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   line_characters: '[^\p{L}\d!#\s\(\.\[\{]'
-  list_characters: '[\*\+\-<>\?~«»·‐–—―•⁃↳≡└┗]'
+  list1_characters: '[\*\+\-<>\?~«»·‐–—―•⁃↳≡└┗]'
   list2_characters: '\d+\p{L}*|\p{Lu}+|\p{Ll}|[ivxlcdm]+'
   tag_characters: '[!\$&\+\-:;=>\?~»·•€]'
   brackets_open: '[\(\[\{]'
@@ -230,7 +230,7 @@ contexts:
           pop: true
 
   list1:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{list_characters}}(?= \S)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{list1_characters}}(?= \S)'
       comment: List item
       scope: list.txt
       push:
