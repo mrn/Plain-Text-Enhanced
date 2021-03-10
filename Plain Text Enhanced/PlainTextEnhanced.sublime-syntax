@@ -508,7 +508,7 @@ contexts:
           pop: true
 
   block1:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})\|(?=[ \t]+($|\S))'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})[\|>](?=[ \t]+($|\S))'
       comment: Block - type 1
       scope: block1.txt
       push:
@@ -548,7 +548,7 @@ contexts:
           pop: true
 
   block2:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})\|{2}(?=[ \t]+($|\S))'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})[\|>]{2}(?=[ \t]+($|\S))'
       comment: Block - type 2
       scope: block2.txt
       push:
