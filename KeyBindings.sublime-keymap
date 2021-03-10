@@ -14,7 +14,7 @@
 	// Fix end of line + select
 	{ "keys": ["shift+end"], "command": "move_to", "args": {"to": "hardeol", "extend": true} },
 
-	// Auto pair asterisks
+	// Auto pair asterisks, unless text around matches regex
 	{ "keys": ["*"], "command": "insert_snippet", "args": {"contents": "*$0*"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
@@ -24,6 +24,16 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
+	// if caret is surrounded by asterisks then advance caret when typign asterisk instead of inserting new asterisk
+	{ "keys": ["*"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\*", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// add asterists around selection
 	{ "keys": ["*"], "command": "insert_snippet", "args": {"contents": "*${0:$SELECTION}*"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
@@ -33,11 +43,43 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	{ "keys": ["*"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+	// keyboard commands for basicaly the same things
+	{ "keys": ["ctrl+b"], "command": "insert_snippet", "args": {"contents": "*$0*"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|[\\L\\S]|\\d)$", "match_all": true },
+			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|[\\L\\S]|\\d)", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// if caret is surrounded by asterisks then remove asterisks around caret
+	{ "keys": ["ctrl+b"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Around.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\*$", "match_all": true },
 			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\*", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// add asterisks around selection
+	{ "keys": ["ctrl+b"], "command": "insert_snippet", "args": {"contents": "*${0:$SELECTION}*"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "text", "operator": "regex_contains", "operand": "\\S", "match_all": true },
+			{ "key": "text", "operator": "not_regex_contains", "operand": "[\\r\\n]", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// if selection is surrounded by asterisks then remove asterisks around selection
+	{ "keys": ["ctrl+b"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Around Selection.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\*)$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(?:\\*)", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
@@ -71,20 +113,20 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
+	{ "keys": ["_"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^_", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
 	{ "keys": ["_"], "command": "insert_snippet", "args": {"contents": "_${0:$SELECTION}_"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
 			{ "key": "text", "operator": "regex_contains", "operand": "\\S", "match_all": true },
 			{ "key": "text", "operator": "not_regex_contains", "operand": "[\\r\\n]", "match_all": true },
-			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
-		]
-	},
-	{ "keys": ["_"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
-		[
-			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^_", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
@@ -118,20 +160,20 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
+	{ "keys": ["`"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^`", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
 	{ "keys": ["`"], "command": "insert_snippet", "args": {"contents": "`${0:$SELECTION}`"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
 			{ "key": "text", "operator": "regex_contains", "operand": "\\S", "match_all": true },
 			{ "key": "text", "operator": "not_regex_contains", "operand": "[\\r\\n]", "match_all": true },
-			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
-		]
-	},
-	{ "keys": ["`"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
-		[
-			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^`", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
@@ -144,14 +186,14 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	// Auto pair double grave accents
-	{ "keys": ["`"], "command": "insert_snippet", "args": {"contents": "$0``"}, "context":
-		[
-			{ "key": "preceding_text", "operator": "regex_contains", "operand": "``$", "match_all": true },
-			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^`", "match_all": true },
-			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
-		]
-	},
+	// // Auto pair double grave accents
+	// { "keys": ["`"], "command": "insert_snippet", "args": {"contents": "$0``"}, "context":
+	// 	[
+	// 		{ "key": "preceding_text", "operator": "regex_contains", "operand": "``$", "match_all": true },
+	// 		{ "key": "following_text", "operator": "not_regex_contains", "operand": "^`", "match_all": true },
+	// 		{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+	// 	]
+	// },
 	// Remove following grave accent
 	{ "keys": [" "], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Right.sublime-macro"}, "context":
 		[
@@ -183,20 +225,20 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
+	{ "keys": ["^"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\^", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
 	{ "keys": ["^"], "command": "insert_snippet", "args": {"contents": "^${0:$SELECTION}^"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
 			{ "key": "text", "operator": "regex_contains", "operand": "\\S", "match_all": true },
 			{ "key": "text", "operator": "not_regex_contains", "operand": "[\\r\\n]", "match_all": true },
-			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
-		]
-	},
-	{ "keys": ["^"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
-		[
-			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\^", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
@@ -248,20 +290,20 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
+	{ "keys": ["\""], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\"", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
 	{ "keys": ["\""], "command": "insert_snippet", "args": {"contents": "\"${0:$SELECTION}\""}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
 			{ "key": "text", "operator": "regex_contains", "operand": "\\S", "match_all": true },
 			{ "key": "text", "operator": "not_regex_contains", "operand": "[\\r\\n]", "match_all": true },
-			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
-		]
-	},
-	{ "keys": ["\""], "command": "move", "args": {"by": "characters", "forward": true}, "context":
-		[
-			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^\"", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},

@@ -9,12 +9,12 @@ scope: text.plaintextenhanced
 # If there is a heading at the beginning of the file, use Plain Text Extended syntax highlighting
 first_line_match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#{1,3}\s.'
 variables:
-  uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
+  uri1: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   uri2: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)([\p{L}\d]+[^\s\.]*[\.:\-])?[^\s\.]+([\.:\-][^\s\.]+)*([\.:\-][\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   line_characters: '[^\p{L}\d!#\s\(\.\[\{]'
-  list_characters: '[\*\+\-<>\?~«»·‐–—―•⁃↳≡└┗]'
+  list1_characters: '[\*\+\-<>\?~«»·‐–—―•⁃↳≡└┗]'
   list2_characters: '\d+\p{L}*|\p{Lu}+|\p{Ll}|[ivxlcdm]+'
-  tag_characters: '[!\$&\+\-:;=>\?~»·•€]'
+  tag_characters: '[!\$&\+\-:;=>\?~»·•⁃€≡]'
   brackets_open: '[\(\[\{]'
   brackets_closed: '[\)\]\}]'
 contexts:
@@ -36,13 +36,13 @@ contexts:
     - include: block2
     - include: block1
     - include: reference
-    - include: special
     - include: priority1
     - include: priority2
     - include: priority3
     - include: tag3
     - include: tag2
     - include: tag1
+    - include: labeled-list
     - include: list2
     - include: list1
     - include: quote
@@ -76,7 +76,7 @@ contexts:
       scope: number.txt
 
   uri:
-    - match: '{{uri}}|{{uri2}}'
+    - match: '{{uri1}}|{{uri2}}'
       comment: URI, URL, link
       scope: uri.txt
 
@@ -230,7 +230,7 @@ contexts:
           pop: true
 
   list1:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{list_characters}}(?= \S)'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8}){{list1_characters}}(?= \S)'
       comment: List item
       scope: list.txt
       push:
@@ -240,13 +240,13 @@ contexts:
         # - include: checkbox_marked1
         # - include: checkbox
         # - include: reference
-        # - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        # - include: labeled-list
         # - include: list2
         # - include: list1
         - include: quote
@@ -274,13 +274,13 @@ contexts:
         # - include: checkbox_marked1
         # - include: checkbox
         # - include: reference
-        # - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        # - include: labeled-list
         # - include: list2
         # - include: list1
         - include: quote
@@ -294,6 +294,40 @@ contexts:
         - include: key
         - include: number
         - meta_content_scope: list-content.txt
+        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
+          pop: true
+
+  labeled-list:
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})(\[[^\[\]]+\])(?!\S)'
+      scope: labeled-list.txt
+      comment: Labeled list
+      push:
+        # - include: checkbox_marked4
+        # - include: checkbox_marked3
+        # - include: checkbox_marked2
+        # - include: checkbox_marked1
+        # - include: checkbox
+        # - include: reference
+        - include: priority1
+        - include: priority2
+        - include: priority3
+        - include: tag3
+        - include: tag2
+        - include: tag1
+        # - include: labeled-list
+        # - include: list2
+        # - include: list1
+        - include: quote
+        - include: highlight_heavy
+        - include: highlight
+        - include: italic
+        - include: bold
+        - include: italic_around
+        - include: bold_around
+        - include: uri
+        - include: key
+        - include: number
+        - meta_content_scope: labeled-list-content.txt
         - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
@@ -350,13 +384,13 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: reference
-        - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        - include: labeled-list
         - include: list2
         - include: list1
         - include: quote
@@ -383,13 +417,13 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: reference
-        - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        - include: labeled-list
         - include: list2
         - include: list1
         - include: quote
@@ -416,13 +450,13 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: reference
-        - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        - include: labeled-list
         - include: list2
         - include: list1
         - include: quote
@@ -439,40 +473,6 @@ contexts:
         - match: $|\s+$|(?=\s+\/\/)
           pop: true
 
-  special:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})(\[[^\[\]]+\])(?!\S)'
-      scope: special.txt
-      comment: Special
-      push:
-        # - include: checkbox_marked4
-        # - include: checkbox_marked3
-        # - include: checkbox_marked2
-        # - include: checkbox_marked1
-        # - include: checkbox
-        # - include: reference
-        # - include: special
-        - include: priority1
-        - include: priority2
-        - include: priority3
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        # - include: list2
-        # - include: list1
-        - include: quote
-        - include: highlight_heavy
-        - include: highlight
-        - include: italic
-        - include: bold
-        - include: italic_around
-        - include: bold_around
-        - include: uri
-        - include: key
-        - include: number
-        - meta_content_scope: special-content.txt
-        - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
-          pop: true
-
   reference:
     - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})(\S+>)(?= \S)'
       comment: Reference
@@ -484,13 +484,13 @@ contexts:
         # - include: checkbox_marked1
         # - include: checkbox
         # - include: reference
-        # - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        # - include: labeled-list
         # - include: list2
         # - include: list1
         - include: quote
@@ -508,7 +508,7 @@ contexts:
           pop: true
 
   block1:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})\|(?=[ \t]+($|\S))'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})[\|>](?=[ \t]+($|\S))'
       comment: Block - type 1
       scope: block1.txt
       push:
@@ -520,13 +520,13 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: reference
-        - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        - include: labeled-list
         - include: list2
         - include: list1
         - include: quote
@@ -548,7 +548,7 @@ contexts:
           pop: true
 
   block2:
-    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})\|{2}(?=[ \t]+($|\S))'
+    - match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})[\|>]{2}(?=[ \t]+($|\S))'
       comment: Block - type 2
       scope: block2.txt
       push:
@@ -560,13 +560,13 @@ contexts:
         - include: checkbox_marked1
         - include: checkbox
         - include: reference
-        - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        - include: labeled-list
         - include: list2
         - include: list1
         - include: quote
@@ -598,13 +598,13 @@ contexts:
         # - include: checkbox_marked1
         # - include: checkbox
         # - include: reference
-        # - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        # - include: labeled-list
         # - include: list2
         # - include: list1
         - include: quote
@@ -641,13 +641,13 @@ contexts:
         # - include: checkbox_marked1
         # - include: checkbox
         # - include: reference
-        # - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        # - include: labeled-list
         # - include: list2
         # - include: list1
         - include: quote
@@ -675,13 +675,13 @@ contexts:
         # - include: checkbox_marked1
         # - include: checkbox
         # - include: reference
-        # - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        # - include: labeled-list
         # - include: list2
         # - include: list1
         - include: quote
@@ -709,13 +709,13 @@ contexts:
         # - include: checkbox_marked1
         # - include: checkbox
         # - include: reference
-        # - include: special
         - include: priority1
         - include: priority2
         - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
+        # - include: labeled-list
         # - include: list2
         # - include: list1
         - include: quote
