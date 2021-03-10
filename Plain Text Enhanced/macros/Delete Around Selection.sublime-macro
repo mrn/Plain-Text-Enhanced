@@ -1,0 +1,6 @@
+[
+	{"command": "cut"},
+    {"command": "left_delete" },
+    {"command": "right_delete" },
+	{"command": "paste"}
+]
