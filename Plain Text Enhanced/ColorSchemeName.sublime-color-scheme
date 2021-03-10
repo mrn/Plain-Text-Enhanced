@@ -139,6 +139,17 @@
 			"font_style": "italic",
 		},
 		{
+			"name": "Plain Text Enhanced - Labeled List - Beginning",
+			"scope": "text.plaintextenhanced labeled-list.txt",
+			"foreground": "var(pte-brown)",
+		},
+		{
+			"name": "Plain Text Enhanced - Labeled List - Content",
+			"scope": "text.plaintextenhanced labeled-list-content.txt",
+			"font_style": "italic",
+			"foreground": "var(pte-white2)",
+		},
+		{
 			"name": "Plain Text Enhanced - Tag 1",
 			"scope": "text.plaintextenhanced tag1.txt",
 			"font_style": "bold",
@@ -212,17 +223,6 @@
 			"font_style": "bold",
 			"foreground": "var(pte-red)",
 			"background": "color(var(pte-red) alpha(0.125)",
-		},
-		{
-			"name": "Plain Text Enhanced - Special - Beginning",
-			"scope": "text.plaintextenhanced special.txt",
-			"foreground": "var(pte-brown)",
-		},
-		{
-			"name": "Plain Text Enhanced - Special - Content",
-			"scope": "text.plaintextenhanced special-content.txt",
-			"font_style": "italic",
-			"foreground": "var(pte-brown)",
 		},
 		{
 			"name": "Plain Text Enhanced - Reference - Beginning",
