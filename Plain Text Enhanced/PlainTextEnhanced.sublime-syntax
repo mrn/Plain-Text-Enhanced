@@ -9,7 +9,7 @@ scope: text.plaintextenhanced
 # If there is a heading at the beginning of the file, use Plain Text Extended syntax highlighting
 first_line_match: '(?<=^|\t|^ {2}|^ {4}|^ {6}|^ {8})#{1,3}\s.'
 variables:
-  uri: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
+  uri1: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)?([\p{L}\d]+[^\s\.]*\.)?([\p{L}\d][^\s\.]*)(\.[^\s\.]+)*(\.\p{L}[\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   uri2: '(?<![\S])([A-Za-z][A-Za-z0-9\+\.\-]*:(\/\/)?)([\p{L}\d]+[^\s\.]*[\.:\-])?[^\s\.]+([\.:\-][^\s\.]+)*([\.:\-][\p{L}\d]+)(\/\S+)*\/?(?=$|\s)'
   line_characters: '[^\p{L}\d!#\s\(\.\[\{]'
   list1_characters: '[\*\+\-<>\?~«»·‐–—―•⁃↳≡└┗]'
@@ -76,7 +76,7 @@ contexts:
       scope: number.txt
 
   uri:
-    - match: '{{uri}}|{{uri2}}'
+    - match: '{{uri1}}|{{uri2}}'
       comment: URI, URL, link
       scope: uri.txt
 
