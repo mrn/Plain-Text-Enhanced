@@ -43,7 +43,7 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
-	// keyboard commands for basicaly the same things
+	// keyboard commands for paired asterisks
 	{ "keys": ["ctrl+b"], "command": "insert_snippet", "args": {"contents": "*$0*"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
@@ -104,15 +104,15 @@
 	},
 
 	// Auto pair underscores
-	{ "keys": ["_"], "command": "insert_snippet", "args": {"contents": "_$0_"}, "context":
-		[
-			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
-			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|[\\L\\S]|\\d)$", "match_all": true },
-			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|[\\L\\S]|\\d)", "match_all": true },
-			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
-		]
-	},
+	// { "keys": ["_"], "command": "insert_snippet", "args": {"contents": "_$0_"}, "context":
+	// 	[
+	// 		{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+	// 		{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+	// 		{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|[\\L\\S]|\\d)$", "match_all": true },
+	// 		{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|[\\L\\S]|\\d)", "match_all": true },
+	// 		{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+	// 	]
+	// },
 	{ "keys": ["_"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
@@ -127,6 +127,46 @@
 			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
 			{ "key": "text", "operator": "regex_contains", "operand": "\\S", "match_all": true },
 			{ "key": "text", "operator": "not_regex_contains", "operand": "[\\r\\n]", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// keyboard commands for paired underscores
+	{ "keys": ["ctrl+i"], "command": "insert_snippet", "args": {"contents": "_$0_"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "not_regex_contains", "operand": "(?:\\p{L}|[\\L\\S]|\\d)$", "match_all": true },
+			{ "key": "following_text", "operator": "not_regex_contains", "operand": "^(?:\\p{L}|[\\L\\S]|\\d)", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// if caret is surrounded by underscores then remove underscores around caret
+	{ "keys": ["ctrl+i"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Around.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\_$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\_", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// add underscores around selection
+	{ "keys": ["ctrl+i"], "command": "insert_snippet", "args": {"contents": "_${0:$SELECTION}_"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "text", "operator": "regex_contains", "operand": "\\S", "match_all": true },
+			{ "key": "text", "operator": "not_regex_contains", "operand": "[\\r\\n]", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
+		]
+	},
+	// if selection is surrounded by underscores then remove underscores around selection
+	{ "keys": ["ctrl+i"], "command": "run_macro_file", "args": {"file": "res://Packages/Plain Text Enhanced/macros/Delete Around Selection.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(?:\\_)$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(?:\\_)", "match_all": true },
 			{ "key": "selector", "operator": "equal", "operand": "text.plain, text.plaintextenhanced", "match_all": true },
 		]
 	},
