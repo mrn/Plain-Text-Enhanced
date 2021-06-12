@@ -85,7 +85,7 @@
 		{
 			"name": "Plain Text Enhanced - Bold Around",
 			"scope": "text.plaintextenhanced bold_around.txt",
-			"foreground": "color(var(pte-white1) alpha(0.2))",
+			"foreground": "color(var(pte-grey) alpha(0.2))",
 		},
 		{
 			"name": "Plain Text Enhanced - Italic Around",
