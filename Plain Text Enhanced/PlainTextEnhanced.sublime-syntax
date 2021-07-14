@@ -136,7 +136,7 @@ contexts:
           pop: true
 
   bold_around:
-    - match: '(?<!\*)(?<=^|\s|{{brackets_open}}|^_|\s_|{{brackets_open}}_)(\*)(?=[^\s\*])'
+    - match: '(?<!\*)(?<=\s|{{brackets_open}}|^_|\s_|{{brackets_open}}_)(\*)(?=[^\s\*])'
       comment: Bold formatting characters
       scope: bold_around.txt
       push:
@@ -153,7 +153,7 @@ contexts:
           pop: true
 
   italic_around:
-    - match: '(?<!_)(?<=^|\s|{{brackets_open}}|^\*|\s\*|{{brackets_open}}\*)(_)(?=[^\s_])'
+    - match: '(?<!_)(?<=\s|{{brackets_open}}|^\*|\s\*|{{brackets_open}}\*)(_)(?=[^\s_])'
       comment: Italic formatting characters
       scope: italic_around.txt
       push:
