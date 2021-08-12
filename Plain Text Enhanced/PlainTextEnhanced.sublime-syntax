@@ -38,7 +38,6 @@ contexts:
     - include: reference
     - include: priority1
     - include: priority2
-    - include: priority3
     - include: tag3
     - include: tag2
     - include: tag1
@@ -242,7 +241,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -276,7 +274,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -310,7 +307,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -374,41 +370,8 @@ contexts:
         - match: $|\t|\s+$|\s*\t+(?=.*$)|(?=\s+\/\/)
           pop: true
 
-  priority3:
-    - match: '(?<=^|\s)!(?=[ \t]\s*\S)'
-      scope: priority3.txt
-      push:
-        - include: checkbox_marked4
-        - include: checkbox_marked3
-        - include: checkbox_marked2
-        - include: checkbox_marked1
-        - include: checkbox
-        - include: reference
-        - include: priority1
-        - include: priority2
-        - include: priority3
-        - include: tag3
-        - include: tag2
-        - include: tag1
-        - include: labeled-list
-        - include: list2
-        - include: list1
-        - include: quote
-        - include: highlight_heavy
-        - include: highlight
-        - include: italic
-        - include: bold
-        - include: italic_around
-        - include: bold_around
-        - include: uri
-        - include: key
-        - include: number
-        - meta_content_scope: priority3-content.txt
-        - match: $|\s+$|(?=\s+\/\/)
-          pop: true
-
   priority2:
-    - match: '(?<=^|\s)!!(?=[ \t]\s*\S)'
+    - match: '(?<=^|\s)!(?=[ \t]\s*\S)'
       scope: priority2.txt
       push:
         - include: checkbox_marked4
@@ -419,7 +382,6 @@ contexts:
         - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -441,7 +403,7 @@ contexts:
           pop: true
 
   priority1:
-    - match: '(?<=^|\s)!!!(?=[ \t]\s*\S)'
+    - match: '(?<=^|\s)!!(?=[ \t]\s*\S)'
       scope: priority1.txt
       push:
         - include: checkbox_marked4
@@ -452,7 +414,6 @@ contexts:
         - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -486,7 +447,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -522,7 +482,6 @@ contexts:
         - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -562,7 +521,6 @@ contexts:
         - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -600,7 +558,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -643,7 +600,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -677,7 +633,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1
@@ -711,7 +666,6 @@ contexts:
         # - include: reference
         - include: priority1
         - include: priority2
-        - include: priority3
         - include: tag3
         - include: tag2
         - include: tag1

@@ -183,20 +183,6 @@
 			"foreground": "var(pte-red)",
 		},
 		{
-			"name": "Plain Text Enhanced - Priority 3 - Beginning",
-			"scope": "text.plaintextenhanced priority3.txt",
-			"font_style": "bold",
-			"foreground": "color(var(pte-cyan) alpha(0))",
-			"background": "var(pte-cyan)",
-		},
-		{
-			"name": "Plain Text Enhanced - Priority 3 - Content",
-			"scope": "text.plaintextenhanced priority3-content.txt",
-			"font_style": "bold",
-			"foreground": "var(pte-cyan)",
-			"background": "color(var(pte-cyan) alpha(0.125)",
-		},
-		{
 			"name": "Plain Text Enhanced - Priority 2 - Beginning",
 			"scope": "text.plaintextenhanced priority2.txt",
 			"font_style": "bold",
