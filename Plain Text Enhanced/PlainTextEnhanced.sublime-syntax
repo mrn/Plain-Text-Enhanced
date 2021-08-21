@@ -371,7 +371,7 @@ contexts:
           pop: true
 
   priority2:
-    - match: '(?<=^|\s)!(?=[ \t]\s*\S)'
+    - match: '(?<=^|\s)!(?=[ \t]\s*\S|$)'
       scope: priority2.txt
       push:
         - include: checkbox_marked4
@@ -403,7 +403,7 @@ contexts:
           pop: true
 
   priority1:
-    - match: '(?<=^|\s)!!(?=[ \t]\s*\S)'
+    - match: '(?<=^|\s)!!(?=[ \t]\s*\S|$)'
       scope: priority1.txt
       push:
         - include: checkbox_marked4
