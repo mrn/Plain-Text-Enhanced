@@ -14,7 +14,7 @@
 		"pte-yellow": "#E6AF63",
 		"pte-peach": "#FCB692",
 		"pte-brown": "#BF776F",
-		// "pte-test": "#FF00FF",
+		"pte-test": "#FF00FF",
 	},
 	"rules": [
 		{
@@ -339,11 +339,11 @@
 			"foreground": "color(var(pte-white2) alpha(1))",
 			"background": "color(var(pte-black) alpha(0.25))",
 		},
-		// {
-		// 	"name": "Plain Text Enhanced - Test",
-		// 	"scope": "text.plaintextenhanced test.txt",
-		// 	"foreground": "color(var(pte-test) alpha(0))",
-		// 	"background": "var(pte-test)",
-		// },
+		{
+			"name": "Plain Text Enhanced - Test",
+			"scope": "text.plaintextenhanced test.txt",
+			"foreground": "color(var(pte-test) alpha(0))",
+			"background": "var(pte-test)",
+		},
 	],
 }
