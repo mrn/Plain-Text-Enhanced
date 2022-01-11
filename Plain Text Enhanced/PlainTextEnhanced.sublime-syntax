@@ -28,6 +28,7 @@ contexts:
     - include: test
     - include: unformatted2
     - include: unformatted1
+    - include: block_fenced_unformatted
     - include: checkbox_marked4
     - include: checkbox_marked3
     - include: checkbox_marked2
@@ -695,6 +696,18 @@ contexts:
         - meta_scope: comment-content.txt
         # - meta_scope: comment punctuation.definition.comment
         - match: $
+          pop: true
+
+  block_fenced_unformatted:
+    - match: '((?:^|\G)\s*[`]{3})[^`]\s*(.+?)?\s*$'
+      comment: Fenced block - unformatted
+      captures:
+        1: block_fenced_unformatted.txt
+      push:
+        - meta_scope: block_fenced_unformatted.txt
+        - match: '^(\1)[ \t]*(\n|$)'
+          captures:
+            1: block_fenced_unformatted.txt
           pop: true
 
   unformatted1:

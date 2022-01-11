@@ -318,6 +318,12 @@
 			"foreground": "var(pte-grey)",
 		},
 		{
+			"name": "Plain Text Enhanced - Fenced Block - Unformatted - Beginning",
+			"scope": "text.plaintextenhanced block_fenced_unformatted.txt",
+			"foreground": "var(pte-white2)",
+			"background": "color(var(pte-white2) alpha(0.0625))",
+		},
+		{
 			"name": "Plain Text Enhanced - Unformatted 1 - Beginning",
 			"scope": "text.plaintextenhanced unformatted1.txt",
 			"foreground": "var(pte-grey)",

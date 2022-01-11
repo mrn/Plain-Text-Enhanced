@@ -70,3 +70,7 @@ Laboris nisi ut aliquip
 `` Highlighted *unformatted* block
 `` Plain text >without formatting
 
+```
+Fenced block
+*unformatted* block !no highlighting
+```
